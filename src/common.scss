@@ -1,0 +1,45 @@
+//color
+$black: #1d1d1d;
+$lightGray: #f9fafb;
+$darkGray: #d9d9d9;
+$red: #ff524b;
+$blue: #007aff;
+$green: #2ad1ad;
+
+@mixin font300 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+}
+@mixin font400 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+}
+@mixin font500 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+}
+@mixin font600 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+}
+@mixin font700 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
