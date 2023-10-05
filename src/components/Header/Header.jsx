@@ -9,35 +9,34 @@ import { Link } from 'react-router-dom'
 // Feather, Ant Design Icons, Heroicons 2 아이콘이 사용되었습니다.
 
 const Header = () => {
-  let [search, setSearch] = useState(true)
+  let [search, setSearch] = useState(false)
   return (
     <div className="header">
-      {search ? (
-        <Navbar className="search--normal">
-          <Container>
-            <Navbar.Brand href="#home">
-              <img
-                src={process.env.PUBLIC_URL + '/image/logo--black.png'}
-                alt="cardCheck 로고"
-                style={{ height: '30px' }}
+      <Navbar className="search--normal">
+        <Container>
+          <Navbar.Brand href="#home">
+            <img
+              src={process.env.PUBLIC_URL + '/image/logo--black.png'}
+              alt="cardCheck 로고"
+              style={{ height: '30px' }}
+            />
+          </Navbar.Brand>
+          <Nav className="me-auto nav__right">
+            <Nav.Link as={Link} to="/">
+              <FaRegCreditCard style={{ cursor: 'pointer' }} className="cardIcon" />
+            </Nav.Link>
+            <Nav.Link as={Link} to="/">
+              <FiSearch
+                style={{ cursor: 'pointer' }}
+                onClick={() => setSearch(true)}
+                className="searchIcon"
               />
-            </Navbar.Brand>
-            <Nav className="me-auto nav__right">
-              <Nav.Link as={Link} to="/">
-                <FaRegCreditCard style={{ cursor: 'pointer' }} className="cardIcon" />
-              </Nav.Link>
-              <Nav.Link as={Link} to="/">
-                <FiSearch
-                  style={{ cursor: 'pointer' }}
-                  onClick={() => setSearch(false)}
-                  className="searchIcon"
-                />
-              </Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-      ) : (
-        <>
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      {search && (
+        <div className="searchAll">
           <Navbar className="search--click">
             <Container>
               <Navbar.Brand href="#home">
@@ -47,10 +46,13 @@ const Header = () => {
                   style={{ height: '30px' }}
                 />
               </Navbar.Brand>
-              <input type="text" placeholder="카드와 혜택을 검색해보세요!" autoFocus={true} />
+              <div className="inputBox">
+                <input type="text" placeholder="카드와 혜택을 검색해보세요!" autoFocus={true} />
+                <FiSearch style={{ cursor: 'pointer' }} className="searchIcon" />
+              </div>
               <AiOutlineClose
                 style={{ cursor: 'pointer' }}
-                onClick={() => setSearch(true)}
+                onClick={() => setSearch(false)}
                 className="closeIcon"
               />
             </Container>
@@ -87,7 +89,7 @@ const Header = () => {
               </div>
             </div>
           </Container>
-        </>
+        </div>
       )}
     </div>
   )
