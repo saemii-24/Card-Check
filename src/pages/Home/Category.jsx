@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 const Category = () => {
   return (
     <>
-      <Container></Container>
+      <Container fluid></Container>
     </>
   )
 }
