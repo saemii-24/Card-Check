@@ -24,17 +24,16 @@ const Main = () => {
   useEffect(() => {
     let card = gsap.context(() => {
       const main = mainRef.current
-      const cardTimeline = gsap.timeline({
+      gsap.timeline({
         scrollTrigger: {
           trigger: main,
           start: 'top top',
-          end: '+=500',
+          // end: '+=5000',
           pin: true,
           pinSpacing: false,
           markers: true,
         },
       })
-      cardTimeline.to('.main--loading', { opacity: 1, duration: 1 })
     })
 
     return () => card.revert()
@@ -77,21 +76,6 @@ const Main = () => {
               className="cardImg"
               style={{ backgroundImage: 'url(/image/card--blue.png)' }}></div>
           </div>
-        </Container>
-      </Container>
-      <Container fluid className="main--loading">
-        <Container className="inner">
-          <h1>인기 혜택</h1>
-          <Container>
-            <Row>
-              <Col>교통비 인상에 대비하자! 교통 할인 카드 모음</Col>
-              <Col>편의점에 가면 도시락도 있고 할인 카드도 쓸 수 있어요</Col>
-              <Col>영화관 할인 카드로 문화생활도 부담없이!</Col>
-              <Col>커피한잔으로 즐기는 여유☕ 커피숍 할인 카드 모아보기</Col>
-              <Col>해외여행도 문제없지! 해외 결제 할인 카드 모음😎</Col>
-              <Col>티끌 모아 태산! 포인트를 쌓아보아요</Col>
-            </Row>
-          </Container>
         </Container>
       </Container>
     </>

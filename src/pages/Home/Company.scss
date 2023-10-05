@@ -1,0 +1,21 @@
+@use '../../common' as mix;
+
+h3 {
+  @include mix.font500;
+  margin-left: 12px;
+  padding-bottom: 20px;
+}
+div {
+  margin: 0;
+  padding: 0;
+}
+.company {
+  .swiper {
+    width: 100%;
+    transition-timing-function: linear;
+    .slide {
+      height: 100px;
+      background-color: yellow;
+    }
+  }
+}
