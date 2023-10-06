@@ -4,6 +4,7 @@ $lightGray: #f9fafb;
 $darkGray: #d9d9d9;
 $red: #ff524b;
 $blue: #007aff;
+$lightBlue: #DDEDFF;
 $green: #2ad1ad;
 
 @mixin font300 {
@@ -36,6 +37,11 @@ $green: #2ad1ad;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+@mixin end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 @mixin between {
