@@ -9,15 +9,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 //컴포넌트 시작점
 const Main = () => {
-  const cardImg1 = useRef(null)
-  const cardImg2 = useRef(null)
-  const cardImg3 = useRef(null)
-
-  //useEffect
-  useEffect(() => {
-    cardScroll()
-  }, [])
-
   //gsap
   const mainRef = useRef(null)
 
@@ -39,20 +30,6 @@ const Main = () => {
     return () => card.revert()
   }, [])
 
-  //스크롤 카드 애니메이션
-  const cardScroll = () => {
-    window.addEventListener('scroll', () => {
-      let scroll = window.scrollY
-      const card1 = cardImg1.current
-      const card2 = cardImg2.current
-      const card3 = cardImg3.current
-      console.log(card1)
-      card1.style.transform = `translateX(${scroll * -1}px)`
-      card2.style.transform = `translateX(${scroll * 1.1 + 200}px)`
-      card3.style.transform = `translateX(${scroll * -1.2}px)`
-    })
-  }
-
   return (
     <>
       <Container fluid className="main" ref={mainRef}>
@@ -64,16 +41,11 @@ const Main = () => {
           </div>
           <div className="cardImgBox">
             <div
-              ref={cardImg1}
-              className="cardImg"
+              className="cardImg1"
               style={{ backgroundImage: 'url(/image/card--yellow.png)' }}></div>
+            <div className="cardImg2" style={{ backgroundImage: 'url(/image/card--red.png)' }}></div>
             <div
-              ref={cardImg2}
-              className="cardImg"
-              style={{ backgroundImage: 'url(/image/card--red.png)' }}></div>
-            <div
-              ref={cardImg3}
-              className="cardImg"
+              className="cardImg3"
               style={{ backgroundImage: 'url(/image/card--blue.png)' }}></div>
           </div>
         </Container>
