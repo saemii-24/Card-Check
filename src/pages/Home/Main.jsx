@@ -7,12 +7,6 @@ const Main = () => {
   return (
     <>
       <Container fluid className="main">
-<<<<<<< HEAD
-        <Row>
-          <Col className="right col-lg-5">1 of 2</Col>
-          <Col className="left col-lg-7">2 of 2</Col>
-        </Row>
-=======
         <Container className="inner">
           <div className="textBox">
             <h1>나의 생활 패턴에 딱맞는 카드를 찾아보세요!</h1>
@@ -31,7 +25,6 @@ const Main = () => {
               style={{ backgroundImage: 'url(/image/card--green.png)' }}></div>
           </div>
         </Container>
->>>>>>> dev
       </Container>
     </>
   )
