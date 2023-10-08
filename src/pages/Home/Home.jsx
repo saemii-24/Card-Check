@@ -10,9 +10,9 @@ const Home = () => {
     <>
       <Header />
       <Main />
-      <Category />
+      {/* <Category />
       <Top />
-      <Company />
+      <Company /> */}
     </>
   )
 }
