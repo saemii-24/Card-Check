@@ -24,7 +24,6 @@
       height: 100%;
       .searchBtn {
         padding: 11px 40px 12px;
-        border-radius: 50px;
         background: mix.$blue;
         border: none;
         transition: all 0.3s;
@@ -97,11 +96,53 @@
     left: 50%;
     transform: translateX(-50%);
     & > div {
-      top: 20%;
-      position: absolute;
+      height: 50vh;
       display: flex;
-      align-items: flex-start;
-      flex-direction: column;
+      align-items: center;
+      &.contentBoxes {
+        align-items: flex-start;
+        gap: 2.5rem;
+        .contentBox {
+          h4 {
+            @include mix.font700;
+            color: #fff;
+            margin-top: 0.1rem;
+          }
+          .badgeGroup {
+            display: flex;
+            gap: 0.5rem;
+            .badge {
+              @include mix.font400;
+              display: block;
+              font-size: 0.9rem;
+              margin-top: 0.2rem;
+              background-color: transparent !important;
+              color: #fff;
+              border: 1px solid #fff;
+              padding: 0.3rem 0.5rem;
+              margin-bottom: 1rem;
+            }
+          }
+          .benefitGroup {
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+            height: calc(1.8rem * 3);
+            overflow: hidden;
+            p {
+              width: 80%;
+            }
+          }
+          .btn {
+            margin-top: 1.3rem;
+            background-color: mix.$blue;
+            @include mix.font400;
+            transition: all 200ms;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
       p {
         word-break: keep-all;
         @include mix.font400;

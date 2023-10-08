@@ -26,7 +26,7 @@ const Category = () => {
               <Col lg={2} md={4}>
                 <div className="popularCategory">
                   <p>
-                    <b>영화관 할인 카드</b>&#x1F3A5;로 문화생활도 부담없이!
+                    z<b>영화관 할인 카드</b>&#x1F3A5;로 문화생활도 부담없이!
                   </p>
                 </div>
               </Col>

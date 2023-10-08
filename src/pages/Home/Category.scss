@@ -8,6 +8,7 @@
   background-color: mix.$lightGray;
   .inner {
     padding-top: 150px;
+    margin-top: calc(100vh + 8000px);
     h3 {
       @include mix.font500;
       margin-left: 12px;

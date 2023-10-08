@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import './Main.scss'
-import { Container, Button, Col, Row } from 'react-bootstrap'
+import { Container, Button, Col, Row, Badge } from 'react-bootstrap'
 import benefitData from '../../data/benefitData'
 // 기본 리엑트 외의 것
 import { MdReadMore } from 'react-icons/md'
@@ -23,7 +23,7 @@ const Main = () => {
         scrollTrigger: {
           trigger: main,
           start: 'top top',
-          end: '+=8000ox',
+          end: '+=8000px',
           pin: true,
           pinSpacing: false,
           markers: true,
@@ -36,9 +36,11 @@ const Main = () => {
         .to('.cardImg3', { x: 100 }, 'card')
         .fromTo('.main--load', { height: 0 }, { height: '100vh' }, '-=80%')
         .to('.blackBg', { opacity: 1 })
-        .fromTo('.benefitBg__content p', { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, '-=90%')
-        .fromTo('.benefitBg__content h1', { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, '-=90%')
-        .fromTo('.benefitBg__btn', { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, '-=90%')
+        .fromTo('.benefitBg__subTitle', { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, '-=90%')
+        .fromTo('.benefitBg__title', { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, '-=90%')
+        .fromTo('.contentBox0', { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, '-=60%')
+        .fromTo('.contentBox1', { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, '-=90%')
+        .fromTo('.contentBox2', { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, '-=90%')
     })
     return () => card.revert()
   }, [])
@@ -73,23 +75,40 @@ const Main = () => {
           </video>
           <div className="blackBg"></div>
           <Container className="benefitBg__content">
-            <Row>
+            <Row className="titleBox">
               <Col>
-                <p>지금 많이 찾는 혜택</p>
+                <p className="benefitBg__subTitle">지금 많이 찾는 혜택</p>
                 <h1 className="benefitBg__title">{benefitData[randomId - 1].title}</h1>
-                <Button className="benefitBg__btn">
-                  <MdReadMore className="moreIcon" />
-                  자세한 혜택 보러가기
-                </Button>
               </Col>
             </Row>
-            <Row>
+            <Row className="contentBoxes">
               {benefitData[randomId - 1].card.map((data, index) => {
                 return (
-                  <Col key={index}>
+                  <Col key={data.id} className={`contentBox contentBox${index}`}>
                     <p>{data.bank}</p>
                     <h4>{data.name}</h4>
-                    {/* <p>{data.benefit}</p> */}
+                    <div className="badgeGroup">
+                      {data.brand.map((el, index) => (
+                        <Badge key={`brand_${data.id}_${index}`}>{el}</Badge>
+                      ))}
+                    </div>
+                    <div className="benefitGroup">
+                      {data.benefit.map((el, index) => {
+                        if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
+                          return <p key={`benefit_${data.id}_${index}`}>{Object.values(el)}</p>
+                        } else {
+                          return null
+                        }
+                      })}
+                      {data.benefit.map((el, index) => {
+                        if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
+                          return null
+                        } else {
+                          return <p key={`benefit_${data.id}_${index}`}>{Object.values(el)}</p>
+                        }
+                      })}
+                    </div>
+                    <Button>더 자세한 혜택 알아보기</Button>
                   </Col>
                 )
               })}
