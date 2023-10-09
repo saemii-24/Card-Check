@@ -104,11 +104,24 @@ const Main = () => {
                         if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
                           return null
                         } else {
+                          console.log(data.benefit)
                           return <p key={`benefit_${data.id}_${index}`}>{Object.values(el)}</p>
                         }
                       })}
+                      {
+                        // if(data.benefit[0].hasOwnProperty(benefitData[randomId - 1].keyword)){
+                        //   return <p>Object.values(data.benefit[1])</p>
+                        // }else{
+                        //   return <p>Object.values(data.benefit[0])</p>
+                        // }
+                      }
+                      {/* {data.benefit[0].hasOwnProperty(benefitData[randomId - 1].keyword) ? (
+                        <p>{Object.values(data.benefit[1])}</p>
+                      ) : (
+                        <p>{Object.values(data.benefit[0])}</p>
+                      )} */}
                     </div>
-                    <Button>더 자세한 혜택 알아보기</Button>
+                    <Button>+ 더 많은 혜택 알아보기</Button>
                   </Col>
                 )
               })}
