@@ -1,0 +1,8 @@
+@use '../../common' as mix;
+.footer {
+  background-color: mix.$black;
+  p {
+    color: #fff;
+    @include mix.font400;
+  }
+}

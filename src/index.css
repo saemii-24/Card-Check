@@ -11,6 +11,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   color: #1d1d1d;
+  background-color: #f9fafb;
 }
 
 ul,
@@ -19,4 +20,7 @@ ol {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+.container-fluid {
+  padding: 0 !important;
 }
