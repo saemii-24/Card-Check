@@ -1,0 +1,49 @@
+@use '../../common' as mix;
+.character{
+    background-color: mix.$lightGray;
+    .inner{
+        padding-top:10rem;
+    }
+    h1{
+        @include mix.title;
+    }
+    p{
+        @include mix.subtitle;
+    }
+    .content{
+        .selectCircleBox{
+            display: flex;
+            gap:0.6rem;
+            flex-wrap: wrap;
+            .selectCircle{
+                width:2.5rem;
+                height: 2.5rem;
+                border-radius: 2.5rem;
+                background-position: center;
+                background-size:cover;
+                cursor: pointer;
+                border:3px solid #fff;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+                &:nth-of-type(2),
+                &:nth-of-type(6){
+                    background-position: bottom;
+                }
+            }
+        }
+    }
+    .card{
+        border:none;
+        @include mix.center;
+        background-color: #fff;
+        height: 0;
+        padding-bottom: 50%;
+        border-radius: 1rem;
+        .cardImg{
+            @include mix.background;
+            width: 30%;
+            padding-bottom: 47%;
+            border-radius: 0.4rem;
+            margin-top:90%;
+        }
+    }
+}

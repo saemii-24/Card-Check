@@ -1,0 +1,59 @@
+@use '../../common' as mix;
+.mdPick{
+    background-color: mix.$lightGray;
+    padding-top: 10rem !important;
+    .container{
+        padding:0;
+        display: flex;
+        position: relative;
+        .pagination{
+            position: absolute;
+            top:50%;    
+            color: white;
+            z-index: 1;
+            font-size: 3rem;
+            cursor: pointer;
+            &.paginationBack{
+                left: 1rem;
+            }
+            &.paginationForward{
+                right: 1rem;
+            }
+        }
+        .slide{
+            flex-basis: 0;
+            overflow: hidden;
+            height: 0px;
+            padding-bottom: 30rem;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 1rem;
+            .slideContent{
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                text-align: center;
+                margin-top:13%;
+                color:#fff;
+                @include mix.font400;
+                h3{
+                    font-size: 2rem;
+                }
+            }
+            &::after{
+                content:"";
+                position: absolute;
+                z-index: 0;
+                inset: 0;
+                background-color: rgba(0,0,0,0.3);
+            }
+            &.active{
+                flex-grow: 1;
+            }
+        }
+    }
+}

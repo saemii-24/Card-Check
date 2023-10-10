@@ -1,0 +1,97 @@
+@use '../../common' as mix;
+.topContainer {
+  background-color: mix.$lightGray;
+  svg {
+    margin-top: 30%;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  .inner {
+    padding-top: 10rem;
+    & > .row {
+      gap: 8%;
+    }
+    h1 {
+      @include mix.title;
+      font-size: 3rem;
+      word-break: keep-all;
+    }
+    p {
+      @include mix.subtitle;
+    }
+    select {
+      @include mix.font400;
+      border: 1px solid mix.$black;
+      cursor: pointer;
+    }
+  }
+  .cardPicture {
+    .row {
+      .col {
+        height: 0px;
+        padding-bottom: 20%;
+        // background-color: mix.$black;
+        @include mix.start;
+      }
+      &:nth-of-type(1) {
+        .col {
+          &:nth-of-type(1) {
+            background-color: mix.$blue;
+          }
+          &:nth-of-type(2) {
+            background-color: mix.$black;
+          }
+          &:nth-of-type(3) {
+            background-position: center;
+            background-size: cover;
+          }
+        }
+      }
+      &:nth-of-type(2) {
+        background-color: #fff;
+        color: mix.$black;
+        padding-bottom: inherit;
+        @include mix.font700;
+        @include mix.center;
+        font-size: 700%;
+        .bracket--right {
+          @include mix.end;
+        }
+        .col-md-2 {
+          background: black;
+          color: white;
+          padding-bottom: 2%;
+        }
+      }
+      .swiper {
+        width: 100%;
+        margin-top: 30%;
+        .swiper-wrapper {
+          width: 100%;
+          height: 0;
+          padding-bottom: 20%;
+          .swiper-slide {
+            width: 100%;
+            height: 100px;
+            @include mix.center;
+            font-size: 55%;
+          }
+        }
+      }
+      &:nth-of-type(3) {
+        .col {
+          &:nth-of-type(1) {
+            background-position: center;
+            background-size: cover;
+          }
+          &:nth-of-type(2) {
+            background-color: mix.$black;
+          }
+          &:nth-of-type(3) {
+            background-color: mix.$blue;
+          }
+        }
+      }
+    }
+  }
+}

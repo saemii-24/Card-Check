@@ -49,3 +49,18 @@ $green: #2ad1ad;
   align-items: center;
   justify-content: space-between;
 }
+
+@mixin title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+}
+@mixin subtitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+@mixin background{
+  background-position: center;
+  background-size: cover;
+}

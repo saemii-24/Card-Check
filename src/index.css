@@ -21,7 +21,6 @@ ol {
   padding: 0;
   margin: 0;
 }
-.container-fluid,
-.contianer{
-  padding:0 !important; 
+.container-fluid {
+  padding: 0 !important;
 }

@@ -6,7 +6,8 @@ const Category = () => {
     <>
       <Container fluid className="category">
         <Container className="inner">
-          <h3>인기 혜택 카드 모아보기</h3>
+          <h1>인기 혜택 카드 모아보기</h1>
+          <p className="subtitle">Card Check 사용자가 가장 많이 찾아본 혜택을 알아보세요.</p>
           <Container>
             <Row>
               <Col lg={2} md={4}>
@@ -26,7 +27,7 @@ const Category = () => {
               <Col lg={2} md={4}>
                 <div className="popularCategory">
                   <p>
-                    <b>영화관 할인 카드</b>&#x1F3A5;로 문화생활도 부담없이!
+                    z<b>영화관 할인 카드</b>&#x1F3A5;로 문화생활도 부담없이!
                   </p>
                 </div>
               </Col>
