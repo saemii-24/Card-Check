@@ -1,9 +1,5 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-<<<<<<< HEAD
-=======
-import { Container } from 'react-bootstrap'
->>>>>>> dev
 import './Company.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
