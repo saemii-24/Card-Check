@@ -11,44 +11,59 @@ const Category = () => {
           <Container>
             <Row>
               <Col lg={2} md={4}>
-                <div className="popularCategory">
+                <div
+                  className="popularCategory"
+                  style={{ backgroundImage: 'url(/image/benefitBg-1.jpg)' }}>
                   <p>
                     교통비 인상에 대비하자! <b>교통 할인 카드</b>&#x1F68C; 모음
                   </p>
                 </div>
               </Col>
               <Col lg={2} md={4}>
-                <div className="popularCategory">
+                <div
+                  className="popularCategory"
+                  style={{ backgroundImage: 'url(/image/benefitBg-3.jpg)' }}>
                   <p>
-                    <b>편의점</b>&#x1F3EA;에 가면 도시락도 있고 <b>할인 카드</b>도 쓸 수 있어요
+                    <b>영화관 할인 카드</b>&#x1F3A5;로 문화생활도 부담없이!
                   </p>
                 </div>
               </Col>
               <Col lg={2} md={4}>
-                <div className="popularCategory">
-                  <p>
-                    z<b>영화관 할인 카드</b>&#x1F3A5;로 문화생활도 부담없이!
-                  </p>
-                </div>
-              </Col>
-              <Col lg={2} md={4}>
-                <div className="popularCategory">
+                <div
+                  className="popularCategory"
+                  style={{ backgroundImage: 'url(/image/benefitBg-4.jpg)' }}>
                   <p>
                     커피한잔으로 즐기는 여유&#9749; <b>커피숍 할인 카드</b> 모아보기
                   </p>
                 </div>
               </Col>
+
               <Col lg={2} md={4}>
-                <div className="popularCategory">
+                <div
+                  className="popularCategory"
+                  style={{ backgroundImage: 'url(/image/benefitBg-2.jpg)' }}>
+                  <p>
+                    <b>편의점</b>&#x1F3EA;에 가면 도시락도 있고&#9836; <b>할인 카드</b>도 쓸 수
+                    있어요
+                  </p>
+                </div>
+              </Col>
+
+              <Col lg={2} md={4}>
+                <div
+                  className="popularCategory"
+                  style={{ backgroundImage: 'url(/image/benefitBg-5.jpg)' }}>
                   <p>
                     해외여행도 문제없지! <b>해외 결제 할인 카드</b>&#x1F6EB; 모음
                   </p>
                 </div>
               </Col>
               <Col lg={2} md={4}>
-                <div className="popularCategory">
+                <div
+                  className="popularCategory"
+                  style={{ backgroundImage: 'url(/image/benefitBg-6.jpg)' }}>
                   <p>
-                    티끌 모아 태산! <b>포인트</b>&#x1F4B0;를 쌓아보아요
+                    이번 주말, 동심에 퐁당 빠져봐요! <b>놀이공원 할인 카드</b>&#127905; 모음
                   </p>
                 </div>
               </Col>

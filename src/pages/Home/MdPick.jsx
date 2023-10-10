@@ -3,11 +3,13 @@ import { Container } from 'react-bootstrap'
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
 import './MdPick.scss'
 const MdPick = () => {
+  const backIcon = useRef(null);
+  console.log(backIcon);
   return (
     <>
       <Container fluid className="mdPick">
         <Container>
-          <IoChevronBack className="pagination paginationBack" />
+          <IoChevronBack className="pagination paginationBack" ref={backIcon} />
           <div className="slide" style={{ backgroundImage: 'url(/image/MdPickBg-1.jpg)' }}>
             <div className="slideContent">
               <p>Md Pick!</p>
