@@ -1,0 +1,36 @@
+@use '../../common' as mix;
+.footer {
+  background-color: mix.$black;
+  p,li {
+    color: #fff;
+    @include mix.font300;
+    font-size: 0.8rem;
+    margin-bottom:0.3rem;
+  }
+  .iconRow{
+    padding-top:4rem;
+    .snsIcon{
+      gap:0.5rem;
+      @include mix.end;
+      cursor: pointer;
+      svg{
+        color:#fff;
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .contentRow{
+    margin-top:2rem;
+    ul{
+      display: flex;
+      margin-bottom:4rem;
+      li{
+        &:not(:last-child)::after{
+          content:"|";
+          margin: 0 0.4rem;
+        }
+      }
+    }
+  }
+
+}

@@ -7,13 +7,17 @@
   transition: opacity 0.5s;
   background-color: mix.$lightGray;
   .inner {
-    padding-top: 150px;
-    h3 {
-      @include mix.font500;
-      margin-left: 12px;
-      padding-bottom: 20px;
+    padding-top: 10rem;
+    margin-top: calc(100vh + 8000px);
+    h1 {
+      @include mix.title;
+    }
+    .subtitle {
+      @include mix.subtitle;
+      margin-left: 0.3rem;
     }
     .popularCategory {
+      margin-top: 2rem;
       @include mix.font400;
       border-radius: 10px;
       cursor: pointer;

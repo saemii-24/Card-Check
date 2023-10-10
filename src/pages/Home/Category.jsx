@@ -1,15 +1,60 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-
+import './Category.scss'
 const Category = () => {
   return (
     <>
-      <Container>
-        <Row>
-          <Col>1</Col>
-          <Col>2</Col>
-          <Col>3</Col>
-        </Row>
+      <Container fluid className="category">
+        <Container className="inner">
+          <h1>인기 혜택 카드 모아보기</h1>
+          <p className="subtitle">Card Check 사용자가 가장 많이 찾아본 혜택을 알아보세요.</p>
+          <Container>
+            <Row>
+              <Col lg={2} md={4}>
+                <div className="popularCategory">
+                  <p>
+                    교통비 인상에 대비하자! <b>교통 할인 카드</b>&#x1F68C; 모음
+                  </p>
+                </div>
+              </Col>
+              <Col lg={2} md={4}>
+                <div className="popularCategory">
+                  <p>
+                    <b>편의점</b>&#x1F3EA;에 가면 도시락도 있고 <b>할인 카드</b>도 쓸 수 있어요
+                  </p>
+                </div>
+              </Col>
+              <Col lg={2} md={4}>
+                <div className="popularCategory">
+                  <p>
+                    z<b>영화관 할인 카드</b>&#x1F3A5;로 문화생활도 부담없이!
+                  </p>
+                </div>
+              </Col>
+              <Col lg={2} md={4}>
+                <div className="popularCategory">
+                  <p>
+                    커피한잔으로 즐기는 여유&#9749; <b>커피숍 할인 카드</b> 모아보기
+                  </p>
+                </div>
+              </Col>
+              <Col lg={2} md={4}>
+                <div className="popularCategory">
+                  <p>
+                    해외여행도 문제없지! <b>해외 결제 할인 카드</b>&#x1F6EB; 모음
+                  </p>
+                </div>
+              </Col>
+              <Col lg={2} md={4}>
+                <div className="popularCategory">
+                  <p>
+                    티끌 모아 태산! <b>포인트</b>&#x1F4B0;를 쌓아보아요
+                  </p>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </Container>
       </Container>
     </>
   )
