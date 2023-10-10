@@ -42,6 +42,9 @@ const Top = () => {
               <p>현재 가장 인기있는 카드를 알아보세요!</p>
 
               <Form.Select aria-label="Default select example" size="lg">
+                <option disabled defaultValue>
+                  카드사를 선택하세요
+                </option>
                 {bank.map((el) => (
                   <option key={el}>{el}</option>
                 ))}
