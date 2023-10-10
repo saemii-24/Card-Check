@@ -1,0 +1,31 @@
+@use '../../common' as mix;
+
+h3 {
+  @include mix.font500;
+  margin-left: 12px;
+  padding-bottom: 20px;
+}
+div {
+  margin: 0;
+  padding: 0;
+}
+.company {
+  .swiper {
+    width: 100%;
+    transition-timing-function: linear;
+    background-color: mix.$lightBlue;
+    .slide {
+      height: 100px;
+      @include mix.center;
+      img{
+        height: 40%;
+        &.bank_7{
+          height: 35%;
+        }
+        &.bank_8{
+          height: 75%;
+        }
+      }
+    }
+  }
+}
