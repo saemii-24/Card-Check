@@ -402,7 +402,7 @@ const cardData = [
   {
     id: 'nh-01',
     name: 'GOODGAME 체크카드',
-    bank: 'NH 농협카드',
+    bank: 'NH농협카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'VISA'],
     point: [{ 생활: '앱마켓 10% 할인' }, { 생활: '스팀(Steam) 10% 할인' }, { 생활: 'PC방 할인' }],
@@ -422,7 +422,7 @@ const cardData = [
   {
     id: 'nh-02',
     name: '라이언 치즈 체크카드',
-    bank: 'NH 농협카드',
+    bank: 'NH농협카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'Union Pay'],
     point: [{ 교통: '교통 1.5% 적립' }, { 쇼핑: '쇼핑 0.5~1% 적립' }, { 쇼핑: '뷰티 1.5% 적립' }],
@@ -440,7 +440,7 @@ const cardData = [
   {
     id: 'nh-03',
     name: '올리 POINT 체크카드',
-    bank: 'NH 농협카드',
+    bank: 'NH농협카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'MASTER'],
     point: [
@@ -466,7 +466,7 @@ const cardData = [
   {
     id: 'nh-04',
     name: '알뜰교통카드(체크)',
-    bank: 'NH 농협카드',
+    bank: 'NH농협카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'VISA'],
     point: [
@@ -487,7 +487,7 @@ const cardData = [
   {
     id: 'nh-05',
     name: 'NH20해봄체크카드',
-    bank: 'NH 농협카드',
+    bank: 'NH농협카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'MASTER'],
     point: [{ 생활: '커피 20% 할인' }, { 생활: '도서 5% 할인' }, { 쇼핑: '쇼핑 5% 할인' }],
@@ -615,7 +615,7 @@ const cardData = [
   {
     id: 'ibk-01',
     name: 'I-알뜰교통플러스 카드(체크)',
-    bank: 'IBK 카드',
+    bank: 'IBK카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'MASTER'],
     point: [
@@ -641,7 +641,7 @@ const cardData = [
   {
     id: 'ibk-02',
     name: 'IBK DC히어로즈 카드(체크)',
-    bank: 'IBK 카드',
+    bank: 'IBK카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'MASTER'],
     point: [
@@ -659,7 +659,7 @@ const cardData = [
   {
     id: 'ibk-03',
     name: '무민카드(체크)',
-    bank: 'IBK 카드',
+    bank: 'IBK카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'Union Pay'],
     point: [
@@ -683,7 +683,7 @@ const cardData = [
   {
     id: 'ibk-04',
     name: 'IBK 무직타이거 카드(체크) ',
-    bank: 'IBK 카드',
+    bank: 'IBK카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'Union Pay'],
     point: [
