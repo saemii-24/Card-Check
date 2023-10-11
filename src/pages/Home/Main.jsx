@@ -45,7 +45,7 @@ const Main = () => {
   }, [])
 
   return (
-    <>
+    <div>
       <Container fluid className="main" ref={mainRef}>
         <Container className="inner">
           <Row>
@@ -128,7 +128,7 @@ const Main = () => {
           </Container>
         </Container>
       </Container>
-    </>
+    </div>
   )
 }
 

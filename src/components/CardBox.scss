@@ -1,0 +1,45 @@
+@use '../common' as mix;
+.cardBoxBtn {
+  position: fixed;
+  z-index: 100;
+  right: 2rem;
+  bottom: 3rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4rem;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  transition: all 300ms;
+  transition-timing-function: ease-out;
+  @include mix.center;
+  cursor: pointer;
+  .content {
+    p {
+      @include mix.font400;
+      color: #fff;
+      opacity: 1;
+      visibility: visible;
+      display: none;
+    }
+    svg {
+      font-size: 1.5rem;
+      color: mix.$blue;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &:hover {
+    background-color: mix.$blue;
+    width: 12rem;
+    svg {
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+    }
+    p {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

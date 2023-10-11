@@ -6,39 +6,78 @@ import mdPickData from '../../data/mdPickData'
 import cn from 'classnames'
 
 const MdPick = () => {
-  const [slideCount, setslideCount] = useState(1)
-  const [slideData, setslideData] = useState(mdPickData)
+  let [slideActiveForward, setslideActiveForward] = useState(false)
+  let [slideActiveBack, setslideActiveBack] = useState(false)
+  let [slideData, setslideData] = useState(mdPickData)
 
-  const handleSlideTag = () => {
-    let cutFirstSlide = [...slideData].slice(0)
-    let newSlide = [...slideData].shift()
-
-    console.log(newSlide)
+  const handleSlideBack = () => {
+    setTimeout(() => {
+      let newSlide = [...slideData]
+      let cutFirstSlide = newSlide.slice(0, 1)
+      newSlide.shift()
+      newSlide.push(cutFirstSlide[0])
+      setslideData(newSlide)
+      setslideActiveBack(false)
+    }, 1000)
   }
-  handleSlideTag()
+  const handleSlideForward = () => {
+    setTimeout(() => {
+      let newSlide = [...slideData]
+      let cutFirstSlide = newSlide.slice(0, 1)
+      newSlide.shift()
+      newSlide.push(cutFirstSlide[0])
+      setslideData(newSlide)
+      setslideActiveForward(false)
+    }, 1000)
+  }
+
   return (
     <>
       <Container fluid className="mdPick">
         <Container className="inner">
-          <div className="paginationBack pagination">
+          <div
+            className="paginationBack pagination"
+            onClick={() => {
+              handleSlideBack()
+              setslideActiveBack(true)
+            }}>
             <IoChevronBack />
           </div>
 
           <div className="slideWrapper">
             {slideData.map((slide, index) => (
               <div key={slide.id} className="slide">
-                <div className="slideContent">
+                <div
+                  className={cn(`slideContent slideContent_${index + 1}`, {
+                    activeBack: slideActiveBack,
+                    activeForward: slideActiveForward,
+                  })}>
                   <img src={process.env.PUBLIC_URL + slide.image} alt={slide.id} />
                   <div className="slideText">
-                    <h5>{slide.subtitle}</h5>
-                    <h3>{slide.title}</h3>
+                    <h5
+                      className={cn(`subTitle ${index + 1}`, {
+                        active: slideActiveBack || slideActiveForward,
+                      })}>
+                      {slide.subtitle}
+                    </h5>
+                    <h3
+                      className={cn(`title ${index + 1}`, {
+                        active: slideActiveBack || slideActiveForward,
+                      })}>
+                      {slide.title}
+                    </h3>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="paginationForward pagination">
+          <div
+            className="paginationForward pagination"
+            onClick={() => {
+              handleSlideForward()
+              setslideActiveForward(true)
+            }}>
             <IoChevronForward />
           </div>
         </Container>
