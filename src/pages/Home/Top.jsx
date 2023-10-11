@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
-import { Container, Row, Col, Form } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Container, Row, Col, Form, Badge, Card } from 'react-bootstrap'
 import './Top.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import { BsCoin, BsCreditCard, BsCurrencyDollar, BsDatabase } from 'react-icons/bs'
 import cardData from '../../data/cardData'
+import pointIcon from '../../data/pointIcon'
+import CardBtn from '../../components/CardBtn'
 
 const Top = () => {
   const bank = [
@@ -34,33 +36,44 @@ const Top = () => {
   const [select, setSelect] = useState('defaultThis') //'카드사를 선택하세요' 보여주기
   const [cardShow, setCardShow] = useState(false) //'왼쪽 렌더링 결정'
   const [searchCard, setSearchCard] = useState(null)
+  // const [isEnter, setIsEnter] = useState(false)
+
+  // const handleEnter = () => {
+  //   setIsEnter(!isEnter)
+  // }
+
+  // const btnClass = classNames('button', {
+  //   active: isActive,
+  //   inactive: !isActive,
+  // })
+
   const handleSelect = (e) => {
     setSelect(e.target.value)
+    setCardShow(true)
   }
-  console.log(select)
-  const searchCardData = () => {
-    let resultData = cardData.filter((value) => value.bank === select)
-    if (resultData.length === 0) {
-      resultData = cardData.filter(
+
+  useEffect(() => {
+    let resultData = [...cardData].filter((value) => value.bank === select)
+    if (cardShow && resultData.length === 0) {
+      resultData = [...cardData].filter(
         (value) =>
           value.bank === '엔에이치엔페이코' ||
           value.bank === '현대카드' ||
           value.bank === '삼성카드' ||
           value.bank === '코나카드',
       )
+      resultData.splice(4)
     } else if (resultData.length > 4) {
       resultData.splice(4)
     }
     setSearchCard(resultData)
+  }, [select])
 
-    console.log(searchCard)
-  }
   return (
     <>
       <Container fluid className="topContainer">
         <Container className="inner">
           <Row>
-            `
             <Col md={4} className="cardSelect">
               <h1>
                 카드사별 인기
@@ -74,8 +87,7 @@ const Top = () => {
                 value={select}
                 onChange={(e) => {
                   handleSelect(e)
-                  setCardShow(true)
-                  searchCardData()
+                  console.log(searchCard)
                 }}>
                 <option disabled value="defaultThis">
                   카드사를 선택하세요
@@ -135,7 +147,37 @@ const Top = () => {
                 </Row>
               </Col>
             )}
-            {cardShow && <Col>{cardData.filter}</Col>}
+            {cardShow && (
+              <Col className="cardTop">
+                <Row>
+                  {searchCard.map((card) => (
+                    <Col md={6} className="col" key={card.id}>
+                      {
+                        <div className="cardBoxAll">
+                          <div
+                            className="cardImg"
+                            style={{ backgroundImage: `url(${card.image})` }}></div>
+
+                          <div className="pointBox">
+                            <div className="cardInfo">
+                              <Badge>{card.bank}</Badge>
+                              <h3>{card.name}</h3>
+                            </div>
+                            {card.point.map((point, index) => (
+                              <div key={'point' + index} className="point">
+                                {pointIcon(`${Object.keys(point)}`)}
+                                <h5>{Object.values(point)}</h5>
+                              </div>
+                            ))}
+                            <CardBtn />
+                          </div>
+                        </div>
+                      }
+                    </Col>
+                  ))}
+                </Row>
+              </Col>
+            )}
           </Row>
         </Container>
       </Container>

@@ -101,9 +101,9 @@ const Main = () => {
                       })}
                       {data.benefit.map((el, index) => {
                         if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
-                          return null
+                          // return null
                         } else {
-                          console.log(data.benefit)
+                          // console.log(data.benefit)
                           return <p key={`benefit_${data.id}_${index}`}>{Object.values(el)}</p>
                         }
                       })}

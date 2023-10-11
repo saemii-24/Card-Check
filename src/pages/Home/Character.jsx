@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Container, Row, Col, Button, Badge } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Container, Row, Col, Badge } from 'react-bootstrap'
 import './Character.scss'
 import characterData from '../../data/characterData'
 import pointIcon from '../../data/pointIcon'
 import Tilt from 'react-parallax-tilt'
-import { AiOutlineInbox } from 'react-icons/ai'
+import CardBtn from '../../components/CardBtn'
 
 const Character = () => {
   const [circleData, setCircleData] = useState(characterData[0])
@@ -45,13 +45,7 @@ const Character = () => {
           </Col>
           <Col className="card" id="card">
             <Tilt className="cardImg" style={{ backgroundImage: `url(${circleData.image})` }}></Tilt>
-            <div className="moreButton">
-              <Button>+ 자세한 혜택</Button>
-              <Button>
-                <AiOutlineInbox strokeWidth="20" />
-                &nbsp;카드 비교
-              </Button>
-            </div>
+            <CardBtn />
           </Col>
         </Row>
       </Container>
