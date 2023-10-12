@@ -117,6 +117,7 @@ const Top = () => {
                     <Swiper
                       className="swiperRolling"
                       slidesPerView={1}
+                      allowTouchMove={false}
                       loop={true}
                       speed={2000}
                       direction={'vertical'}

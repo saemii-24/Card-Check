@@ -1,0 +1,63 @@
+@use '../../common' as mix;
+
+.cardSearch {
+    padding-top: 60px !important;
+
+    .title {
+        margin-top: 10%;
+
+        h1 {
+            @include mix.title
+        }
+
+        p {
+            @include mix.subtitle;
+        }
+    }
+
+    .companyBtn,
+    .benefitBtn {
+        display: flex;
+        gap: 0.5rem;
+        width: 100%;
+        flex-wrap: wrap;
+        .btn.categoryBtn{
+            background-color: #FFF !important;
+            border: 1px solid mix.$blue;
+            color: mix.$blue;
+            &:hover,
+            &.active{
+                background-color: mix.$blue !important;
+                color: #fff;
+            }
+            &:active {
+                background-color: mix.$blue !important;
+                color: #fff;
+            }
+        }
+        .btn {
+            background-color: #F5F5F5;
+            @include mix.font500;
+            color: mix.$black;
+            border: none;
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            border-radius: 10rem;
+
+            &:hover,
+            &.active {
+                background-color: mix.$black;
+                color: #fff;
+                // border: 1px solid #fff;
+            }
+
+            &:active {
+                background-color: mix.$black !important;
+                color: #fff;
+            }
+        }
+    }
+    .btnBox{
+        margin-top:1rem;
+    }
+}

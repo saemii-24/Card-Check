@@ -1,0 +1,142 @@
+@use '../../common' as mix;
+
+.resultBox {
+    margin-bottom: 10rem;
+
+    .resultCardBox {
+        margin-top: 10rem;
+
+        .title {
+            h2 {
+                margin-bottom: 1rem;
+                font-size: 2.5rem;
+                @include mix.font700;
+            }
+
+            border-bottom: 1px solid #f5f5f5;
+        }
+    }
+
+}
+
+.cardImgBox {
+
+    .cardBoxAll {
+        width: 60%;
+        position: relative;
+
+        .cardImg {
+            @include mix.background;
+            width: 100%;
+            padding-bottom: calc(100% * 1.58);
+            border-radius: 0.8rem;
+            overflow: hidden;
+            box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        &:hover {
+            .pointBox {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0px);
+                transition: opacity 300ms, transform 400ms;
+                transition-timing-function: ease-out;
+            }
+        }
+
+        .pointBox {
+            visibility: hidden;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(100px);
+
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            padding: 2.2rem 1.4rem;
+            height: 110%;
+            border-radius: 0.8rem;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            border: 1px solid mix.$lightBlue;
+
+            .moreButton {
+                margin-top: auto;
+                margin-bottom: 0;
+
+                .btn {
+                    font-size: 0.9rem;
+                    padding-top: 0.45rem;
+                    padding-bottom: 0.5rem;
+
+                }
+            }
+
+            .cardInfo {
+                margin-bottom: 1rem;
+
+                .badge {
+                    @include mix.font400;
+                    background-color: mix.$blue;
+                    margin-bottom: 0.5rem;
+                }
+
+                h3 {
+                    color: mix.$blue;
+                    @include mix.font600;
+                    font-size: 1.2rem;
+                    word-break: keep-all;
+                    line-height: 1.6rem;
+                    margin-bottom: 0;
+                }
+            }
+
+            .point {
+                display: flex;
+                gap: 0.6rem;
+
+                &>span {
+                    color: mix.$blue;
+                    line-height: 1.6rem;
+                }
+
+                .cardBtn {
+                    svg {
+                        font-size: 1rem;
+                    }
+                }
+
+                // &:not(:last-child){
+                //   margin-bottom:1rem;
+                // }
+                h5 {
+                    @include mix.font400;
+                    color: mix.$black;
+                    font-size: 0.9rem;
+                    margin-bottom: 0;
+                    line-height: 1.4rem;
+                }
+            }
+        }
+    }
+}
+
+.cardImgAlign{
+    @include mix.center;
+    margin-top:30rem;
+    position: relative;
+    padding-top:9rem;
+    &::after{
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 0;
+        padding-bottom: 80%;
+        border-radius: 50%;
+        background-color: mix.$lightBlue;
+        z-index: -1;
+    }
+}

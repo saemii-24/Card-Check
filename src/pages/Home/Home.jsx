@@ -12,7 +12,6 @@ const Home = () => {
   let [header, setHeader] = useState(false)
   return (
     <>
-      <Header />
       <Main header={header} setHeader={setHeader} />
       <Category />
       <Top />

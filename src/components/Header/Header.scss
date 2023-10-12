@@ -7,6 +7,9 @@
   width: 100%;
   // backdrop-filter: blur(5px);
   border-bottom: 1px solid mix.$lightGray;
+  .navbar-brand{
+    cursor: pointer;
+  }
 }
 .search--normal {
   backdrop-filter: blur(5px);

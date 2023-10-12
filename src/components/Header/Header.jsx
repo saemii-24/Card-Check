@@ -5,12 +5,13 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { HiArrowSmallRight } from 'react-icons/hi2'
 import { FaRegCreditCard } from 'react-icons/fa'
 import './Header.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import cn from 'classnames'
 // Feather, Ant Design Icons, Heroicons 2 아이콘이 사용되었습니다.
 
 const Header = () => {
   let [search, setSearch] = useState(false)
+  const navigate = useNavigate()
   return (
     <div className="header">
       <Navbar
@@ -18,7 +19,10 @@ const Header = () => {
           hidden: search,
         })}>
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand
+            onClick={() => {
+              navigate('/')
+            }}>
             <img
               src={process.env.PUBLIC_URL + '/image/logo--black.png'}
               alt="cardCheck 로고"
@@ -26,7 +30,10 @@ const Header = () => {
             />
           </Navbar.Brand>
           <Nav className="me-auto nav__right">
-            <Nav.Link as={Link} to="/">
+            <Nav.Link
+              onClick={() => {
+                navigate('/cardSearch')
+              }}>
               <FaRegCreditCard style={{ cursor: 'pointer' }} className="cardIcon" />
             </Nav.Link>
             <Nav.Link as={Link} to="/">
