@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container, Button, Badge, Row, Col } from 'react-bootstrap'
-import companyData from '../../data/companyData'
 import cardData from '../../data/cardData'
 import './CardSearch.scss'
 import cn from 'classnames'
+import _ from 'lodash'
 import ResultBox from './ResultBox'
 const CardSearch = () => {
   //카드 회사
@@ -54,7 +54,6 @@ const CardSearch = () => {
       newData[index].active = true
     }
     setCompanyBtn(newData)
-    console.log(companyBtn)
   }
   const handleBenefitBtnActive = (index) => {
     let newData = [...benefitBtn]
@@ -64,8 +63,36 @@ const CardSearch = () => {
       newData[index].active = true
     }
     setBenefitBtn(newData)
-    console.log(benefitBtn)
   }
+  //bank 이름별로 그룹 만들기
+  let groupByBank = _.groupBy(cardData, 'bank')
+  //배열 형식으로 만들기
+  const groupByBankArr = Object.keys(groupByBank).map((key) => ({
+    [key]: groupByBank[key],
+  }))
+  //구조를 만들 때 사용되는 state
+  let [filterData, setFilterData] = useState(groupByBankArr)
+  let [filterCondition, setFilterCondition] = useState([]) // filter 기준이 담기는 배열
+  // useEffect(() => {
+  //   //filter의 기준을 배열에 담기
+  //   const handleCondition = () => {
+  //     let nowData = [...companyBtn, ...benefitBtn]
+  //       .filter((data) => data.active === true)
+  //       .map((data) => data.button)
+  //     setFilterCondition(nowData)
+  //   }
+  //   console.log(filterCondition)
+  //   const handleFilterData = () => {
+  //     let nowData = [...filterData].filter((data, index) => {
+  //       // console.log(...Object.values(data))
+  //       return filterCondition.includes(...Object.keys(data))
+  //     })
+  //     return nowData
+  //   }
+  //   let nowData = handleFilterData()
+  //   setFilterData(nowData)
+  // }, [])
+  // console.log(filterData)
   return (
     <>
       <Container fluid className="cardSearch">
@@ -132,7 +159,7 @@ const CardSearch = () => {
           </Row>
         </Container>
       </Container>
-      <ResultBox companyBtn={companyBtn} benefitBtn={benefitBtn} />
+      <ResultBox filterData={filterData} />
     </>
   )
 }

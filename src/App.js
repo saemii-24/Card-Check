@@ -11,9 +11,9 @@ function App() {
       <Header />
       <CardBox />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/cardDetail" element={<CardDetail />}></Route>
-        <Route path="/cardSearch" element={<CardSearch />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/cardSearch" element={<CardSearch />} />
+        <Route path="/cardDetail/:id" element={<CardDetail />} />
       </Routes>
     </>
   )

@@ -1,32 +1,10 @@
-import React, { useState } from 'react'
-import cardData from '../../data/cardData'
-import { Container, Button, Badge, Row, Col } from 'react-bootstrap'
-import _ from 'lodash'
+import React from 'react'
+import { Container, Badge, Row, Col } from 'react-bootstrap'
 import './ResultBox.scss'
 import pointIcon from '../../data/pointIcon'
 import CardBtn from '../../components/CardBtn'
 
-const ResultBox = ({ companyBtn, benefitBtn }) => {
-  //bank 이름별로 그룹 만들기
-  let groupByBank = _.groupBy(cardData, 'bank')
-  //배열 형식으로 만들기
-  const groupByBankArr = Object.keys(groupByBank).map((key) => ({
-    [key]: groupByBank[key],
-  }))
-
-  let [filterData, setFilterData] = useState(groupByBankArr)
-  console.log(filterData)
-  let condition = [...companyBtn, ...benefitBtn]
-  let filterCondition = []
-  condition.forEach((el, index) => {
-    if (el.active === true) {
-      console.log(condition[index].button)
-      filterCondition.push(condition[index].button)
-    } else {
-      return
-    }
-  })
-  console.log(filterCondition)
+const ResultBox = ({ filterData }) => {
   return (
     <Container fluid className="resultBox">
       <Container>
