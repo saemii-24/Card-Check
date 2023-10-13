@@ -23,7 +23,7 @@ const Character = () => {
               {characterData.map((character) => (
                 <div
                   className="selectCircle"
-                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}${character.image})` }}
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL + character.image})` }}
                   key={character.id}
                   onClick={() => {
                     setCircleData(character)
@@ -47,7 +47,7 @@ const Character = () => {
             <Tilt
               className="cardImg"
               style={{
-                backgroundImage: `url(${process.env.PUBLIC_URL}${circleData.image})`,
+                backgroundImage: `url(${process.env.PUBLIC_URL + circleData.image})`,
               }}></Tilt>
             <CardBtn id={circleData.id} />
           </Col>
