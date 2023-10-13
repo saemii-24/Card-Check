@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Container, Row, Col, Button, Badge } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Container, Row, Col, Badge } from 'react-bootstrap'
 import './Character.scss'
 import characterData from '../../data/characterData'
 import pointIcon from '../../data/pointIcon'
 import Tilt from 'react-parallax-tilt'
-import { AiOutlineInbox } from 'react-icons/ai'
+import CardBtn from '../../components/CardBtn'
 
 const Character = () => {
   const [circleData, setCircleData] = useState(characterData[0])
-
+  const [id, setId] = useState(characterData[0].id)
   return (
     <Container fluid className="character">
       <Container className="inner">
@@ -23,7 +23,7 @@ const Character = () => {
               {characterData.map((character) => (
                 <div
                   className="selectCircle"
-                  style={{ backgroundImage: `url(${character.image})` }}
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL + character.image})` }}
                   key={character.id}
                   onClick={() => {
                     setCircleData(character)
@@ -44,14 +44,12 @@ const Character = () => {
             </div>
           </Col>
           <Col className="card" id="card">
-            <Tilt className="cardImg" style={{ backgroundImage: `url(${circleData.image})` }}></Tilt>
-            <div className="moreButton">
-              <Button>+ 자세한 혜택</Button>
-              <Button>
-                <AiOutlineInbox strokeWidth="20" />
-                &nbsp;카드 비교
-              </Button>
-            </div>
+            <Tilt
+              className="cardImg"
+              style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL + circleData.image})`,
+              }}></Tilt>
+            <CardBtn id={circleData.id} />
           </Col>
         </Row>
       </Container>

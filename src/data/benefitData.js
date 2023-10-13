@@ -71,5 +71,5 @@ const benefitData = [
     card: benefitSelect('이동통신'),
   },
 ]
-console.log(benefitData)
+
 export default benefitData

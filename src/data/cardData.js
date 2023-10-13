@@ -164,7 +164,7 @@ const cardData = [
   },
   {
     id: 'wr-02',
-    name: '알뜰교통카드(COOKIE CHECK)',
+    name: '알뜰교통카드 (COOKIE CHECK)',
     bank: '우리카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'MASTER'],
@@ -274,7 +274,7 @@ const cardData = [
   },
   {
     id: 'sh-01',
-    name: '신한카드 플리 체크(산리오캐릭터즈)',
+    name: '신한카드 플리 체크 (산리오캐릭터즈)',
     bank: '신한카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'MASTER'],
@@ -293,7 +293,7 @@ const cardData = [
   },
   {
     id: 'sh-02',
-    name: '신한카드 On 체크(잔망루피)',
+    name: '신한카드 On 체크 (잔망루피)',
     bank: '신한카드',
     cost: '연회비 없음',
     brand: ['국내전용', 'VISA'],

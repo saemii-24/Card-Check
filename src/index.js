@@ -9,7 +9,7 @@ import 'swiper/css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/project_5">
     <React.StrictMode>
       <App />
     </React.StrictMode>
