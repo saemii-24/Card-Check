@@ -142,9 +142,7 @@ const Top = () => {
                     md={6}
                     style={{
                       backgroundImage: `url(${process.env.PUBLIC_URL}/image/rollingBg-2.jpg)`,
-                    }}>
-                    ${process.env.PUBLIC_URL}
-                  </Col>
+                    }}></Col>
                   <Col className="col" md={3}>
                     <BsCurrencyDollar />
                   </Col>
@@ -164,7 +162,7 @@ const Top = () => {
                           <div
                             className="cardImg"
                             style={{
-                              backgroundImage: `url(${process.env.PUBLIC_URL}${card.image})`,
+                              backgroundImage: `url(${process.env.PUBLIC_URL + card.image})`,
                             }}></div>
 
                           <div className="pointBox">
