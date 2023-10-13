@@ -21,7 +21,9 @@ const CardDetail = () => {
           <Row>
             <Col className="cardImgBox">
               <div>
-                <Tilt className="cardImg" style={{ backgroundImage: `url(${data.image})` }}></Tilt>
+                <Tilt
+                  className="cardImg"
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL + data.image})` }}></Tilt>
               </div>
             </Col>
             <Col className="cardInfoBox">
