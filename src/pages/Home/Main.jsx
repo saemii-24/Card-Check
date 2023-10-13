@@ -6,11 +6,13 @@ import cn from 'classnames'
 // 기본 리엑트 외의 것
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { useNavigate } from 'react-router-dom'
 
 gsap.registerPlugin(ScrollTrigger)
 
 //컴포넌트 시작점
 const Main = () => {
+  const navigate = useNavigate()
   //benefitList
 
   let randomId = Math.floor(Math.random() * benefitData.length + 1)
@@ -141,7 +143,12 @@ const Main = () => {
                         })}
                       </p>
                     </div>
-                    <Button>+ 더 많은 혜택 알아보기</Button>
+                    <Button
+                      onClick={() => {
+                        navigate(`/cardDetail/${data.id}`)
+                      }}>
+                      + 더 많은 혜택 알아보기
+                    </Button>
                   </Col>
                 )
               })}

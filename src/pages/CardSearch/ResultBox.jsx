@@ -4,11 +4,11 @@ import './ResultBox.scss'
 import pointIcon from '../../data/pointIcon'
 import CardBtn from '../../components/CardBtn'
 
-const ResultBox = ({ filterData }) => {
+const ResultBox = ({ data }) => {
   return (
     <Container fluid className="resultBox">
       <Container>
-        {filterData.map((cardData, index) => (
+        {data.map((cardData, index) => (
           <div key={'cardData' + index}>
             <Row className="resultCardBox">
               <Col className="title">
@@ -36,7 +36,7 @@ const ResultBox = ({ filterData }) => {
                                 <h5>{Object.values(point)}</h5>
                               </div>
                             ))}
-                            <CardBtn />
+                            <CardBtn id={card.id} />
                           </div>
                         </div>
                       </Col>

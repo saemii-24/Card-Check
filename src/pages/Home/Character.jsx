@@ -8,7 +8,7 @@ import CardBtn from '../../components/CardBtn'
 
 const Character = () => {
   const [circleData, setCircleData] = useState(characterData[0])
-
+  const [id, setId] = useState(characterData[0].id)
   return (
     <Container fluid className="character">
       <Container className="inner">
@@ -45,7 +45,7 @@ const Character = () => {
           </Col>
           <Col className="card" id="card">
             <Tilt className="cardImg" style={{ backgroundImage: `url(${circleData.image})` }}></Tilt>
-            <CardBtn />
+            <CardBtn id={circleData.id} />
           </Col>
         </Row>
       </Container>

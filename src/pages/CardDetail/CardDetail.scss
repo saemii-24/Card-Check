@@ -1,0 +1,152 @@
+@use '../../common' as mix;
+
+.cardDetail {
+    overflow-x: hidden;
+    background-color: #fff;
+
+    .cardBanner {
+        margin-top: 10rem;
+        background-color: #fff;
+
+        .cardImgBox {
+            @include mix.center;
+            padding: 3rem 0;
+
+            &>div {
+                width: 100%;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &::before {
+                    content:"";
+                    position: absolute;
+                    width: 63%;
+                    padding-bottom: 63%;
+                    border-radius: 100%;
+                    background-color: mix.$lightBlue;
+                }
+                .cardImg {
+                    width: 40%;
+                    height: 0px;
+                    padding-bottom: calc(40% * 1.58);
+                    border-radius: 1rem;
+                    box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.08);
+                    @include mix.background;
+                    overflow: hidden;
+                    position: relative;
+
+                }
+            }
+
+        }
+
+        .cardInfoBox {
+            color: mix.$black !important;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            .badge {
+                background-color: mix.$blue !important;
+                margin-bottom: 0.8rem;
+                @include mix.font400;
+                font-size: 1rem;
+                padding-bottom: 0.5rem;
+            }
+
+            h1 {
+                @include mix.font700;
+
+            }
+
+            .cardInfo {
+                gap: 0.8rem;
+
+                .point {
+                    margin-top: 1rem;
+                    display: flex;
+                    gap: 0.6rem;
+                    @include mix.font300;
+
+                    h5 {
+                        margin-bottom: 0;
+                    }
+
+                    span {
+                        color: mix.$blue
+                    }
+                }
+                button{
+                    background-color: mix.$black ;
+                    border:none;
+                    @include mix.font400;
+                    &.active,
+                    &.hover{
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+    .costBrand{
+        margin-top:3rem;
+        background-color: mix.$blue;
+        color: #fff;
+        display: flex;
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+    
+        .cost{
+            display: flex;
+            margin-left:auto;
+            justify-content: flex-end;
+            margin-right:3rem;
+            position: relative;
+            h5{
+                @include mix.font400;
+            }
+            &::after{
+                content:"|";
+                position: absolute;
+                right: -3rem;
+            }
+        }
+        .brand{
+            display: flex;
+            margin-left:3rem;
+            gap:2rem;
+          h5{
+            @include mix.font400;
+          }
+            
+        }
+    }
+    .benefitBox{
+       margin-bottom:10rem;
+        h1{
+            margin-top:8rem;
+            @include mix.font700;
+            font-size: 3rem;
+            margin-bottom:3rem;
+        }
+        .benefit{
+            display: flex;
+            padding:4rem 3rem;
+            @include mix.font500;
+            font-size: 1.6rem;
+            line-height: 1.8rem;
+            background-color: mix.$lightGray;
+            border-radius: 1rem;
+            gap:2rem;
+                margin-bottom:2rem;
+            
+            span{
+                color: mix.$blue;
+                font-size: 3rem;
+                line-height: 1.8rem;
+            }
+        }
+    }
+}
