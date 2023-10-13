@@ -71,13 +71,19 @@ const Main = () => {
             <Col className="cardImgBox">
               <div
                 className="cardImg1 cardImg"
-                style={{ backgroundImage: 'url(/image/card--yellow.png)' }}></div>
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/image/card--yellow.png)`,
+                }}></div>
               <div
                 className="cardImg2 cardImg"
-                style={{ backgroundImage: 'url(/image/card--red.png)' }}></div>
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/image/card--red.png)`,
+                }}></div>
               <div
                 className="cardImg3 cardImg"
-                style={{ backgroundImage: 'url(/image/card--blue.png)' }}></div>
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/image/card--blue.png)`,
+                }}></div>
             </Col>
           </Row>
         </Container>
