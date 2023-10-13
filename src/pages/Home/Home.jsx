@@ -17,7 +17,6 @@ const Home = () => {
       <Top />
       <MdPick />
       <Character />
-      <Footer />
     </>
   )
 }
