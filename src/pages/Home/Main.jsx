@@ -89,7 +89,10 @@ const Main = () => {
         </Container>
         <Container fluid className="main--load">
           <video autoPlay muted loop className="benefitBg">
-            <source src={benefitData[randomId - 1].benefitBg} type="video/mp4" />
+            <source
+              src={process.env.PUBLIC_URL + benefitData[randomId - 1].benefitBg}
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
           <div className="blackBg"></div>
