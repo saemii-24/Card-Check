@@ -25,7 +25,7 @@ const ResultBox = ({ data }) => {
                           <div
                             className="cardImg"
                             style={{
-                              backgroundImage: `url(${process.env.PUBLIC_URL}${card.image})`,
+                              backgroundImage: `url(${process.env.PUBLIC_URL + card.image})`,
                             }}></div>
                           <div className="pointBox">
                             <div className="cardInfo">
