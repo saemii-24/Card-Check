@@ -1,0 +1,125 @@
+@use '../../common' as mix;
+
+.cardBox {
+  .inner {
+    margin-top: 10%;
+  }
+  h1 {
+    @include mix.font700;
+    font-size: 3rem;
+    margin-bottom: 5rem;
+  }
+  .thisCardBox {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 3rem;
+    margin-bottom: 20%;
+    &:not(:last-of-type) {
+      border-right: 2px solid mix.$lightGray;
+    }
+    .cardImgBox,
+    .dummyCardImgBox {
+      width: 100%;
+      position: relative;
+      @include mix.center;
+      &::before {
+        position: absolute;
+        background-color: mix.$lightBlue;
+        content: '';
+        z-index: -1;
+        border-radius: 50%;
+        width: 90%;
+        padding-bottom: 90%;
+      }
+      .cardImg {
+        width: 50%;
+        width: 60%;
+        padding-bottom: calc(60% * 1.58);
+        @include mix.background;
+        border-radius: 4%;
+      }
+      svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: mix.$blue;
+        @include mix.font600;
+        stroke-width: 15;
+        padding: 0.2rem;
+        box-sizing: content-box;
+      }
+      .dummyCardImg {
+        background-color: #fff;
+        width: 50%;
+        width: 60%;
+        padding-bottom: calc(60% * 1.58);
+        @include mix.background;
+        @include mix.center;
+        @include mix.font400;
+        border: 2px dashed mix.$blue;
+        color: mix.$blue;
+        border-radius: 4%;
+        position: relative;
+        h5 {
+          position: absolute;
+          top: 45%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    .benefit {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      span {
+        color: mix.$blue;
+        line-height: 2.2rem;
+        margin-top: 1rem;
+      }
+      p {
+        margin-top: 1rem;
+        margin-bottom: 0;
+        line-height: 2.2rem;
+        word-break: keep-all;
+      }
+    }
+    .bankName {
+      margin-top: 5rem;
+      h6 {
+        color: mix.$blue;
+        @include mix.font600;
+        font-size: 1.7rem;
+        margin-top: 0;
+      }
+      h5 {
+        @include mix.font600;
+        font-size: 2rem;
+        word-break: keep-all;
+        margin-top: 0.2rem;
+        line-height: 2.8rem;
+        min-height: calc(2.8rem * 2);
+      }
+    }
+    .brand {
+      div {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+    h6 {
+      color: mix.$blue;
+      @include mix.font600;
+      font-size: 1.2rem;
+      margin-top: 8rem;
+    }
+    p {
+      @include mix.font500;
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+      margin-top: 1.3rem;
+    }
+  }
+}

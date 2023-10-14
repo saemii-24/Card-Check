@@ -49,7 +49,7 @@ const Character = () => {
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL + circleData.image})`,
               }}></Tilt>
-            <CardBtn id={circleData.id} />
+            <CardBtn data={circleData} />
           </Col>
         </Row>
       </Container>

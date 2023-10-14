@@ -13,13 +13,12 @@ gsap.registerPlugin(ScrollTrigger)
 //컴포넌트 시작점
 const Main = () => {
   const navigate = useNavigate()
-  //benefitList
 
   let randomId = Math.floor(Math.random() * benefitData.length + 1)
+
   //gsap
   const mainRef = useRef(null)
   const firstSentenceRef = useRef(null)
-  const myRefs = useRef({})
   const [pheight, setpHeight] = useState(0)
   useEffect(() => {
     let firstSentence = firstSentenceRef.current
@@ -93,7 +92,6 @@ const Main = () => {
               src={process.env.PUBLIC_URL + benefitData[randomId - 1].benefitBg}
               type="video/mp4"
             />
-            Your browser does not support the video tag.
           </video>
           <div className="blackBg"></div>
           <Container className="benefitBg__content">

@@ -176,7 +176,7 @@ const Top = () => {
                                 <h5>{Object.values(point)}</h5>
                               </div>
                             ))}
-                            <CardBtn id={card.id} />
+                            <CardBtn data={card} />
                           </div>
                         </div>
                       }

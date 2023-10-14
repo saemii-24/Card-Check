@@ -7,13 +7,23 @@ import pointIcon from '../../data/pointIcon'
 import Tilt from 'react-parallax-tilt'
 import { AiOutlineInbox } from 'react-icons/ai'
 import './CardDetail.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { putCardBox } from '../../redux/cardBoxSlice'
+
 const CardDetail = () => {
   let params = useParams()
   let id = params.id //정보 id값
   //params로 데이터 찾기
   let filterData = [...cardData].filter((cardData) => cardData.id === id)
   let data = filterData[0]
-  console.log(data)
+  //redux
+  const dispatch = useDispatch()
+  const handlePutCardBox = (info) => {
+    dispatch(putCardBox(info))
+  }
+  const cardBox = useSelector((state) => state.cardBoxSlice)
+  console.log(cardBox)
+
   return (
     <Container fluid className="cardDetail">
       <Container fluid className="cardBanner">
@@ -36,7 +46,10 @@ const CardDetail = () => {
                     <h5>{Object.values(point)}</h5>
                   </div>
                 ))}
-                <Button>
+                <Button
+                  onClick={() => {
+                    handlePutCardBox(data)
+                  }}>
                   <AiOutlineInbox strokeWidth="20" />
                   &nbsp;카드 비교
                 </Button>
