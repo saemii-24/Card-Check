@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import './Main.scss'
 import { Container, Button, Col, Row, Badge } from 'react-bootstrap'
 import benefitData from '../../data/benefitData'
-import cn from 'classnames'
 // 기본 리엑트 외의 것
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -19,14 +18,6 @@ const Main = () => {
   //gsap
   const mainRef = useRef(null)
   const firstSentenceRef = useRef(null)
-  const [pheight, setpHeight] = useState(0)
-  useEffect(() => {
-    let firstSentence = firstSentenceRef.current
-    let thisHeight = firstSentence.offsetHeight
-    setpHeight(thisHeight)
-    console.log(firstSentence)
-  }, [pheight])
-  console.log(pheight)
 
   useEffect(() => {
     let card = gsap.context(() => {
@@ -113,21 +104,6 @@ const Main = () => {
                       ))}
                     </div>
                     <div className="benefitGroup">
-                      {/* {data.benefit.map((el, index) => {
-                        if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
-                          return <p key={`benefit_${data.id}_${index}`}>{Object.values(el)}</p>
-                        } else {
-                          return null
-                        }
-                      })}
-                      {data.benefit.map((el, index) => {
-                        if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
-                          // return null
-                        } else {
-                          // console.log(data.benefit)
-                          return <p key={`benefit_${data.id}_${index}`}>{Object.values(el)}</p>
-                        }
-                      })} */}
                       <p ref={firstSentenceRef}>
                         {data.benefit.map((el, index) => {
                           if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
@@ -137,13 +113,10 @@ const Main = () => {
                           }
                         })}
                       </p>
-                      <p
-                        className={cn('textOverflow', {
-                          sentence1: pheight < 30,
-                          sentence2: pheight >= 30,
-                        })}>
+                      <p>
                         {data.benefit.map((el, index) => {
                           if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
+                            return null
                           } else {
                             return Object.values(el)
                           }

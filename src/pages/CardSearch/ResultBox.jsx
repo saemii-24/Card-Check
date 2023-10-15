@@ -5,6 +5,7 @@ import pointIcon from '../../data/pointIcon'
 import CardBtn from '../../components/CardBtn'
 
 const ResultBox = ({ data }) => {
+  console.log(data)
   return (
     <Container fluid className="resultBox">
       <Container>
