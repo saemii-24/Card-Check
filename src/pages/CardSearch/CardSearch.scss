@@ -21,20 +21,6 @@
         gap: 0.5rem;
         width: 100%;
         flex-wrap: wrap;
-        .btn.categoryBtn{
-            background-color: #FFF !important;
-            border: 1px solid mix.$blue;
-            color: mix.$blue;
-            &:hover,
-            &.active{
-                background-color: mix.$blue !important;
-                color: #fff;
-            }
-            &:active {
-                background-color: mix.$blue !important;
-                color: #fff;
-            }
-        }
         .btn {
             background-color: #F5F5F5;
             @include mix.font500;

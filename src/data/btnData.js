@@ -5,7 +5,7 @@ import _ from 'lodash'
 let companyBtnData = cardData.map((data) => data.bank)
 companyBtnData = _.uniq(companyBtnData)
 const companyBtnResult = companyBtnData.map((btn, index) => {
-  return { button: btn, active: false }
+  return { company: btn, active: false }
 })
 
 //혜택 버튼 데이터 만들기
@@ -17,7 +17,7 @@ cardData.forEach((cardBenefit) => {
     }
   })
 })
-let benefitBtnResult = benefitData.map((benefit) => ({ button: benefit, active: false }))
+let benefitBtnResult = benefitData.map((benefit) => ({ benefit: benefit, active: false }))
 
 export const companyBtn = companyBtnResult
 export const benefitBtn = benefitBtnResult

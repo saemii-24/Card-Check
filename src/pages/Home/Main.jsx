@@ -30,7 +30,7 @@ const Main = () => {
           pin: true,
           scrub: 1,
           pinSpacing: false,
-          markers: true,
+          // markers: true,
         },
       })
       cardTimeline

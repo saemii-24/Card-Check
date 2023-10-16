@@ -23,7 +23,7 @@ const CardBtn = ({ data }) => {
       return false
     }
   }
-  console.log(cardBox)
+  // console.log(cardBox)
   // console.log(data)
   return (
     <div className="moreButton">

@@ -48,6 +48,8 @@ const benefitIcon = (benefitKey) => {
       return <span className="material-symbols-outlined">local_gas_station</span>
     case '외식':
       return <span className="material-symbols-outlined">restaurant</span>
+    case '게임':
+      return <span class="material-symbols-outlined">stadia_controller</span>
     default:
       return <span className="material-symbols-outlined">local_cafe</span>
   }

@@ -95,7 +95,7 @@
         display: flex;
         gap: 0.6rem;
 
-        & > span {
+        &>span {
           color: mix.$blue;
           line-height: 1.6rem;
         }
@@ -123,9 +123,10 @@
 
 .cardImgAlign {
   @include mix.center;
-  margin-top: 30rem;
+  // margin-top: 30rem;
   position: relative;
   padding-top: 9rem;
+
   &::after {
     content: '';
     position: absolute;
@@ -135,5 +136,26 @@
     border-radius: 50%;
     background-color: mix.$lightBlue;
     z-index: -1;
+  }
+}
+
+.ifNull {
+  margin-top:10rem;
+  .nullCard {
+    @include mix.center;
+    flex-direction: column;
+    position: relative;
+    svg {
+      color: mix.$lightBlue;
+      font-size: 18rem;
+    }
+    h4{
+      color:mix.$lightBlue;
+      @include mix.font600;
+      font-size: 2rem;
+      margin-top:-1.2rem;
+      margin-bottom:1rem;
+    }
+    
   }
 }

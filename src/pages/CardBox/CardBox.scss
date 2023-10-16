@@ -38,6 +38,8 @@
         padding-bottom: calc(60% * 1.58);
         @include mix.background;
         border-radius: 4%;
+        box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.08);
+
       }
       svg {
         position: absolute;
