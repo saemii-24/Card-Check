@@ -1,10 +1,16 @@
+//Bootstrap
+// @import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap-grid';
+// @import '~bootstrap/scss/variables';
+// @import '~bootstrap/scss/mixins/breakpoints';
+
 //color
 $black: #1d1d1d;
 $lightGray: #f9fafb;
 $darkGray: #d9d9d9;
 $red: #ff524b;
 $blue: #007aff;
-$lightBlue: #DDEDFF;
+$lightBlue: #ddedff;
 $green: #2ad1ad;
 
 @mixin font300 {
@@ -60,10 +66,10 @@ $green: #2ad1ad;
   font-weight: 500;
   font-size: 1.1rem;
 }
-@mixin background{
+@mixin background {
   background-position: center;
   background-size: cover;
 }
-@mixin shadow{
+@mixin shadow {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
 }

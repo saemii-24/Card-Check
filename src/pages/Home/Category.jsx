@@ -10,7 +10,7 @@ const Category = () => {
           <p className="subtitle">Card Check 사용자가 가장 많이 찾아본 혜택을 알아보세요.</p>
           <Container>
             <Row>
-              <Col lg={2} md={4}>
+              <Col xxl={2} xl={4} md={6}>
                 <div
                   className="popularCategory"
                   style={{
@@ -21,7 +21,7 @@ const Category = () => {
                   </p>
                 </div>
               </Col>
-              <Col lg={2} md={4}>
+              <Col xxl={2} xl={4} md={6}>
                 <div
                   className="popularCategory"
                   style={{
@@ -32,7 +32,7 @@ const Category = () => {
                   </p>
                 </div>
               </Col>
-              <Col lg={2} md={4}>
+              <Col xxl={2} xl={4} md={6}>
                 <div
                   className="popularCategory"
                   style={{
@@ -44,7 +44,7 @@ const Category = () => {
                 </div>
               </Col>
 
-              <Col lg={2} md={4}>
+              <Col xxl={2} lg={4} md={6}>
                 <div
                   className="popularCategory"
                   style={{
@@ -57,7 +57,7 @@ const Category = () => {
                 </div>
               </Col>
 
-              <Col lg={2} md={4}>
+              <Col xxl={2} lg={4} md={6}>
                 <div
                   className="popularCategory"
                   style={{
@@ -68,7 +68,7 @@ const Category = () => {
                   </p>
                 </div>
               </Col>
-              <Col lg={2} md={4}>
+              <Col xxl={2} lg={4} md={6}>
                 <div
                   className="popularCategory"
                   style={{

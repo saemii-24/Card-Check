@@ -74,7 +74,7 @@ const Top = () => {
       <Container fluid className="topContainer">
         <Container className="inner">
           <Row>
-            <Col md={4} className="cardSelect">
+            <Col xxl={4} md={12} className="cardSelect">
               <h1>
                 카드사별 인기
                 <br /> 체크카드
@@ -156,7 +156,7 @@ const Top = () => {
               <Col className="cardTop">
                 <Row>
                   {searchCard.map((card) => (
-                    <Col md={6} className="col" key={card.id}>
+                    <Col xxl={6} xl={3} lg={6} md={6} sm={12} xs={12} className="col" key={card.id}>
                       {
                         <div className="cardBoxAll">
                           <div

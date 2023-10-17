@@ -117,3 +117,32 @@
     }
   }
 }
+
+@media (width<=992px) {
+  .mdPick .inner .slideWrapper .slide .slideContent {
+    .slideText {
+      width: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      word-break: keep-all;
+    }
+  }
+}
+
+@media (width<=576px) {
+  .mdPick .inner .slideWrapper .slide {
+    border-radius: 0;
+    .slideContent {
+      .slideText {
+        top: 50%;
+        width: 70%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+        word-break: keep-all;
+        h3 {
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+}

@@ -100,7 +100,11 @@ const Main = () => {
             <Row className="contentBoxes">
               {benefitData[randomId - 1].card.map((data, index) => {
                 return (
-                  <Col key={`box_data.id_${index}`} className={`contentBox contentBox${index}`}>
+                  <Col
+                    key={`box_data.id_${index}`}
+                    className={`contentBox contentBox${index}`}
+                    md={4}
+                    sm={12}>
                     <p>{data.bank}</p>
                     <h4>{data.name}</h4>
                     <div className="badgeGroup">
@@ -109,15 +113,13 @@ const Main = () => {
                       ))}
                     </div>
                     <div className="benefitGroup">
-                      <p>
-                        {data.benefit.map((el, index) => {
-                          if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
-                            return Object.values(el)
-                          } else {
-                            return null
-                          }
-                        })}
-                      </p>
+                      {data.benefit.map((el, index) => {
+                        if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
+                          return <p key={el}>{Object.values(el)}</p>
+                        } else {
+                          return null
+                        }
+                      })}
                     </div>
                     <Button
                       onClick={() => {

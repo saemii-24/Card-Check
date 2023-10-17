@@ -13,7 +13,7 @@ const Character = () => {
     <Container fluid className="character">
       <Container className="inner">
         <Row className="content">
-          <Col md={6} className="col">
+          <Col lg={6} md={12} className="col">
             <h1>
               요즘 대세
               <br /> 캐릭터 체크카드
@@ -43,7 +43,7 @@ const Character = () => {
               ))}
             </div>
           </Col>
-          <Col className="card" id="card">
+          <Col lg={6} md={12} className="card" id="card">
             <Tilt
               className="cardImg"
               style={{

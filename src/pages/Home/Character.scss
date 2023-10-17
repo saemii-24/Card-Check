@@ -1,114 +1,176 @@
 @use '../../common' as mix;
-.character{
-    background-color: mix.$lightGray;
-    .inner{
-        padding-top:14rem;
-        padding-bottom: 14rem;
+.character {
+  background-color: mix.$lightGray;
+  .inner {
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+  }
+  h1 {
+    @include mix.title;
+  }
+  p {
+    @include mix.subtitle;
+  }
+  .content {
+    & > .col {
+      display: flex;
+      flex-direction: column;
     }
-    h1{
-        @include mix.title;
-    }
-    p{
-        @include mix.subtitle;
-    }
-    .content{
-        &>.col{
-            display: flex;
-            flex-direction: column;
+    .selectCircleBox {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      .selectCircle {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 2.5rem;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+        border: 3px solid #fff;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        &:nth-of-type(2),
+        &:nth-of-type(6) {
+          background-position: bottom;
         }
-        .selectCircleBox{
-            display: flex;
-            gap:0.6rem;
-            flex-wrap: wrap;   
-            .selectCircle{
-                width:2.5rem;
-                height: 2.5rem;
-                border-radius: 2.5rem;
-                background-position: center;
-                background-size:cover;
-                cursor: pointer;
-                border:3px solid #fff;
-                box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-                &:nth-of-type(2),
-                &:nth-of-type(6){
-                    background-position: bottom;
-                }
-            }
-        }
-        .pointBox{
-            display: flex;
-            flex-direction: column;
-            gap:1rem;
-            flex-grow: 1;
-            margin-top:3rem;
-            .point{
-                display: flex;
-                background-color: #fff;
-                @include mix.font400;
-                gap:1rem;
-                border-radius: 1rem;
-                flex-grow: 1;
-                padding-left: 1.5rem;
-                align-items: center;
-                span{
-                    color: mix.$blue;
-                    font-size: 2.3rem;
-                }
-                h5{
-                    margin-bottom: 0;
-                    line-height: 2rem;
-                }
-            }
-            .cardInfo{
-                background-color: #fff;
-                border-radius: 1rem;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                padding-left: 1.5rem;
-                .badge{
-                    margin:0;
-                    @include mix.font400;
-                    background-color: mix.$blue !important;
-                    margin-bottom: 0.5rem;
-                }
-                h3{
-                    @include mix.font600;
-                    color:mix.$blue;
-                    margin-bottom: 0;
-                }
-            }
-        }
+      }
     }
-    .card{
-        border:none;
-        @include mix.center;
-        background-color: #fff;
-        height: 0;
-        padding-bottom: 50%;
-        border-radius: 0.4rem;
-       
-        .cardImg{
-            @include mix.background;
-            width: 38%;
-            padding-bottom: 60%;
-            border-radius: 0.4rem;
-            margin-top:100%;
-        }
-    }
-
-    .moreButton{
+    .pointBox {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex-grow: 1;
+      margin-top: 3rem;
+      .point {
         display: flex;
-        gap:0.5rem;
+        background-color: #fff;
         @include mix.font400;
-        margin-top: 5%;
-        width: 38%;
-        margin-bottom: -10%;
-        svg{
-            margin-top:-4%;
+        gap: 1rem;
+        border-radius: 1rem;
+        flex-grow: 1;
+        padding-left: 1.5rem;
+        align-items: center;
+        span {
+          color: mix.$blue;
+          font-size: 2.3rem;
         }
-        
+        h5 {
+          margin-bottom: 0;
+          line-height: 2rem;
+        }
+      }
+      .cardInfo {
+        background-color: #fff;
+        border-radius: 1rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 1.5rem;
+        .badge {
+          margin: 0;
+          @include mix.font400;
+          background-color: mix.$blue !important;
+          margin-bottom: 0.5rem;
+        }
+        h3 {
+          @include mix.font600;
+          color: mix.$blue;
+          margin-bottom: 0;
+        }
+      }
     }
+  }
+  .card {
+    border: none;
+    @include mix.center;
+    background-color: #fff;
+    height: 0;
+    padding-bottom: 50%;
+    border-radius: 0.4rem;
+
+    .cardImg {
+      @include mix.background;
+      width: 38%;
+      padding-bottom: 60%;
+      border-radius: 0.4rem;
+      margin-top: 100%;
+    }
+  }
+
+  .moreButton {
+    display: flex;
+    gap: 0.5rem;
+    @include mix.font400;
+    margin-top: 5%;
+    width: 38%;
+    margin-bottom: -10%;
+    svg {
+      margin-top: -4%;
+    }
+  }
+}
+@media (width<=1400px) {
+  .character .moreButton {
+    flex-direction: column;
+  }
+}
+@media (width<=992px) {
+  .character .moreButton {
+    flex-direction: column;
+  }
+  .character .content .selectCircleBox .selectCircle {
+    width: 4rem;
+    height: 4rem;
+  }
+  .character .content .pointBox .cardInfo {
+    padding: 1.6rem;
+  }
+  .character .content .pointBox .point {
+    padding: 1.6rem;
+  }
+  .character .card {
+    margin-top: 1rem;
+    margin-left: 10.5px;
+    border-radius: 1rem;
+    width: calc(100% - 21px);
+    padding-bottom: 75%;
+    .cardImg {
+      margin-top: 70%;
+      width: 30%;
+      padding-bottom: calc(30% * 1.58);
+    }
+    .moreButton .btn {
+      width: 80%;
+      margin-bottom: 0.3rem;
+    }
+  }
+}
+@media (width<=500px) {
+  .character .content .selectCircleBox .selectCircle {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .character .card {
+    display: flex;
+    margin-top: 1rem;
+    margin-left: 10.5px;
+    border-radius: 1rem;
+    padding-bottom: 160%;
+
+    .cardImg {
+      margin-top: 170%;
+      width: 60%;
+      padding-bottom: calc(60% * 1.58);
+      margin-bottom: 1rem;
+    }
+    .moreButton .btn {
+      width: 160%;
+      margin-bottom: 0.3rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  }
 }

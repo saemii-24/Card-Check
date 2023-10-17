@@ -1,5 +1,3 @@
-
-
 @use '../../common' as mix;
 
 .category {
@@ -50,6 +48,28 @@
         color: #fff;
         @include mix.font400;
         padding-right: 15px;
+      }
+    }
+  }
+}
+
+@media (width <= 1400px) {
+  .category {
+    .inner {
+      .popularCategory {
+        padding: 25px;
+        padding-bottom: 50%;
+      }
+    }
+  }
+}
+
+@media (width <= 992px) {
+  .category {
+    .inner {
+      .popularCategory {
+        padding: 25px;
+        padding-bottom: 40%;
       }
     }
   }
