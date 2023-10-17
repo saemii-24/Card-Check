@@ -47,7 +47,8 @@
       cursor: pointer;
       opacity: 0;
       transform: translateY(100px);
-
+      transition: all 400ms;
+      transition-timing-function: ease-out;
       position: absolute;
       top: -5%;
       left: -5%;
@@ -145,16 +146,15 @@
     @include mix.center;
     flex-direction: column;
     position: relative;
-    svg {
-      color: mix.$lightBlue;
-      font-size: 18rem;
+    img {
+      width: 20%;
     }
     h4{
-      color:mix.$lightBlue;
+      color:mix.$blue;
       @include mix.font600;
-      font-size: 2rem;
-      margin-top:-1.2rem;
-      margin-bottom:1rem;
+      font-size: 1.5rem;
+      margin-top:3rem;
+      margin-bottom:3rem;
     }
     
   }

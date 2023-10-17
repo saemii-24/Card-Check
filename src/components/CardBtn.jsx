@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { AiOutlineInbox } from 'react-icons/ai'
 import './CardBtn.scss'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { putCardBox } from '../redux/cardBoxSlice'
+import { putCardBox, showPutPopup, showFullPopup } from '../redux/cardBoxSlice'
 
 const CardBtn = ({ data }) => {
   const navigate = useNavigate()
@@ -12,6 +12,10 @@ const CardBtn = ({ data }) => {
   const dispatch = useDispatch()
   const handlePutCardBox = (info) => {
     dispatch(putCardBox(info))
+  }
+
+  const handleFullPopup = () => {
+    dispatch(showFullPopup())
   }
   //현재 데이터가 이미 박스에 담겼는지 확인한다.
   const cardBox = useSelector((state) => state.cardBoxSlice.value)
@@ -23,8 +27,7 @@ const CardBtn = ({ data }) => {
       return false
     }
   }
-  // console.log(cardBox)
-  // console.log(data)
+
   return (
     <div className="moreButton">
       <Button
@@ -36,6 +39,7 @@ const CardBtn = ({ data }) => {
       <Button
         onClick={() => {
           handlePutCardBox(data)
+          handleFullPopup()
         }}>
         <AiOutlineInbox strokeWidth="20" />
         &nbsp;카드 비교

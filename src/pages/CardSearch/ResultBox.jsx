@@ -3,7 +3,6 @@ import { Container, Badge, Row, Col } from 'react-bootstrap'
 import './ResultBox.scss'
 import pointIcon from '../../data/pointIcon'
 import CardBtn from '../../components/CardBtn'
-import { PiCreditCardLight } from 'react-icons/pi'
 import _, { filter } from 'lodash'
 
 const ResultBox = ({ cardData }) => {
@@ -58,8 +57,8 @@ const ResultBox = ({ cardData }) => {
       ) : (
         <Container className="ifNull">
           <div className="nullCard">
-            <PiCreditCardLight />
-            <h4>조건에 만족하는 카드가 없어요</h4>
+            <img src={process.env.PUBLIC_URL + '/image/empty.svg'} alt="" />
+            <h4>조건을 만족하는 카드가 없습니다.</h4>
           </div>
         </Container>
       )}

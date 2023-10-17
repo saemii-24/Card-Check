@@ -1,45 +1,85 @@
 @use '../common' as mix;
+
 .cardBoxBtn {
   position: fixed;
   z-index: 100;
   right: 2rem;
   bottom: 3rem;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 4rem;
+  width: 12rem;
+  border-radius: 0.4rem;
+  border: 2px solid mix.$blue;
+  @include mix.shadow;
   background-color: #fff;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-  transition: all 300ms;
-  transition-timing-function: ease-out;
-  @include mix.center;
-  cursor: pointer;
-  .content {
-    p {
-      @include mix.font400;
+
+  .boxNull {
+    height: 3.5rem;
+    display: flex;
+    @include mix.center;
+    line-height: 2rem;
+    @include mix.font500;
+    color: mix.$blue;
+    transition: all 200ms;
+    &:hover{
       color: #fff;
-      opacity: 1;
-      visibility: visible;
-      display: none;
+      background-color: mix.$blue;
     }
+    p {
+      margin: 0;
+      margin-left: 0.4rem;
+      margin-right: 0.4rem;
+    }
+
     svg {
-      font-size: 1.5rem;
-      color: mix.$blue;
-      opacity: 1;
-      visibility: visible;
+      margin-top: 0.1rem;
     }
   }
-  &:hover {
-    background-color: mix.$blue;
-    width: 12rem;
-    svg {
-      opacity: 0;
-      visibility: hidden;
-      display: none;
-    }
-    p {
-      display: block;
-      opacity: 1;
-      visibility: visible;
+
+  .boxImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 10px;
+    padding-top: 0;
+
+    .cardAlign {
+      width: 25%;
+      border: 1px solid mix.$blue;
+      border-radius: 0.2rem;
+      position: relative;
+      overflow: hidden;
+
+      .cardImg {
+        width: 100%;
+        padding-bottom: calc(100% * 1.58);
+        @include mix.background;
+      }
+
+      .cardClose {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        font-size: 2rem;
+        text-align: center;
+        color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 150ms;
+        svg{
+          margin-top:5px;
+        }
+      }
+      &:hover{
+        .cardClose{
+          opacity: 1;
+          visibility: visible;
+        }
+      }
     }
   }
 }

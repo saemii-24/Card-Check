@@ -37,6 +37,7 @@ const Footer = () => {
               <li>Heroicons 2</li>
               <li>Font Awesome 5</li>
               <li>Font Awesome 6</li>
+              <li>Material Design icons</li>
             </ul>
           </Row>
         </Container>

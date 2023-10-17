@@ -1,0 +1,61 @@
+@use '../../common' as mix;
+
+.DuplicatePopup{
+    z-index: 10000;
+    max-width: 400px;
+    max-height: 240px;
+    width: 90%;
+    height: calc(240px * 90% / 440px);
+    border-radius: 10px;
+    background-color: #fff;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding:1%;
+    @include mix.center;
+    flex-direction: column;
+    box-shadow: 0px 0px 20px rgba(42, 209, 173, 0.15);
+    border:2px solid mix.$green;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 200ms;
+    &.active{
+        opacity: 1;
+        visibility: visible;
+    }
+    img{
+        width: 40%;
+        margin-top: -1rem;
+    }
+    p{
+        @include mix.font500;
+        color: mix.$green;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .closeIcon{
+        color: mix.$green;
+        stroke-width: 10px;
+        position: absolute; 
+        top:20px;
+        right:20px;
+        cursor: pointer;
+    }
+    .goBoxBtn{
+        background-color: mix.$green;
+        @include mix.font500;
+        outline: none;
+        border:none;
+        margin-top:1rem;
+        transition: all 200ms;
+        svg{
+            margin-top:-3px;
+        }
+        &:hover,
+        &:active{
+            background-color: mix.$green !important;
+            opacity: 0.8;
+        }
+    }
+}

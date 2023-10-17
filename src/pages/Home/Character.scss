@@ -2,8 +2,8 @@
 .character{
     background-color: mix.$lightGray;
     .inner{
-        padding-top:10rem;
-        padding-bottom: 10rem;
+        padding-top:14rem;
+        padding-bottom: 14rem;
     }
     h1{
         @include mix.title;
@@ -98,6 +98,7 @@
             margin-top:100%;
         }
     }
+
     .moreButton{
         display: flex;
         gap:0.5rem;

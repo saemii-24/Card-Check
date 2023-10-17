@@ -101,6 +101,7 @@
       &.contentBoxes {
         align-items: flex-start;
         gap: 2.5rem;
+        margin-top: 3rem;
         .contentBox {
           h4 {
             @include mix.font700;

@@ -8,7 +8,7 @@ import Tilt from 'react-parallax-tilt'
 import { AiOutlineInbox } from 'react-icons/ai'
 import './CardDetail.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { putCardBox } from '../../redux/cardBoxSlice'
+import { putCardBox, showFullPopup } from '../../redux/cardBoxSlice'
 
 const CardDetail = () => {
   let params = useParams()
@@ -18,12 +18,12 @@ const CardDetail = () => {
   let data = filterData[0]
   //redux
   const dispatch = useDispatch()
-  const handlePutCardBox = (info) => {
-    dispatch(putCardBox(info))
+  const handlePutCardBox = (data) => {
+    dispatch(putCardBox(data))
   }
-  const cardBox = useSelector((state) => state.cardBoxSlice)
-  console.log(cardBox)
-
+  const handleShowFullPopup = () => {
+    dispatch(showFullPopup())
+  }
   return (
     <Container fluid className="cardDetail">
       <Container fluid className="cardBanner">
@@ -49,6 +49,7 @@ const CardDetail = () => {
                 <Button
                   onClick={() => {
                     handlePutCardBox(data)
+                    handleShowFullPopup()
                   }}>
                   <AiOutlineInbox strokeWidth="20" />
                   &nbsp;카드 비교

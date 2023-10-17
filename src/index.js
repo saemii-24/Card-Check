@@ -8,12 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'swiper/css'
 import { Provider } from 'react-redux'
 import store from './redux/store'
-
+import ScrollToTop from './scrollToTop'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <Provider store={store}>
     <BrowserRouter basename="/project_5">
       <React.StrictMode>
+        <ScrollToTop />
         <App />
       </React.StrictMode>
     </BrowserRouter>

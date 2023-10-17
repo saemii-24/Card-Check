@@ -7,13 +7,15 @@ import CardBox from './pages/CardBox/CardBox'
 import CardSearch from './pages/CardSearch/CardSearch'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import ScrollToTop from './scrollToTop'
+import DuplicatePopup from './components/Popup/DuplicatePopup'
+import FullPopup from './components/Popup/FullPopup'
 function App() {
   return (
     <>
+      <DuplicatePopup />
+      <FullPopup />
       <Header />
       <CardBoxBtn />
-      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cardSearch" element={<CardSearch />} />

@@ -35,7 +35,7 @@ const benefitIcon = (benefitKey) => {
     case '베이커리':
       return <span className="material-symbols-outlined">bakery_dining</span>
     case '슈퍼마켓':
-      return <span className="material-symbols-outlined">storefront</span>
+      return <span className="material-symbols-outlined">store</span>
     case '쇼핑':
       return <span className="material-symbols-outlined">shopping_cart</span>
     case '포인트':

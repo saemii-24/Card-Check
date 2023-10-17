@@ -1,20 +1,45 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Button, Badge, Row, Col } from 'react-bootstrap'
+import { Container, Button, Row, Col } from 'react-bootstrap'
 import cardData from '../../data/cardData'
 import { companyBtn, benefitBtn } from '../../data/btnData'
 import './CardSearch.scss'
 import cn from 'classnames'
-import _, { filter } from 'lodash'
+import _ from 'lodash'
 import ResultBox from './ResultBox'
+import { MdRadioButtonUnchecked, MdCheckCircle } from 'react-icons/md'
 const CardSearch = () => {
-  //filter 기준이 될 버튼 만들기
+  //search 기준이 될 버튼 state
   let companyBtnData = [...companyBtn]
   let benefitBtnData = [...benefitBtn]
   let [company, setCompany] = useState(companyBtnData)
   let [benefit, setBenefit] = useState(benefitBtnData)
+
+  //ReulstBox에서 렌더링 될 filter 된 카드 정보들
   let [filterData, setFilterData] = useState(cardData)
-  let [companyBtnAll, setCompanyBtnAll] = useState(true)
-  let [benefitBtnAll, setBenefitBtnAll] = useState(true)
+  // 카드 전체보기 버튼의 state
+  let [btnAll, setBtnAll] = useState(true)
+  // 카드 전체보기 함수
+  const handleAllBtn = () => {
+    let newCompanyData = [...company]
+    for (let i = 0; i < newCompanyData.length; i++) {
+      newCompanyData[i].active = false
+    }
+    let newBenefitData = [...benefit]
+    for (let i = 0; i < newBenefitData.length; i++) {
+      newBenefitData[i].active = false
+    }
+    setCompany(newCompanyData)
+    setBenefit(newBenefitData)
+    let originData = [...cardData]
+    setFilterData(originData)
+  }
+
+  //회사 filter 함수 (하단 혜택 filter함수 콜백함수로 가지고 있음)
+  useEffect(() => {
+    handleCompanyBtn()
+    handleBenefitBtn()
+  }, [company, benefit])
+
   const handleCompanyBtn = () => {
     let thisData = [...cardData]
     //회사 필터 기준 생성
@@ -30,18 +55,11 @@ const CardSearch = () => {
 
     handleBenefitBtn()
     setFilterData(filterObj)
-    // console.log(filterObj)
   }
-  useEffect(() => {
-    handleCompanyBtn()
-    handleBenefitBtn()
-  }, [company, benefit])
-  // useEffect(() => {
-  // }, [benefit, filterData])
 
+  //혜택 filter 함수,
   const handleBenefitBtn = () => {
     let thisData = [...filterData]
-    // console.log(thisData)
     // //혜택 필터 기준 생성
     let activeBtn = benefit.filter((el) => {
       return el.active === true
@@ -62,15 +80,6 @@ const CardSearch = () => {
     })
     setFilterData(filterObj)
   }
-  const handleAllBtn = (originData, setOriginData) => {
-    let newData = [...originData]
-    for (let i = 0; i < newData.length; i++) {
-      newData[i].active = true
-    }
-    console.log(newData)
-    setOriginData(newData)
-    handleCompanyBtn()
-  }
 
   return (
     <>
@@ -85,14 +94,7 @@ const CardSearch = () => {
           <Row className="companyBtnBox btnBox">
             <Col>
               <div className="companyBtn">
-                <Button
-                  className={(cn, { active: companyBtnAll })}
-                  onClick={() => {
-                    setCompanyBtnAll(true)
-                    handleAllBtn(company, setCompany)
-                  }}>
-                  카드 전체보기
-                </Button>
+                <h5>카드사 별:</h5>
                 {company.map((item, index) => (
                   <Button
                     key={index}
@@ -105,11 +107,12 @@ const CardSearch = () => {
                       handleCompanyBtn()
 
                       if (company.every((btn) => btn.active === false)) {
-                        setCompanyBtnAll(true)
+                        setBtnAll(true)
                       } else if (company.some((btn) => btn.active === false)) {
-                        setCompanyBtnAll(false)
+                        setBtnAll(false)
                       }
                     }}>
+                    {item.active ? <MdCheckCircle /> : <MdRadioButtonUnchecked />}
                     {item.company}
                   </Button>
                 ))}
@@ -119,14 +122,7 @@ const CardSearch = () => {
           <Row className="benefitBtnBox btnBox">
             <Col>
               <div className="benefitBtn">
-                <Button
-                  className={(cn, { active: benefitBtnAll })}
-                  onClick={() => {
-                    setCompanyBtnAll(true)
-                    handleAllBtn(benefit, setBenefit)
-                  }}>
-                  혜택 선택 초기화
-                </Button>
+                <h5>혜택 별:</h5>
                 {benefit.map((item, index) => (
                   <Button
                     key={index}
@@ -137,18 +133,31 @@ const CardSearch = () => {
                       newData[index].active = !newData[index].active
                       setBenefit(newData)
                       handleCompanyBtn()
-                      setBenefitBtnAll(false)
+                      setBtnAll(false)
 
                       if (benefit.every((btn) => btn.active === false)) {
-                        setBenefitBtnAll(true)
+                        setBtnAll(true)
                       } else if (benefit.some((btn) => btn.active === false)) {
-                        setBenefitBtnAll(false)
+                        setBtnAll(false)
                       }
                     }}>
+                    {item.active ? <MdCheckCircle /> : <MdRadioButtonUnchecked />}
                     {item.benefit}
                   </Button>
                 ))}
               </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="btnAlign">
+              <Button
+                className={cn('cardAll', { active: btnAll })}
+                onClick={() => {
+                  setBtnAll(true)
+                  handleAllBtn()
+                }}>
+                카드 전체보기
+              </Button>
             </Col>
           </Row>
         </Container>

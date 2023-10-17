@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './Main.scss'
 import { Container, Button, Col, Row, Badge } from 'react-bootstrap'
 import benefitData from '../../data/benefitData'
@@ -17,7 +17,6 @@ const Main = () => {
 
   //gsap
   const mainRef = useRef(null)
-  const firstSentenceRef = useRef(null)
 
   useEffect(() => {
     let card = gsap.context(() => {
@@ -56,7 +55,13 @@ const Main = () => {
             <Col className="textBox">
               <h1>나의 생활 패턴에 딱맞는 카드를 찾아보세요!</h1>
               <p>생활에 꼭 필요한 혜택을 선택하고 다양한 카드사의 카드를 한눈에 살펴보세요.</p>
-              <Button className="searchBtn">카드 검색하기</Button>
+              <Button
+                className="searchBtn"
+                onClick={() => {
+                  navigate('/cardSearch')
+                }}>
+                카드 검색하기
+              </Button>
             </Col>
             <Col className="cardImgBox">
               <div
@@ -104,21 +109,12 @@ const Main = () => {
                       ))}
                     </div>
                     <div className="benefitGroup">
-                      <p ref={firstSentenceRef}>
-                        {data.benefit.map((el, index) => {
-                          if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
-                            return Object.values(el)
-                          } else {
-                            return null
-                          }
-                        })}
-                      </p>
                       <p>
                         {data.benefit.map((el, index) => {
                           if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
-                            return null
-                          } else {
                             return Object.values(el)
+                          } else {
+                            return null
                           }
                         })}
                       </p>

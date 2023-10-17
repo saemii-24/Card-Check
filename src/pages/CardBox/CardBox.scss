@@ -1,5 +1,6 @@
 @use '../../common' as mix;
 
+
 .cardBox {
   .inner {
     margin-top: 10%;
@@ -69,6 +70,8 @@
           position: absolute;
           top: 45%;
           transform: translateY(-50%);
+          text-align: center;
+          word-break: keep-all;
         }
       }
     }
