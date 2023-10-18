@@ -202,6 +202,8 @@
       .cardImgBox {
         gap: 30px;
         height: calc(180px * 3 + 60px);
+        top: -10%;
+        right: -26%;
         .cardImg {
           background-size: contain;
           &:nth-of-type(2) {
@@ -231,7 +233,7 @@
             .benefitGroup {
               p {
                 width: 100%;
-                &:not(:first-child){
+                &:not(:first-child) {
                   display: none;
                 }
               }
@@ -245,7 +247,12 @@
     }
   }
 }
-
+@media (width<992px) {
+  .main .inner .cardImgBox {
+    top: -25%;
+    right: -26%;
+  }
+}
 @media (width <= 768px) {
   .main {
     &::before {

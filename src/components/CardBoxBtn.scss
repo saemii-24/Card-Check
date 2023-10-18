@@ -19,7 +19,7 @@
     @include mix.font500;
     color: mix.$blue;
     transition: all 200ms;
-    &:hover{
+    &:hover {
       color: #fff;
       background-color: mix.$blue;
     }
@@ -70,12 +70,12 @@
         opacity: 0;
         visibility: hidden;
         transition: all 150ms;
-        svg{
-          margin-top:5px;
+        svg {
+          margin-top: 5px;
         }
       }
-      &:hover{
-        .cardClose{
+      &:hover {
+        .cardClose {
           opacity: 1;
           visibility: visible;
         }
@@ -84,7 +84,7 @@
   }
 }
 
-.cardBoxBtn--small{
+.cardBoxBtn--small {
   position: fixed;
   z-index: 100;
   right: 2rem;
@@ -96,11 +96,11 @@
   color: #fff;
   @include mix.center;
   font-size: 1.5rem;
-  @include mix.shadow;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   visibility: hidden;
   // transition: all 300ms ease;
   opacity: 0;
-  .cardBoxNum{
+  .cardBoxNum {
     font-size: 0.9rem;
     font-weight: 600;
     position: absolute;
@@ -113,23 +113,22 @@
     background-color: mix.$red;
   }
 }
-@media (width<992px){
-  .cardBoxBtn--original{
+@media (width<992px) {
+  .cardBoxBtn--original {
     display: none;
   }
-  .cardBoxBtn--small.active{
+  .cardBoxBtn--small.active {
     visibility: visible;
     animation: fadeIn 500ms ease;
     animation-fill-mode: both;
   }
-
 }
 
-@keyframes fadeIn{
-  from{
+@keyframes fadeIn {
+  from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 100;
   }
 }

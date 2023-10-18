@@ -61,7 +61,7 @@ const CardBox = () => {
                 </div>
                 <div>
                   <div className="bankName">
-                    <div>
+                    <div className="bankInfo">
                       <h6>{card.bank}</h6>
                       <h5>{card.name}</h5>
                     </div>
@@ -78,7 +78,7 @@ const CardBox = () => {
                       ))}
                     </div>
                   </div>
-                  <div>
+                  <div className="cardBenefit">
                     <h6>혜택</h6>
                     {card.benefit.map((benefit, index) => (
                       <div key={'benefit' + index} className="benefit">

@@ -1,13 +1,8 @@
 @use '../../common' as mix;
 
-
 .cardBox {
   .inner {
     margin-top: 10%;
-
-    .cardBoxAlign {
-      margin-bottom: 10rem;
-    }
   }
 
   h1 {
@@ -50,7 +45,6 @@
         @include mix.background;
         border-radius: 4%;
         box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.08);
-
       }
 
       svg {
@@ -177,34 +171,32 @@
       width: 100%;
     }
   }
-
 }
 
 @media (width<992px) {
   .cardBox {
-    
     .inner {
       margin-top: 9rem;
     }
 
     .thisCardBox {
-      .benefit{
+      .benefit {
         padding: 2rem 2.2rem;
         background-color: mix.$lightGray;
         border-radius: 0.6rem;
         margin-top: 1rem;
         margin-bottom: 0;
-        span{
-          margin-top:1px;
+        span {
+          margin-top: -1px;
         }
-        p{
-          margin-top:0;
+        p {
+          margin-top: 0;
         }
       }
       &:first-of-type {
         border-right: none;
 
-        &>div {
+        & > div {
           border-right: none;
           border-top: none;
         }
@@ -215,6 +207,7 @@
       margin-bottom: 4rem;
 
       .bankName {
+        margin-top: 3rem;
         h5 {
           min-height: fit-content;
         }
@@ -222,6 +215,13 @@
 
       h6 {
         margin-top: 4rem;
+      }
+      .bankInfo {
+        h5,
+        h6 {
+          text-align: center;
+        }
+        margin-top: 1rem;
       }
 
       .cardImgBox {
@@ -241,6 +241,35 @@
         }
       }
 
+      .cost {
+        margin-top: 2rem;
+      }
+      .cost,
+      .brand {
+        background-color: mix.$lightGray;
+        padding: 2rem 2.2rem;
+        border-radius: 0.6rem;
+        margin-bottom: 1rem;
+        h6 {
+          margin-top: 0;
+        }
+        p {
+          margin-bottom: 0;
+        }
+      }
+      .brand {
+        & + div {
+          h6 {
+            padding: 1.2rem 2.2rem;
+            border-radius: 0.4rem;
+            color: #fff;
+            background: #007aff;
+          }
+        }
+      }
+      .cardBenefit {
+        padding-bottom: 3rem;
+      }
       &:last-of-type {
         .dummyCardImgBox {
           border-bottom: none;
@@ -249,14 +278,15 @@
 
       .dummyCardImgBox {
         svg {
-          top: 3rem;
+          top: 0rem;
           font-size: 2rem;
           stroke-width: 0;
         }
 
         margin-bottom: 0;
-        padding-top:4rem;
-        border-top: 2px solid mix.$lightGray;
+        padding-top: 0;
+        // border-top: 2px solid mix.$lightGray;
+        margin-bottom: 3rem;
 
         .dummyCardImg {
           width: 43%;
@@ -267,22 +297,19 @@
           width: 65%;
           padding-bottom: 65%;
         }
-
       }
     }
-
   }
 }
 
 @media (width <576px) {
   .cardBox .thisCardBox {
     padding: 0;
-     .cardImgBox svg,
-     .dummyCardImgBox svg{
-      right:1rem;
+    .cardImgBox svg,
+    .dummyCardImgBox svg {
+      right: 1rem;
     }
   }
-  
 }
 
 // @media (width<1200px) {
