@@ -113,7 +113,7 @@
         h5 {
           @include mix.font400;
           color: mix.$black;
-          font-size: 0.9rem;
+          font-size: 1rem;
           margin-bottom: 0;
           line-height: 1.4rem;
         }
@@ -141,21 +141,185 @@
 }
 
 .ifNull {
-  margin-top:10rem;
+  margin-top: 10rem;
+
   .nullCard {
     @include mix.center;
     flex-direction: column;
     position: relative;
+
     img {
       width: 20%;
     }
-    h4{
-      color:mix.$blue;
+
+    h4 {
+      color: mix.$blue;
       @include mix.font600;
       font-size: 1.5rem;
-      margin-top:3rem;
-      margin-bottom:3rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
     }
-    
+
+  }
+}
+
+@media (width<1400px) {
+  .cardImgBox {
+    .cardBoxAll {
+      .pointBox {
+        left: -15%;
+        width: 130%;
+        height: 120%;
+
+        .moreButton .btn {
+          padding: 0.65rem 0.3rem 0.7rem;
+        }
+
+      }
+    }
+  }
+}
+
+@media (width<1200px) {
+  .cardImgBox {
+    .cardBoxAll {
+      width: 50%;
+
+      .pointBox {
+        left: -10%;
+        width: 120%;
+        height: 110%;
+
+      }
+    }
+  }
+
+  .cardImgAlign::after {
+    padding-bottom: 70%;
+    width: 70%;
+  }
+}
+
+@media (width<992px) {
+  .cardImgBox {
+    .cardBoxAll {
+      width: 65%;
+
+      .pointBox {
+        left: -5%;
+        width: 110%;
+        height: 110%;
+
+        // .moreButton .btn {
+        //   font-size: 0.9rem !important;
+        //   padding-top: 0.55rem;
+        //   padding-bottom: 0.6rem;
+        // }
+
+        // .moreButton svg {
+        //   margin-top: -3%;
+        // }
+      }
+    }
+  }
+
+  .cardImgAlign::after {
+    padding-bottom: 78%;
+    width: 78%;
+  }
+}
+
+@media (width<765px) {
+  .resultBox .resultCardBox .title {
+    border-bottom: none;
+
+    h2 {
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid #f5f5f5;
+    }
+  }
+
+  .cardImgBox {
+    .cardBoxAll {
+      width: 50%;
+
+      .pointBox {
+        left: -5%;
+        width: 110%;
+        height: 110%;
+      }
+    }
+  }
+
+  .cardImgAlign::after {
+    padding-bottom: 65%;
+    width: 65%;
+  }
+}
+
+@media(width<=500px){
+  .cardImgBox {
+    .cardBoxAll {
+      width: 50%;
+
+      .pointBox {
+        left: -15%;
+        min-width: 260px;
+        width:130px;
+        height: 130%;
+        transform: translateY(80px);
+      }
+      &:hover{
+        .pointBox{
+          transform: translateY(-20px);
+        }
+      }
+    }
+  }
+
+  .cardImgAlign::after {
+    padding-bottom: 65%;
+    width: 65%;
+  }
+}
+// @media (429px<=width<454px) {
+//   .cardImgBox {
+//     .cardBoxAll {
+//       .pointBox {
+//                 .moreButton .btn {
+//           font-size: 1rem !important;
+//           padding-top: 0.55rem;
+//           padding-bottom: 0.6rem;
+//         }
+
+//         .moreButton svg {
+//           margin-top: -3%;
+//         }
+
+//       }
+//     }
+//   }
+// }
+
+@media (width<430px) {
+  .cardImgBox {
+    .cardBoxAll {
+      width: 50%;
+
+      .pointBox {
+        left: -51%;
+        width: calc(100vw - 17px);
+        height: 115%;
+
+      }
+    }
+  }
+
+  .cardImgAlign::after {
+    padding-bottom: 65%;
+    width: 65%;
+  }
+  .moreButton svg{
+    margin-top:-3%;
   }
 }

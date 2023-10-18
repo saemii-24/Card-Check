@@ -4,6 +4,10 @@
 .cardBox {
   .inner {
     margin-top: 10%;
+
+    .cardBoxAlign {
+      margin-bottom: 10rem;
+    }
   }
 
   h1 {
@@ -76,6 +80,8 @@
         position: relative;
 
         h5 {
+          margin-left: 1rem;
+          margin-right: 1rem;
           position: absolute;
           top: 45%;
           transform: translateY(-50%);
@@ -92,7 +98,7 @@
 
       span {
         color: mix.$blue;
-        line-height: 2.2rem;
+        line-height: 2.5rem;
         margin-top: 1rem;
       }
 
@@ -148,39 +154,76 @@
 }
 
 @media (width<1200px) {
-
-  .cardBox {
-    .thisCardBox:not(:last-of-type){
-      border-right: none;
-    }
-    .thisCardBox:first-of-type{
-      border-right:  2px solid mix.$lightGray;
-    }
-}
-}
-@media (width<992px) {
   .cardBox {
     .inner {
-      margin-top: 8rem;
-  }
-  .thisCardBox{
-    &:first-of-type{
-    border-right:none;
-    &>div{
-    border-right:none;
-    border-top:none;
+      margin-top: 10rem;
     }
-  }}
+
+    .thisCardBox:not(:last-of-type) {
+      border-right: none;
+    }
+
+    .thisCardBox:first-of-type {
+      border-right: 2px solid mix.$lightGray;
+    }
+  }
+
+  .cardBox .thisCardBox {
+    p {
+      font-size: 1.2rem;
+    }
+
+    .row {
+      width: 100%;
+    }
+  }
+
+}
+
+@media (width<992px) {
+  .cardBox {
+    
+    .inner {
+      margin-top: 9rem;
+    }
+
+    .thisCardBox {
+      .benefit{
+        padding: 2rem 2.2rem;
+        background-color: mix.$lightGray;
+        border-radius: 0.6rem;
+        margin-top: 1rem;
+        margin-bottom: 0;
+        span{
+          margin-top:1px;
+        }
+        p{
+          margin-top:0;
+        }
+      }
+      &:first-of-type {
+        border-right: none;
+
+        &>div {
+          border-right: none;
+          border-top: none;
+        }
+      }
+    }
+
     .thisCardBox {
       margin-bottom: 4rem;
+
       .bankName {
-        h5{
+        h5 {
           min-height: fit-content;
         }
       }
-      h6{
-        margin-top:4rem;
+
+      h6 {
+        margin-top: 4rem;
       }
+
       .cardImgBox {
         .cardImg {
           width: 43%;
@@ -193,35 +236,69 @@
         }
 
         svg {
-          font-size: 2.5rem;
+          font-size: 2rem;
           stroke-width: 4;
         }
       }
-      &:last-of-type{
+
+      &:last-of-type {
         .dummyCardImgBox {
-        border-bottom: none;
+          border-bottom: none;
         }
       }
-    .dummyCardImgBox {
-      svg{
-        top: 3rem;
-        font-size: 2rem;
-      }
-      margin-bottom: 0;
-      padding-top:4rem;
-      border-top: 2px solid mix.$lightGray;
-      
-      .dummyCardImg {
+
+      .dummyCardImgBox {
+        svg {
+          top: 3rem;
+          font-size: 2rem;
+          stroke-width: 0;
+        }
+
+        margin-bottom: 0;
+        padding-top:4rem;
+        border-top: 2px solid mix.$lightGray;
+
+        .dummyCardImg {
           width: 43%;
           padding-bottom: calc(43% * 1.58);
-      }
-      &::before {
-        width: 65%;
-        padding-bottom: 65%;
-      }
+        }
 
-    }
+        &::before {
+          width: 65%;
+          padding-bottom: 65%;
+        }
+
+      }
     }
 
   }
 }
+
+@media (width <576px) {
+  .cardBox .thisCardBox {
+    padding: 0;
+     .cardImgBox svg,
+     .dummyCardImgBox svg{
+      right:1rem;
+    }
+  }
+  
+}
+
+// @media (width<1200px) {
+//   .cardBox {
+//     .inner {
+//       margin-top: 10rem;
+//     }
+//   }
+
+//   .cardBox .thisCardBox {
+//     p {
+//       font-size: 1.2rem;
+//     }
+
+//     .row {
+//       width: 100%;
+//     }
+//   }
+// }

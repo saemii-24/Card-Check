@@ -231,6 +231,9 @@
             .benefitGroup {
               p {
                 width: 100%;
+                &:not(:first-child){
+                  display: none;
+                }
               }
             }
             .btn {
@@ -276,7 +279,7 @@
 
   .main--load {
     .benefitBg {
-      transform: translateX(-20%);
+      transform: translateX(-35%);
     }
     .benefitBg__content {
       & > div {

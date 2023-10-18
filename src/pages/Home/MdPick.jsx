@@ -4,6 +4,11 @@ import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
 import './MdPick.scss'
 import mdPickData from '../../data/mdPickData'
 import cn from 'classnames'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination, Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 const MdPick = () => {
   let [slideActiveForward, setslideActiveForward] = useState(false)
@@ -34,7 +39,7 @@ const MdPick = () => {
   return (
     <>
       <Container fluid className="mdPick">
-        <Container className="inner">
+        <Container className="inner slide--original">
           <div
             className="paginationBack pagination"
             onClick={() => {
@@ -80,6 +85,32 @@ const MdPick = () => {
             }}>
             <IoChevronForward />
           </div>
+        </Container>
+
+        {/* 992px 이하에서는 swiper가 보여진다 */}
+        <Container className="slide--small">
+          <Swiper
+            slidesPerView={1}
+            loop={true}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Pagination, Navigation]}
+            className="mdPickSwiper">
+            {slideData.map((slide, index) => (
+              <SwiperSlide
+                key={index}
+                style={{ backgroundImage: `url(${process.env.PUBLIC_URL + slide.image})` }}>
+                <div>
+                  <div className="slideText">
+                    <h5 className="subTitle">{slide.subtitle}</h5>
+                    <h3 className="title">{slide.title}</h3>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Container>
       </Container>
     </>

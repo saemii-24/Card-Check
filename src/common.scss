@@ -73,3 +73,16 @@ $green: #2ad1ad;
 @mixin shadow {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
 }
+@mixin innerTop{
+  margin-top: 10%;
+}
+@media(width<=992px){
+  @mixin innerTop{
+    margin-top: 10rem
+  }
+}
+@media(width<=576px){
+  @mixin innerTop{
+    margin-top: 8rem
+  }
+}

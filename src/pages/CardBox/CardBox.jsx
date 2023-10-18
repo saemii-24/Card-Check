@@ -43,7 +43,7 @@ const CardBox = () => {
         <Row>
           <h1>카드 비교하기</h1>
         </Row>
-        <Row>
+        <Row className="cardBoxAlign">
           {cardBoxData.map((card) => (
             <Col sm={12} lg={6} xl={4} key={card.id} className="thisCardBox">
               <Row>

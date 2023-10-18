@@ -5,6 +5,7 @@ import './CardBoxBtn.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteCardBox } from '../redux/cardBoxSlice'
 import { AiFillCloseCircle } from 'react-icons/ai'
+import cn from 'classnames'
 const CardBoxBtn = () => {
   const cardBox = useSelector((state) => state.cardBoxSlice.value)
   const dispatch = useDispatch()
@@ -15,7 +16,7 @@ const CardBoxBtn = () => {
   return (
     <>
       <Link to="/cardBox">
-        <div className="cardBoxBtn">
+        <div className="cardBoxBtn cardBoxBtn--original">
           <div className="boxNull">
             <AiOutlineInbox />
             <p>카드 비교함</p>
@@ -39,6 +40,10 @@ const CardBoxBtn = () => {
               ))}
             </div>
           )}
+        </div>
+        <div className={cn('cardBoxBtn--small', { active: cardBox.length > 0 })}>
+          {cardBox.length > 0 && <div className="cardBoxNum">{cardBox.length}</div>}
+          <AiOutlineInbox />
         </div>
       </Link>
     </>

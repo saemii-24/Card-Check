@@ -115,7 +115,7 @@ const Main = () => {
                     <div className="benefitGroup">
                       {data.benefit.map((el, index) => {
                         if (el.hasOwnProperty(benefitData[randomId - 1].keyword)) {
-                          return <p key={el}>{Object.values(el)}</p>
+                          return <p key={el + index}>{Object.values(el)}</p>
                         } else {
                           return null
                         }

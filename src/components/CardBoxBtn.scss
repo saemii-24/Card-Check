@@ -83,3 +83,53 @@
     }
   }
 }
+
+.cardBoxBtn--small{
+  position: fixed;
+  z-index: 100;
+  right: 2rem;
+  bottom: 3rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: mix.$blue;
+  color: #fff;
+  @include mix.center;
+  font-size: 1.5rem;
+  @include mix.shadow;
+  visibility: hidden;
+  // transition: all 300ms ease;
+  opacity: 0;
+  .cardBoxNum{
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: mix.$red;
+  }
+}
+@media (width<992px){
+  .cardBoxBtn--original{
+    display: none;
+  }
+  .cardBoxBtn--small.active{
+    visibility: visible;
+    animation: fadeIn 500ms ease;
+    animation-fill-mode: both;
+  }
+
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 100;
+  }
+}

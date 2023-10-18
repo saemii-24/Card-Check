@@ -44,7 +44,7 @@ const Category = () => {
                 </div>
               </Col>
 
-              <Col xxl={2} lg={4} md={6}>
+              <Col xxl={2} xl={4} md={6}>
                 <div
                   className="popularCategory"
                   style={{
@@ -57,7 +57,7 @@ const Category = () => {
                 </div>
               </Col>
 
-              <Col xxl={2} lg={4} md={6}>
+              <Col xxl={2} xl={4} md={6}>
                 <div
                   className="popularCategory"
                   style={{
@@ -68,7 +68,7 @@ const Category = () => {
                   </p>
                 </div>
               </Col>
-              <Col xxl={2} lg={4} md={6}>
+              <Col xxl={2} xl={4} md={6}>
                 <div
                   className="popularCategory"
                   style={{

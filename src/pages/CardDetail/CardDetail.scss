@@ -239,9 +239,10 @@
             max-width: none;
           }
         }
-
       }
-
+      .cardBox .thisCardBox {
+        padding:0;
+    }
       .cardImgBox {
         padding: 0;
         margin-bottom: 3rem;
@@ -281,7 +282,7 @@
     .benefitBox .benefit {
       margin: 0 10.5px;
       padding: 2rem 2.2rem;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       line-height: 1.6;
       border-radius: 0.6rem;
       gap: 1rem;
