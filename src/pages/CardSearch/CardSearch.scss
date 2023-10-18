@@ -63,8 +63,8 @@
             }
 
             &:active {
-                background-color: mix.$black !important;
-                color: #fff;
+                background-color: #fff!important;
+                color: mix.$blue;
             }
         }
     }

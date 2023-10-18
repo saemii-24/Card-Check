@@ -29,7 +29,7 @@ const CardDetail = () => {
       <Container fluid className="cardBanner">
         <Container>
           <Row>
-            <Col className="cardImgBox">
+            <Col md={6} sm={12} className="cardImgBox">
               <div>
                 <Tilt
                   className="cardImg"

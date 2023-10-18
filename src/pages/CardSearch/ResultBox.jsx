@@ -24,7 +24,7 @@ const ResultBox = ({ cardData }) => {
                   <Col>
                     <Row className="cardImgBox">
                       {Object.values(cardData)[0].map((card, index) => (
-                        <Col md={4} className="cardImgAlign" key={'imgAlign' + index}>
+                        <Col xl={4} md={6} sm={12} className="cardImgAlign" key={'imgAlign' + index}>
                           <div className="cardBoxAll">
                             <div
                               className="cardImg"

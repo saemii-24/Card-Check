@@ -2,30 +2,37 @@
 
 .topContainer {
   background-color: mix.$lightGray;
+
   svg {
     margin-top: 30%;
     font-size: 1.5rem;
     color: #fff;
   }
+
   .inner {
     padding-top: 14rem;
-    & > .row {
+
+    &>.row {
       gap: 8%;
     }
+
     h1 {
       @include mix.title;
       font-size: 3rem;
       word-break: keep-all;
     }
+
     p {
       @include mix.subtitle;
     }
+
     select {
       @include mix.font400;
       border: 1px solid mix.$black;
       cursor: pointer;
     }
   }
+
   .cardPicture {
     .row {
       .col {
@@ -34,20 +41,24 @@
         // background-color: mix.$black;
         @include mix.start;
       }
+
       &:nth-of-type(1) {
         .col {
           &:nth-of-type(1) {
             background-color: mix.$blue;
           }
+
           &:nth-of-type(2) {
             background-color: mix.$black;
           }
+
           &:nth-of-type(3) {
             background-position: center;
             background-size: cover;
           }
         }
       }
+
       &:nth-of-type(2) {
         background-color: #fff;
         color: mix.$black;
@@ -55,22 +66,27 @@
         @include mix.font700;
         @include mix.center;
         font-size: 700%;
+
         .bracket--right {
           @include mix.end;
         }
+
         .col-md-2 {
           background: black;
           color: white;
           padding-bottom: 2%;
         }
       }
+
       .swiper {
         width: 100%;
         margin-top: 30%;
+
         .swiper-wrapper {
           width: 100%;
           height: 0;
           padding-bottom: 20%;
+
           .swiper-slide {
             width: 100%;
             height: 100px;
@@ -79,15 +95,18 @@
           }
         }
       }
+
       &:nth-of-type(3) {
         .col {
           &:nth-of-type(1) {
             background-position: center;
             background-size: cover;
           }
+
           &:nth-of-type(2) {
             background-color: mix.$black;
           }
+
           &:nth-of-type(3) {
             background-color: mix.$blue;
           }
@@ -96,13 +115,16 @@
     }
   }
 }
+
 .cardTop {
   .row {
     row-gap: 4rem;
+
     .col {
       @include mix.center;
       position: relative;
       z-index: 10;
+
       &::after {
         content: '';
         position: absolute;
@@ -115,9 +137,11 @@
       }
     }
   }
+
   .cardBoxAll {
     width: 60%;
     position: relative;
+
     .cardImg {
       @include mix.background;
       width: 100%;
@@ -126,6 +150,7 @@
       overflow: hidden;
       box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.08);
     }
+
     &:hover {
       .pointBox {
         visibility: visible;
@@ -135,6 +160,7 @@
         transition-timing-function: ease-out;
       }
     }
+
     .pointBox {
       visibility: hidden;
       cursor: pointer;
@@ -153,25 +179,31 @@
       flex-direction: column;
       gap: 0.4rem;
       border: 1px solid mix.$lightBlue;
+
       .moreButton {
         margin-top: auto;
         margin-bottom: 0;
+
         .btn {
           font-size: 0.9rem;
           padding: 0.35rem 0.3rem 0.4rem;
+
           svg {
             font-size: 0.9rem;
             margin-top: 0;
           }
         }
       }
+
       .cardInfo {
         margin-bottom: 1rem;
+
         .badge {
           @include mix.font400;
           background-color: mix.$blue;
           margin-bottom: 0.5rem;
         }
+
         h3 {
           color: mix.$blue;
           @include mix.font600;
@@ -181,18 +213,22 @@
           margin-bottom: 0;
         }
       }
+
       .point {
         display: flex;
         gap: 0.6rem;
-        & > span {
+
+        &>span {
           color: mix.$blue;
           line-height: 1.6rem;
         }
+
         .cardBtn {
           svg {
             font-size: 1rem;
           }
         }
+
         // &:not(:last-child){
         //   margin-bottom:1rem;
         // }
@@ -212,6 +248,7 @@
   .topContainer .cardPicture .row .swiper .swiper-wrapper .swiper-slide {
     font-size: 65%;
   }
+
   .topContainer .cardPicture .row:nth-of-type(2) .col-md-2 {
     background: black;
     color: white;
@@ -219,32 +256,38 @@
     padding-bottom: 4%;
     height: 100%;
   }
+
   .topContainer {
     .inner {
       br {
         display: none;
       }
+
       select {
         margin-bottom: 7rem;
         width: 40%;
       }
     }
   }
+
   .cardTop {
     .cardBoxAll {
       width: 76%;
       position: relative;
+
       .pointBox {
         left: -15%;
         width: 130%;
         height: 130%;
         transform: translateY(70px);
+
         .moreButton {
           .btn {
             padding: 0.65rem 0.3rem 0.7rem;
           }
         }
       }
+
       &:hover {
         .pointBox {
           visibility: visible;
@@ -255,6 +298,7 @@
         }
       }
     }
+
     .row {
       .col {
         &::after {
@@ -271,6 +315,7 @@
     }
   }
 }
+
 @media (width<=1200px) {
   .topContainer {
     .inner {
@@ -279,21 +324,25 @@
       }
     }
   }
+
   .cardTop {
     .cardBoxAll {
       width: 50%;
+
       .pointBox {
         left: -10%;
         width: 120%;
         height: 110%;
         transform: translateY(100px);
       }
+
       &:hover {
         .pointBox {
           transform: translateY(0px);
         }
       }
     }
+
     .row {
       .col {
         &::after {
@@ -304,25 +353,30 @@
     }
   }
 }
+
 @media (width<=992px) {
   .topContainer .cardPicture .row .swiper .swiper-wrapper .swiper-slide {
     font-size: 55%;
   }
+
   .cardTop {
     .cardBoxAll {
       width: 65%;
+
       .pointBox {
         left: -5%;
         width: 110%;
         height: 110%;
         transform: translateY(100px);
       }
+
       &:hover {
         .pointBox {
           transform: translateY(0px);
         }
       }
     }
+
     .row {
       .col {
         &::after {
@@ -333,25 +387,38 @@
     }
   }
 }
-@media (width<=768px) {
+
+@media (width<=765px) {
+  .topContainer {
+    .inner {
+      select {
+        width: 100%;
+      }
+    }
+  }
+
   .cardTop {
     .cardBoxAll {
       width: 50%;
+
       .pointBox {
         left: -5%;
         width: 110%;
         height: 110%;
         transform: translateY(100px);
         padding: 2.5rem 1.5rem;
+
         .cardInfo {
           .badge {
             font-size: 1rem;
           }
+
           h3 {
             font-size: 1.5rem;
             line-height: 1.4;
           }
         }
+
         .point {
           h5 {
             font-size: 1.2rem;
@@ -360,12 +427,14 @@
           }
         }
       }
+
       &:hover {
         .pointBox {
           transform: translateY(0px);
         }
       }
     }
+
     .row {
       .col {
         &::after {
@@ -375,6 +444,123 @@
       }
     }
   }
+
+  .topContainer .cardPicture .row:nth-of-type(2) .col-md-2 {
+
+    &.bracket--right,
+    &.bracket--left {
+      width: 15%;
+    }
+  }
+
 }
+
 @media (width<=576px) {
+
+
+  .topContainer {
+    .inner {
+      select {
+        width: 100%;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  .topContainer .cardPicture .row .swiper .swiper-wrapper .swiper-slide {
+    font-size: 50%;
+  }
+}
+
+@media (width<=500px) {
+  .topContainer .cardPicture .row:nth-of-type(2) .col-md-2 {
+
+    &.bracket--right,
+    &.bracket--left {
+      display: none;
+    }
+  }
+
+  .topContainer .cardPicture .row:nth-of-type(2) {
+    padding-bottom: 10%;
+  }
+
+  .topContainer .cardPicture .row .swiper .swiper-wrapper .swiper-slide {
+    font-size: 45%;
+  }
+
+  .cardTop {
+    .row {
+      row-gap: 8rem;
+    }
+
+    .cardBoxAll {
+      .cardImg {
+        width: 100%;
+        padding-bottom: calc(100% *1.58);
+      }
+
+      .pointBox {
+        left: -15%;
+        width: 130%;
+        min-width: 260px;
+        height: 135%;
+        transform: translateY(80px);
+        padding: 2.5rem 1.5rem;
+      }
+
+      &:hover {
+        .pointBox {
+          transform: translateY(-20px);
+        }
+      }
+    }
+  }
+}
+
+@media (width<=430px) {
+  .topContainer {
+    .inner {
+      select {
+        width: 100%;
+        margin-bottom: 6rem;
+      }
+    }
+  }
+
+  .cardTop {
+    .cardBoxAll {
+      .cardImg {
+        width: 100%;
+        padding-bottom: calc(100% *1.58);
+      }
+
+      .pointBox {
+        position: absolute;
+        width: calc(100vw - 17px);
+        height: 115%;
+        right: 0;
+        left: -51%;
+        transform: translateY(100px);
+        .cardInfo{
+          h3{
+            font-size: 1.3rem;
+          }
+        }
+        .point {
+          h5 {
+            font-size: 1rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+
+      &:hover {
+        .pointBox {
+          transform: translateY(0px);
+        }
+      }
+    }
+  }
 }

@@ -75,7 +75,7 @@
   position: absolute;
   bottom: 0;
   .benefitBg {
-    width: 100%;
+    min-width: 100%;
     background-position: center;
     position: relative;
     opacity: 1;
@@ -329,6 +329,8 @@
         }
       }
       .cardImgBox {
+        top: -30%;
+        right: -38%;
         .cardImg {
           &:nth-of-type(2) {
           }

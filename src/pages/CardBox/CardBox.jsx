@@ -45,7 +45,7 @@ const CardBox = () => {
         </Row>
         <Row>
           {cardBoxData.map((card) => (
-            <Col key={card.id} className="thisCardBox">
+            <Col sm={12} lg={6} xl={4} key={card.id} className="thisCardBox">
               <Row>
                 <div className="cardImgBox">
                   <div
@@ -59,38 +59,40 @@ const CardBox = () => {
                     }}
                   />
                 </div>
-                <div className="bankName">
-                  <div>
-                    <h6>{card.bank}</h6>
-                    <h5>{card.name}</h5>
+                <div>
+                  <div className="bankName">
+                    <div>
+                      <h6>{card.bank}</h6>
+                      <h5>{card.name}</h5>
+                    </div>
                   </div>
-                </div>
-                <div className="cost">
-                  <h6>연회비</h6>
-                  <p>{card.cost}</p>
-                </div>
-                <div className="brand">
-                  <h6>브랜드</h6>
+                  <div className="cost">
+                    <h6>연회비</h6>
+                    <p>{card.cost}</p>
+                  </div>
+                  <div className="brand">
+                    <h6>브랜드</h6>
+                    <div>
+                      {card.brand.map((brand) => (
+                        <p key={brand}>{brand}</p>
+                      ))}
+                    </div>
+                  </div>
                   <div>
-                    {card.brand.map((brand) => (
-                      <p key={brand}>{brand}</p>
+                    <h6>혜택</h6>
+                    {card.benefit.map((benefit, index) => (
+                      <div key={'benefit' + index} className="benefit">
+                        {benefitIcon(`${Object.keys(benefit)}`)}
+                        <p>{Object.values(benefit)}</p>
+                      </div>
                     ))}
                   </div>
-                </div>
-                <div>
-                  <h6>혜택</h6>
-                  {card.benefit.map((benefit, index) => (
-                    <div key={'benefit' + index} className="benefit">
-                      {benefitIcon(`${Object.keys(benefit)}`)}
-                      <p>{Object.values(benefit)}</p>
-                    </div>
-                  ))}
                 </div>
               </Row>
             </Col>
           ))}
           {handleDummyData(cardBoxData.length).map((dummyData, index) => (
-            <Col key={index} className="thisCardBox dummyThisCardBox">
+            <Col sm={12} lg={6} xl={4} key={index} className="thisCardBox dummyThisCardBox">
               {dummyData}
             </Col>
           ))}

@@ -35,3 +35,14 @@
     }
   }
 }
+
+@media(width<=576px){
+  .footer {
+    p{
+      margin-bottom:1rem;
+    }
+    li{
+      margin-bottom: 0;
+    }
+  }
+}

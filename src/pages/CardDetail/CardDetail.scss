@@ -12,12 +12,13 @@
       @include mix.center;
       padding: 3rem 0;
 
-      & > div {
+      &>div {
         width: 100%;
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+
         &::before {
           content: '';
           position: absolute;
@@ -26,6 +27,7 @@
           border-radius: 100%;
           background-color: mix.$lightBlue;
         }
+
         .cardImg {
           width: 40%;
           height: 0px;
@@ -75,6 +77,7 @@
             color: mix.$blue;
           }
         }
+
         button {
           background-color: #fff;
           border: 2px solid mix.$blue;
@@ -88,11 +91,13 @@
           transition: all 0.3s;
           padding-top: 1rem;
           padding-bottom: 1.3rem;
+
           svg {
             margin-top: -4px;
             margin-right: 5px;
             margin-left: -15px;
           }
+
           &:active,
           &:hover {
             background-color: mix.$blue;
@@ -102,6 +107,7 @@
       }
     }
   }
+
   .costBrand {
     margin-top: 3rem;
     background-color: mix.$blue;
@@ -116,32 +122,39 @@
       justify-content: flex-end;
       margin-right: 3rem;
       position: relative;
+
       h5 {
         @include mix.font400;
       }
+
       &::after {
         content: '|';
         position: absolute;
         right: -3rem;
       }
     }
+
     .brand {
       display: flex;
       margin-left: 3rem;
       gap: 2rem;
+
       h5 {
         @include mix.font400;
       }
     }
   }
+
   .benefitBox {
     margin-bottom: 10rem;
+
     h1 {
       margin-top: 8rem;
       @include mix.font700;
       font-size: 3rem;
       margin-bottom: 3rem;
     }
+
     .benefit {
       display: flex;
       padding: 4rem 3rem;
@@ -157,6 +170,126 @@
         color: mix.$blue;
         font-size: 3rem;
         line-height: 1.8rem;
+      }
+    }
+  }
+}
+
+@media(width<=1200px) {
+  .cardDetail {
+    .cardBanner {
+
+      .cardInfoBox {
+        .cardInfo {
+          button {
+            max-width: 80%;
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+@media(width<=768px) {
+  .cardDetail {
+    .costBrand{
+      .cost{
+        flex: 1 0;
+        flex-basis: 0;
+      }
+    }
+    .cardBanner {
+      margin-top: 10rem;
+
+      .cardInfoBox {
+        .cardInfo {
+          button {
+            max-width: 100%;
+          }
+        }
+
+      }
+
+      .cardImgBox>div .cardImg {
+        width: 60%;
+        padding-bottom: calc(60% * 1.58);
+      }
+    }
+  }
+
+  .cardDetail .cardBanner .cardImgBox>div::before {
+    width: 90%;
+    padding-bottom: 90%;
+
+  }
+
+}
+
+@media(width<=576px) {
+  .cardDetail {
+    .cardBanner {
+      margin-top: 8rem;
+
+      .cardInfoBox {
+        .cardInfo {
+          button {
+            width: calc(100% - 22px);
+            max-width: none;
+          }
+        }
+
+      }
+
+      .cardImgBox {
+        padding: 0;
+        margin-bottom: 3rem;
+
+        &>div .cardImg {
+          width: 50%;
+          padding-bottom: calc(50% * 1.58);
+        }
+      }
+    }
+  }
+
+  .cardDetail {
+    .costBrand {
+      .cost {
+        justify-content: flex-start;
+        flex: 0 0;
+        flex-basis: content;
+        margin-right: 0;
+
+        &::after {
+          right: -1rem;
+        }
+      }
+
+      .brand {
+        margin-left: 1.5rem;
+        gap:1.3rem;
+      }
+    }
+
+    .cardBanner .cardImgBox>div::before {
+      width: 70%;
+      padding-bottom: 70%;
+    }
+
+    .benefitBox .benefit {
+      margin: 0 10.5px;
+      padding: 2rem 2.2rem;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      border-radius: 0.6rem;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      span {
+        font-size: 2rem;
+        line-height: 1.2;
       }
     }
   }

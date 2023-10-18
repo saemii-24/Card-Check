@@ -114,7 +114,9 @@ const Top = () => {
                     }}></Col>
                 </Row>
                 <Row>
-                  <Col md={2}>&#91;</Col>
+                  <Col md={2} className="bracket--left">
+                    &#91;
+                  </Col>
                   <Col className="rollingCompany">
                     <Swiper
                       className="swiperRolling"
