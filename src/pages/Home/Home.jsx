@@ -5,12 +5,11 @@ import Top from '../Home/Top'
 import MdPick from '../Home/MdPick'
 import Character from '../Home/Character'
 
-const Home = () => {
+const Home = ({ setColor }) => {
   //header색상변경
-  let [header, setHeader] = useState(false)
   return (
     <>
-      <Main header={header} setHeader={setHeader} />
+      <Main setColor={setColor} />
       <Category />
       <Top />
       <MdPick />

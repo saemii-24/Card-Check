@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Main.scss'
 import { Container, Button, Col, Row, Badge } from 'react-bootstrap'
 import benefitData from '../../data/benefitData'
@@ -10,10 +10,10 @@ import { useNavigate } from 'react-router-dom'
 gsap.registerPlugin(ScrollTrigger)
 
 //컴포넌트 시작점
-const Main = () => {
+const Main = ({ setColor }) => {
   const navigate = useNavigate()
-
-  let randomId = Math.floor(Math.random() * benefitData.length + 1)
+  let newId = Math.floor(Math.random() * benefitData.length + 1)
+  let [randomId, setRandomId] = useState(newId)
 
   //gsap
   const mainRef = useRef(null)
@@ -45,6 +45,28 @@ const Main = () => {
         .fromTo('.contentBox2', { opacity: 0, y: 50 }, { opacity: 1, y: 0 }, '-=90%')
     })
     return () => card.revert()
+  }, [])
+
+  const videoRef = useRef(null)
+
+  const handleColor = () => {
+    const video = videoRef.current
+    window.addEventListener('scroll', () => {
+      const videoTop = video.getBoundingClientRect().top
+      const videoBottom = video.getBoundingClientRect().bottom
+      // console.log(videoTop)
+      // console.log(videoBottom)
+      if (videoTop <= 0 && videoBottom >= 0) {
+        setColor(true)
+      } else {
+        setColor(false)
+      }
+    })
+  }
+
+  useEffect(() => {
+    setColor(false)
+    handleColor()
   }, [])
 
   return (
@@ -83,7 +105,16 @@ const Main = () => {
           </Row>
         </Container>
         <Container fluid className="main--load">
-          <video autoPlay muted loop className="benefitBg">
+          <video
+            autoPlay
+            muted
+            loop
+            className="benefitBg"
+            ref={videoRef}
+            onPlay={() => {
+              console.log('로딩완료')
+              setColor(true)
+            }}>
             <source
               src={process.env.PUBLIC_URL + benefitData[randomId - 1].benefitBg}
               type="video/mp4"

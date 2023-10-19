@@ -1,11 +1,7 @@
-//Bootstrap
 // @import '~bootstrap/scss/bootstrap';
-// @import '~bootstrap/scss/bootstrap-grid';
-// @import '~bootstrap/scss/variables';
-// @import '~bootstrap/scss/mixins/breakpoints';
+// @import './custom.scss';
 
-// $--bs-blue: orange;
-//color
+//color 
 $black: #1d1d1d;
 $lightGray: #f9fafb;
 $darkGray: #d9d9d9;
@@ -87,5 +83,3 @@ $green: #2ad1ad;
     margin-top: 8rem;
   }
 }
-
-// @import '~bootstrap/scss/bootstrap.scss';

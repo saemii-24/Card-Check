@@ -9,6 +9,7 @@ import 'swiper/css'
 import { Provider } from 'react-redux'
 import store from './redux/store'
 import ScrollToTop from './scrollToTop'
+// import './common.scss'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <Provider store={store}>

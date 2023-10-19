@@ -10,7 +10,22 @@
   border: 2px solid mix.$blue;
   @include mix.shadow;
   background-color: #fff;
-
+ visibility: hidden;
+ opacity: 0;
+ .cardBoxNum{
+  background-color: mix.$red;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  @include mix.center;
+  position: absolute;
+  color:#fff;
+ }
+ &.active{
+  visibility: visible ;
+  opacity: 1;
+  transition: all 300ms;
+ }
   .boxNull {
     height: 3.5rem;
     display: flex;

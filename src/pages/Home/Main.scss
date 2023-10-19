@@ -127,17 +127,15 @@
           .benefitGroup {
             font-size: 1.1rem;
             line-height: 1.8rem;
-            height: calc(1.8rem * 3);
+            min-height: calc(1.8rem * 2);
             overflow: hidden;
-            p {
+            p{
+              display: none;
+            }
+            p:first-of-type {
+              display: block;
               width: 80%;
             }
-            // .textOverflow{
-            //   overflow: hidden;
-            //   word-break: keep-all;
-            //   white-space: nowrap;
-            //   text-overflow: ellipsis;
-            // }
           }
           .btn {
             margin-top: 1.3rem;
@@ -231,6 +229,7 @@
               display: block;
             }
             .benefitGroup {
+              min-height: fit-content;
               p {
                 width: 100%;
                 &:not(:first-child) {
@@ -239,7 +238,7 @@
               }
             }
             .btn {
-              margin-top: 0;
+              margin-top: 2rem;
             }
           }
         }
@@ -296,7 +295,7 @@
           font-size: 2.4rem;
         }
         &.contentBoxes {
-          margin-top: 4rem;
+          margin-top: 3rem;
           // gap: 3rem;
           .contentBox {
             margin-top: 4rem;

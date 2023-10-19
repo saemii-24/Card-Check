@@ -1,10 +1,74 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import './Category.scss'
+import { gsap } from 'gsap'
+
 const Category = () => {
+  //gsap
+  const categoryRef = useRef(null)
+  useEffect(() => {
+    let category = gsap.context(() => {
+      const mainCategory = categoryRef.current
+      const categoryTimeline = gsap.timeline({
+        ease: 'ease-out',
+        scrollTrigger: {
+          trigger: mainCategory,
+          start: 'top 60%',
+          end: 'bottom bottom',
+          markers: true,
+        },
+      })
+      categoryTimeline
+        .fromTo(
+          '.popularCategory1',
+          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
+          { opacity: 1, y: 0 },
+          '-=10%',
+        )
+        .fromTo(
+          '.popularCategory2',
+          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
+          { opacity: 1, y: 0 },
+          '-=10%',
+        )
+        .fromTo(
+          '.popularCategory3',
+          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
+          { opacity: 1, y: 0 },
+          '-=10%',
+        )
+        .fromTo(
+          '.popularCategory4',
+          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
+          { opacity: 1, y: 0 },
+          '-=10%',
+        )
+        .fromTo(
+          '.popularCategory5',
+          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
+          { opacity: 1, y: 0 },
+          '-=10%',
+        )
+        .fromTo(
+          '.popularCategory6',
+          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
+          { opacity: 1, y: 0 },
+          '-=10%',
+        )
+    })
+    return () => category.revert()
+  }, [])
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     categoryRef1.current,
+  //     1,
+  //     { opacity: '0' },
+  //     { opacity: '1', delay: 0.5, ease: 'ease' },
+  //   )
+  // }, [])
   return (
     <>
-      <Container fluid className="category">
+      <Container fluid className="category" ref={categoryRef}>
         <Container className="inner">
           <h1>인기 혜택 카드 모아보기</h1>
           <p className="subtitle">Card Check 사용자가 가장 많이 찾아본 혜택을 알아보세요.</p>
@@ -12,7 +76,7 @@ const Category = () => {
             <Row>
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory"
+                  className="popularCategory popularCategory1"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-1.jpg)`,
                   }}>
@@ -23,7 +87,7 @@ const Category = () => {
               </Col>
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory"
+                  className="popularCategory popularCategory2"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-3.jpg)`,
                   }}>
@@ -34,7 +98,7 @@ const Category = () => {
               </Col>
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory"
+                  className="popularCategory popularCategory3"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-4.jpg)`,
                   }}>
@@ -46,7 +110,7 @@ const Category = () => {
 
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory"
+                  className="popularCategory popularCategory4"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-2.jpg)`,
                   }}>
@@ -59,7 +123,7 @@ const Category = () => {
 
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory"
+                  className="popularCategory popularCategory5"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-5.jpg)`,
                   }}>
@@ -70,7 +134,7 @@ const Category = () => {
               </Col>
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory"
+                  className="popularCategory popularCategory6"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-6.jpg)`,
                   }}>

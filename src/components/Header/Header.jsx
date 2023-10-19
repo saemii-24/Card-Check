@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import { FiSearch } from 'react-icons/fi'
-import { AiOutlineClose } from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineInbox } from 'react-icons/ai'
 import { HiArrowSmallRight } from 'react-icons/hi2'
 import { FaRegCreditCard } from 'react-icons/fa'
 import './Header.scss'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import cn from 'classnames'
-// Feather, Ant Design Icons, Heroicons 2 아이콘이 사용되었습니다.
 
-const Header = () => {
+const Header = ({ color }) => {
   let [search, setSearch] = useState(false)
   const navigate = useNavigate()
+  const location = useLocation().pathname
+  console.log(location)
+  console.log(color)
   return (
     <div className="header">
       <Navbar
@@ -23,24 +25,34 @@ const Header = () => {
             onClick={() => {
               navigate('/')
             }}>
-            <img
-              src={process.env.PUBLIC_URL + '/image/logo--black.png'}
-              alt="cardCheck 로고"
-              style={{ height: '30px' }}
-            />
+            <div className={cn('logo', { white: color && location === '/' })}></div>
           </Navbar.Brand>
           <Nav className="me-auto nav__right">
             <Nav.Link
+              className="tooltip--card"
               onClick={() => {
                 navigate('/cardSearch')
               }}>
-              <FaRegCreditCard style={{ cursor: 'pointer' }} className="cardIcon" />
+              <FaRegCreditCard
+                style={{ cursor: 'pointer' }}
+                className={cn('cardIcon', { white: color && location === '/' })}
+              />
             </Nav.Link>
-            <Nav.Link as={Link} to="/">
+            <Nav.Link
+              className="tooltip--box"
+              onClick={() => {
+                navigate('/cardBox')
+              }}>
+              <AiOutlineInbox
+                style={{ cursor: 'pointer' }}
+                className={cn('boxIcon', { white: color && location === '/' })}
+              />
+            </Nav.Link>
+            <Nav.Link as={Link} to="/" className="tooltip--search">
               <FiSearch
                 style={{ cursor: 'pointer' }}
                 onClick={() => setSearch(true)}
-                className="searchIcon"
+                className={cn('searchIcon', { white: color && location === '/' })}
               />
             </Nav.Link>
           </Nav>

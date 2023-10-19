@@ -10,6 +10,18 @@
 
   .navbar-brand {
     cursor: pointer;
+    .logo{
+      transition: all 300ms;
+      width: 55px;
+      height:30px;
+      @include mix.background;
+      background-image: url('../../../public/image/logo--black.png');
+      transition: all 300ms;
+      &.white{
+      background-image: url('../../../public/image/logo--white.png');
+
+    }
+    }
   }
 }
 
@@ -45,7 +57,7 @@
     position: relative;
     top: 60px;
     padding: 20px;
-    min-width: 760px;
+    max-width: 760px;
     min-height: 360px;
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
 
@@ -54,13 +66,13 @@
       width: 100%;
     }
 
-    & > div {
+    &>div {
       margin: 0 auto;
       display: flex;
       width: 100%;
       height: 100%;
 
-      & > h6 {
+      &>h6 {
         font-weight: 500;
         flex-grow: 1;
         text-align: center;
@@ -147,13 +159,73 @@
       align-items: center;
       justify-content: flex-end;
       flex-grow: 1;
+      position: relative;
+
+      .tooltip--card:hover,
+      .tooltip--search:hover,
+      .tooltip--box:hover {
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 0.8rem;
+          height: 0.8rem;
+          background: #1d1d1d;
+          transform: rotate(45deg);
+          bottom: -15px;
+          right: 20%;
+        }
+
+        &::after {
+          position: absolute;
+          content: "카드 찾기";
+          width: max-content;
+          bottom: -33px;
+          left: 18%;
+          transform: translateX(-25%);
+          background: #1d1d1d;
+          padding: 0.3rem 0.9rem 0.25rem;
+          border-radius: 5rem;
+          color: #fff;
+          font-size: 0.8rem;
+        }
+      }
+
+      .tooltip--search:hover {
+        &::before {
+          left: 50%;
+        }
+
+        &::after {
+          content: "검색 창";
+          left: 25%;
+        }
+      }
+      .tooltip--box:hover{
+        &::before{
+          bottom: -14px;
+        }
+        &::after{
+          content:"카드 비교함";
+        }
+      }
 
       .searchIcon,
-      .cardIcon {
+      .cardIcon,
+      .boxIcon {
         margin-top: 2px;
         margin-left: 10px;
         transform: scale(1.2);
         color: #1d1d1d;
+        transition: all 300ms;
+        &.white{
+          color: #fff;
+        }
+      }
+      .boxIcon{
+        font-size: 1.1rem;
+        margin-left: 10px;
       }
     }
   }
@@ -245,10 +317,36 @@
     svg {
       font-size: 1.2rem;
     }
+
     .searchIcon {
       margin-left: 20px;
     }
+
+    .boxIcon {
+      font-size: 1.3rem;
+      margin-left: 20px;
+    }
+    
+    .tooltip--search:hover {
+      &::before {
+        left: auto;
+        right: 20%;
+      }
+
+      &::after {
+        content: "검색 창";
+        left: auto;
+        left: 40%;
+      }
+    }
+    .tooltip--box:hover{
+      &::after{
+        left:30%;
+      }
+    }
+    
   }
+
 }
 
 @media (width<=760px) {
@@ -256,70 +354,108 @@
     svg {
       font-size: 1.4rem;
     }
+
     .searchIcon {
       margin-left: 20px;
     }
-  }
-  .header .search--click {
-    .container {
-      max-width: 100%;
+    .boxIcon {
+      font-size: 1.5rem;
     }
+    .tooltip--card:hover,
+    .tooltip--search:hover,
+    .tooltip--box:hover {
+      position: relative;
 
-    .inputBox {
-      width: 68%;
-    }
-  }
-  .search__bg .search__detail {
-    top: 52.5px;
-    width: 100%;
-    border-radius: 0;
-    min-width: fit-content;
-    min-height: fit-content;
-    & > div {
-      flex-direction: column;
-
-      .popular {
-        width: 100%;
-        height: 40%;
-        ul {
-          display: flex;
-          gap: 1rem;
-          flex-wrap: wrap;
-
-          li {
-            background-color: #f5f5f5;
-            padding: 0.1rem 1rem;
-            border-radius: 10rem;
-            transition: all 300ms;
-            &:hover {
-              background-color: mix.$black;
-              color: #fff;
-            }
-            .arrowIcon {
-              display: none;
-            }
-          }
-        }
+      &::before {
+        content: none;
+        position: absolute;
+        width: 0;
+        height: 0;
       }
-      h6 {
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        &::before {
-          content: none;
-        }
+
+      &::after {
+        position: absolute;
+        content: none;
+        width: 0;
       }
     }
   }
 }
 
+.header .search--click {
+  .container {
+    max-width: 100%;
+  }
+
+  .inputBox {
+    width: 68%;
+  }
+}
+
+.search__bg .search__detail {
+  top: 52.5px;
+  width: 100%;
+  border-radius: 0 ;
+  min-width: fit-content;
+  min-height: fit-content;
+
+  &>div {
+    flex-direction: column;
+
+    .popular {
+      width: 100%;
+      height: 40%;
+
+      ul {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        li {
+          background-color: #f5f5f5;
+          padding: 0.1rem 1rem;
+          border-radius: 10rem;
+          transition: all 300ms;
+
+          &:hover {
+            background-color: mix.$black;
+            color: #fff;
+          }
+
+          .arrowIcon {
+            display: none;
+          }
+        }
+      }
+    }
+
+    h6 {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+}
+
+
 @media (width<=576px) {
   .search__bg .search__detail {
     top: 116.5px;
+    height: calc(100vh - 117px);
+
+    &>div .popular {
+      height: 30%;
+    }
   }
+
   .header .search--click {
     padding-bottom: 1.5rem;
+
     .container {
       flex-wrap: wrap;
     }

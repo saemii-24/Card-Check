@@ -113,7 +113,7 @@
         h5 {
           @include mix.font400;
           color: mix.$black;
-          font-size: 1rem;
+          font-size: 0.9rem;
           margin-bottom: 0;
           line-height: 1.4rem;
         }
@@ -189,6 +189,11 @@
         left: -10%;
         width: 120%;
         height: 110%;
+        .point h5{
+          font-size: 1rem;
+        }
+        .moreButton .btn {
+          font-size: 1rem;}
 
       }
     }
@@ -209,20 +214,17 @@
         left: -5%;
         width: 110%;
         height: 110%;
-
-        // .moreButton .btn {
-        //   font-size: 0.9rem !important;
-        //   padding-top: 0.55rem;
-        //   padding-bottom: 0.6rem;
-        // }
-
-        // .moreButton svg {
-        //   margin-top: -3%;
-        // }
       }
     }
   }
-
+  .ifNull .nullCard {
+    h4{
+      font-weight: 500;
+    }
+    img {
+      width: 30%;
+  }
+  }
   .cardImgAlign::after {
     padding-bottom: 78%;
     width: 78%;
@@ -263,15 +265,19 @@
       width: 50%;
 
       .pointBox {
-        left: -15%;
-        min-width: 260px;
-        width:130px;
-        height: 130%;
-        transform: translateY(80px);
+        left: -10%;
+        // min-width: 260px;
+        // width:130px;
+        width: 120%;
+        // width: 110%;
+        transform: translateY(100px);
+        .moreButton .btn {
+          font-size: 1em !important;}
       }
+      
       &:hover{
         .pointBox{
-          transform: translateY(-20px);
+          transform: translateY(0px);
         }
       }
     }
@@ -282,24 +288,6 @@
     width: 65%;
   }
 }
-// @media (429px<=width<454px) {
-//   .cardImgBox {
-//     .cardBoxAll {
-//       .pointBox {
-//                 .moreButton .btn {
-//           font-size: 1rem !important;
-//           padding-top: 0.55rem;
-//           padding-bottom: 0.6rem;
-//         }
-
-//         .moreButton svg {
-//           margin-top: -3%;
-//         }
-
-//       }
-//     }
-//   }
-// }
 
 @media (width<430px) {
   .cardImgBox {
@@ -314,7 +302,14 @@
       }
     }
   }
-
+  .ifNull .nullCard {
+    h4{
+      font-weight: 500;
+    }
+    img {
+      width: 40%;
+    }
+  }
   .cardImgAlign::after {
     padding-bottom: 65%;
     width: 65%;

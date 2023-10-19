@@ -16,7 +16,7 @@ const CardBoxBtn = () => {
   return (
     <>
       <Link to="/cardBox">
-        <div className="cardBoxBtn cardBoxBtn--original">
+        <div className={cn('cardBoxBtn cardBoxBtn--original', { active: cardBox.length > 0 })}>
           <div className="boxNull">
             <AiOutlineInbox />
             <p>카드 비교함</p>
