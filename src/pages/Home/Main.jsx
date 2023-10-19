@@ -55,8 +55,8 @@ const Main = ({ setColor }) => {
       const videoTop = video.getBoundingClientRect().top
       const videoBottom = video.getBoundingClientRect().bottom
       // console.log(videoTop)
-      // console.log(videoBottom)
-      if (videoTop <= 0 && videoBottom >= 0) {
+      console.log(videoBottom)
+      if (videoTop < 1 && videoBottom > 250) {
         setColor(true)
       } else {
         setColor(false)

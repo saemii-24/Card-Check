@@ -1,82 +1,116 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useLayoutEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import './Category.scss'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const Category = () => {
   //gsap
-  const categoryRef = useRef(null)
-  useEffect(() => {
-    let category = gsap.context(() => {
-      const mainCategory = categoryRef.current
-      const categoryTimeline = gsap.timeline({
-        ease: 'ease-out',
-        scrollTrigger: {
-          trigger: mainCategory,
-          start: 'top 60%',
-          end: 'bottom bottom',
-          markers: true,
-        },
-      })
-      categoryTimeline
-        .fromTo(
-          '.popularCategory1',
-          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
-          { opacity: 1, y: 0 },
-          '-=10%',
-        )
-        .fromTo(
-          '.popularCategory2',
-          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
-          { opacity: 1, y: 0 },
-          '-=10%',
-        )
-        .fromTo(
-          '.popularCategory3',
-          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
-          { opacity: 1, y: 0 },
-          '-=10%',
-        )
-        .fromTo(
-          '.popularCategory4',
-          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
-          { opacity: 1, y: 0 },
-          '-=10%',
-        )
-        .fromTo(
-          '.popularCategory5',
-          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
-          { opacity: 1, y: 0 },
-          '-=10%',
-        )
-        .fromTo(
-          '.popularCategory6',
-          { opacity: 0, y: 50, duration: { opacity: 0.3, y: 0.4 } },
-          { opacity: 1, y: 0 },
-          '-=10%',
-        )
-    })
-    return () => category.revert()
-  }, [])
+  const categoryRefs = useRef([])
+
   // useEffect(() => {
-  //   gsap.fromTo(
-  //     categoryRef1.current,
-  //     1,
-  //     { opacity: '0' },
-  //     { opacity: '1', delay: 0.5, ease: 'ease' },
-  //   )
+  //   const cateogoryArr = categoryRefs.current
+  //   console.log(cateogoryArr)
+  //   cateogoryArr.forEach((ref, index) => {
+  //     console.log(ref)
+  //     gsap.to(ref, {
+  //       y: 0,
+  //       opacity: 1,
+  //       duration: 1,
+  //       ease: 'ease',
+  //       scrollTrigger: {
+  //         trigger: ref,
+  //         start: 'top 70%',
+  //         end: 'top 20%',
+  //         toggleActions: 'play none none none',
+  //         markers: true,
+  //       },
+  //     })
+  //   })
   // }, [])
+
+  //1300이하일때 실행
+  // useLayoutEffect(() => {
+  //   let mm = gsap.matchMedia()
+
+  //   mm.add('(max-width: 1300px)', () => {
+  //     const cateogoryArr = categoryRefs.current
+  //     console.log(cateogoryArr)
+  //     cateogoryArr.forEach((ref, index) => {
+  //       console.log(ref)
+  //       gsap.to(ref, {
+  //         y: 0,
+  //         opacity: 1,
+  //         duration: 1,
+  //         ease: 'ease',
+  //         scrollTrigger: {
+  //           trigger: ref,
+  //           start: 'top 70%',
+  //           end: 'top 20%',
+  //           toggleActions: 'play none none none',
+  //           markers: true,
+  //         },
+  //       })
+  //     })
+  //   })
+
+  //   return () => mm.revert()
+  // }, [])
+
+  let mm = gsap.matchMedia()
+
+  mm.add(
+    {
+      large: '(min-width: 1401px)',
+      medium: '(min-width: 800px) and (max-width: 1400px)',
+      small: '(max-width: 799px)',
+    },
+    (context) => {
+      let { large, medium, small } = context.conditions
+
+      if (large) {
+        //사이즈별로 ref 할당 바꿔줄 것 ? :
+        const cateogoryArr = categoryRefs.current
+        console.log(cateogoryArr)
+        cateogoryArr.forEach((ref, index) => {
+          console.log(ref)
+          gsap.to(ref, {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'ease',
+            scrollTrigger: {
+              trigger: ref,
+              start: 'top 70%',
+              end: 'top 20%',
+              toggleActions: 'play none none none',
+              markers: true,
+            },
+          })
+        })
+      }
+      return () => {}
+    },
+  )
+
   return (
     <>
-      <Container fluid className="category" ref={categoryRef}>
+      <Container fluid className="category">
         <Container className="inner">
-          <h1>인기 혜택 카드 모아보기</h1>
-          <p className="subtitle">Card Check 사용자가 가장 많이 찾아본 혜택을 알아보세요.</p>
+          <div
+            style={{ opacity: 0, transform: `translateY(50px)` }}
+            ref={(el) => (categoryRefs.current[0] = el)}>
+            <h1>인기 혜택 카드 모아보기</h1>
+            <p className="subtitle">Card Check 사용자가 가장 많이 찾아본 혜택을 알아보세요.</p>
+          </div>
           <Container>
-            <Row>
+            <Row
+              style={{ opacity: 0, transform: `translateY(50px)` }}
+              ref={(el) => (categoryRefs.current[1] = el)}>
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory popularCategory1"
+                  className="popularCategory"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-1.jpg)`,
                   }}>
@@ -87,7 +121,7 @@ const Category = () => {
               </Col>
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory popularCategory2"
+                  className="popularCategory"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-3.jpg)`,
                   }}>
@@ -98,7 +132,7 @@ const Category = () => {
               </Col>
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory popularCategory3"
+                  className="popularCategory"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-4.jpg)`,
                   }}>
@@ -110,7 +144,7 @@ const Category = () => {
 
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory popularCategory4"
+                  className="popularCategory"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-2.jpg)`,
                   }}>
@@ -123,7 +157,7 @@ const Category = () => {
 
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory popularCategory5"
+                  className="popularCategory"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-5.jpg)`,
                   }}>
@@ -134,7 +168,7 @@ const Category = () => {
               </Col>
               <Col xxl={2} xl={4} md={6}>
                 <div
-                  className="popularCategory popularCategory6"
+                  className="popularCategory"
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/image/benefitBg-6.jpg)`,
                   }}>

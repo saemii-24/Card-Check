@@ -10,17 +10,16 @@
 
   .navbar-brand {
     cursor: pointer;
-    .logo{
+    .logo {
       transition: all 300ms;
       width: 55px;
-      height:30px;
+      height: 30px;
       @include mix.background;
       background-image: url('../../../public/image/logo--black.png');
       transition: all 300ms;
-      &.white{
-      background-image: url('../../../public/image/logo--white.png');
-
-    }
+      &.white {
+        background-image: url('../../../public/image/logo--white.png');
+      }
     }
   }
 }
@@ -53,7 +52,7 @@
     width: 50%;
     height: 60vh;
     margin: 0 auto;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px !important;
     position: relative;
     top: 60px;
     padding: 20px;
@@ -66,13 +65,13 @@
       width: 100%;
     }
 
-    &>div {
+    & > div {
       margin: 0 auto;
       display: flex;
       width: 100%;
       height: 100%;
 
-      &>h6 {
+      & > h6 {
         font-weight: 500;
         flex-grow: 1;
         text-align: center;
@@ -89,7 +88,14 @@
           height: 80%;
         }
       }
-
+      .recentBox {
+        width: 100%;
+        height: 60%;
+        & > h6 {
+          text-align: center;
+          margin-top: 10%;
+        }
+      }
       .popular {
         width: 50%;
         height: 100%;
@@ -137,6 +143,7 @@
   color: #fff;
   transform: scale(1.2);
   margin-left: calc(55px - 19px);
+  margin-right: 10px;
 }
 
 .header {
@@ -167,7 +174,7 @@
         position: relative;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           width: 0.8rem;
           height: 0.8rem;
@@ -179,7 +186,7 @@
 
         &::after {
           position: absolute;
-          content: "카드 찾기";
+          content: '카드 찾기';
           width: max-content;
           bottom: -33px;
           left: 18%;
@@ -198,16 +205,16 @@
         }
 
         &::after {
-          content: "검색 창";
+          content: '검색 창';
           left: 25%;
         }
       }
-      .tooltip--box:hover{
-        &::before{
+      .tooltip--box:hover {
+        &::before {
           bottom: -14px;
         }
-        &::after{
-          content:"카드 비교함";
+        &::after {
+          content: '카드 비교함';
         }
       }
 
@@ -219,11 +226,11 @@
         transform: scale(1.2);
         color: #1d1d1d;
         transition: all 300ms;
-        &.white{
+        &.white {
           color: #fff;
         }
       }
-      .boxIcon{
+      .boxIcon {
         font-size: 1.1rem;
         margin-left: 10px;
       }
@@ -266,8 +273,6 @@
   visibility: hidden;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.1);
-  // width: 100%;
-  // height: 100vh;
   backdrop-filter: blur(5px);
 
   .search__bg {
@@ -305,6 +310,7 @@
 @media (width<=1200px) {
   .search__bg .search__detail {
     top: 55px;
+    max-width: 720px;
   }
 }
 
@@ -326,7 +332,7 @@
       font-size: 1.3rem;
       margin-left: 20px;
     }
-    
+
     .tooltip--search:hover {
       &::before {
         left: auto;
@@ -334,22 +340,20 @@
       }
 
       &::after {
-        content: "검색 창";
+        content: '검색 창';
         left: auto;
         left: 40%;
       }
     }
-    .tooltip--box:hover{
-      &::after{
-        left:30%;
+    .tooltip--box:hover {
+      &::after {
+        left: 30%;
       }
     }
-    
   }
-
 }
 
-@media (width<=760px) {
+@media (width<=720px) {
   .header .search--normal .nav__right {
     svg {
       font-size: 1.4rem;
@@ -383,10 +387,6 @@
 }
 
 .header .search--click {
-  .container {
-    max-width: 100%;
-  }
-
   .inputBox {
     width: 68%;
   }
@@ -395,11 +395,11 @@
 .search__bg .search__detail {
   top: 52.5px;
   width: 100%;
-  border-radius: 0 ;
   min-width: fit-content;
   min-height: fit-content;
+  border-radius: 0;
 
-  &>div {
+  & > div {
     flex-direction: column;
 
     .popular {
@@ -442,14 +442,13 @@
   }
 }
 
-
 @media (width<=576px) {
   .search__bg .search__detail {
     top: 116.5px;
     height: calc(100vh - 117px);
 
-    &>div .popular {
-      height: 30%;
+    & > div .popular {
+      height: 30vh;
     }
   }
 

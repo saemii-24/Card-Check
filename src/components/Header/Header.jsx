@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import { FiSearch } from 'react-icons/fi'
 import { AiOutlineClose, AiOutlineInbox } from 'react-icons/ai'
-import { HiArrowSmallRight } from 'react-icons/hi2'
+
 import { FaRegCreditCard } from 'react-icons/fa'
 import './Header.scss'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
@@ -65,10 +65,14 @@ const Header = ({ color }) => {
         <Navbar className="search--click">
           <Container>
             <Navbar.Brand href="#home">
-              <img
-                src={process.env.PUBLIC_URL + '/image/logo--white.png'}
-                alt="cardCheck 로고"
-                style={{ height: '30px' }}
+              <div
+                style={{
+                  width: '55px',
+                  height: '30px',
+                  backgroundImage: `url(${process.env.PUBLIC_URL + `/image/logo--white.png`})`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover',
+                }}
               />
             </Navbar.Brand>
             <div className="inputBox">
@@ -88,29 +92,16 @@ const Header = ({ color }) => {
               <div className="popular">
                 <h4>인기 검색어</h4>
                 <ul>
-                  <li>
-                    <HiArrowSmallRight className="arrowIcon" />
-                    영화 할인
-                  </li>
-                  <li>
-                    <HiArrowSmallRight className="arrowIcon" />
-                    OTT 할인
-                  </li>
-                  <li>
-                    <HiArrowSmallRight className="arrowIcon" />
-                    뷰티 할인
-                  </li>
-                  <li>
-                    <HiArrowSmallRight className="arrowIcon" />
-                    커피숍 할인
-                  </li>
-                  <li>
-                    <HiArrowSmallRight className="arrowIcon" />
-                    교통 할인
-                  </li>
+                  <li>영화 할인</li>
+                  <li>OTT 할인</li>
+                  <li>뷰티 할인</li>
+                  <li>커피숍 할인</li>
+                  <li>교통 할인</li>
                 </ul>
               </div>
-              <h6>최근 검색어가 없습니다.</h6>
+              <div className="recentBox">
+                <h6>최근 검색어가 없습니다.</h6>
+              </div>
             </div>
           </div>
         </Container>
