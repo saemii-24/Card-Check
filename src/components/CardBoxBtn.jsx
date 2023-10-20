@@ -12,7 +12,7 @@ const CardBoxBtn = () => {
   const handleDeleteCardBox = (info) => {
     dispatch(deleteCardBox(info))
   }
-  console.log(cardBox)
+  // console.log(cardBox)
   return (
     <>
       <Link to="/cardBox">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteCardBox } from '../../redux/cardBoxSlice'
 import './CardBox.scss'
@@ -6,7 +6,11 @@ import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { AiOutlineClose, AiOutlinePlus } from 'react-icons/ai'
 import benefitIcon from '../../data/benefitIcon'
 import { useNavigate } from 'react-router-dom'
-import cn from 'classnames'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { handleGsapAnimation } from '../../animation.js'
+gsap.registerPlugin(ScrollTrigger)
+
 const CardBox = () => {
   const navigate = useNavigate()
   //redux
@@ -37,13 +41,26 @@ const CardBox = () => {
     return repeatData
   }
   console.log(handleDummyData(cardBoxData.length))
+
+  //gsap
+  const cardBoxRef = useRef(null)
+
+  //gsap 애니메이션 적용하기
+  useEffect(() => {
+    let cardBox = gsap.context(() => {
+      const cardBoxDom = cardBoxRef.current
+      handleGsapAnimation(cardBoxDom)
+      return () => cardBox.revert()
+    })
+  }, [])
+
   return (
     <Container fluid className="cardBox">
       <Container className="inner">
         <Row>
           <h1>카드 비교하기</h1>
         </Row>
-        <Row className="cardBoxAlign">
+        <Row className="cardBoxAlign" ref={cardBoxRef}>
           {cardBoxData.map((card) => (
             <Col sm={12} lg={6} xl={4} key={card.id} className="thisCardBox">
               <Row>

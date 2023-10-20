@@ -15,9 +15,9 @@ root.render(
   <Provider store={store}>
     <BrowserRouter basename="/project_5">
       <React.StrictMode>
-        <ScrollToTop />
         <App />
       </React.StrictMode>
+      <ScrollToTop />
     </BrowserRouter>
   </Provider>,
 )

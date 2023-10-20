@@ -1,114 +1,38 @@
-import React, { useRef, useEffect, useLayoutEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import './Category.scss'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { handleGsapAnimation } from '../../animation'
 gsap.registerPlugin(ScrollTrigger)
 
 const Category = () => {
   //gsap
   const categoryRefs = useRef([])
 
-  // useEffect(() => {
-  //   const cateogoryArr = categoryRefs.current
-  //   console.log(cateogoryArr)
-  //   cateogoryArr.forEach((ref, index) => {
-  //     console.log(ref)
-  //     gsap.to(ref, {
-  //       y: 0,
-  //       opacity: 1,
-  //       duration: 1,
-  //       ease: 'ease',
-  //       scrollTrigger: {
-  //         trigger: ref,
-  //         start: 'top 70%',
-  //         end: 'top 20%',
-  //         toggleActions: 'play none none none',
-  //         markers: true,
-  //       },
-  //     })
-  //   })
-  // }, [])
-
-  //1300이하일때 실행
-  // useLayoutEffect(() => {
-  //   let mm = gsap.matchMedia()
-
-  //   mm.add('(max-width: 1300px)', () => {
-  //     const cateogoryArr = categoryRefs.current
-  //     console.log(cateogoryArr)
-  //     cateogoryArr.forEach((ref, index) => {
-  //       console.log(ref)
-  //       gsap.to(ref, {
-  //         y: 0,
-  //         opacity: 1,
-  //         duration: 1,
-  //         ease: 'ease',
-  //         scrollTrigger: {
-  //           trigger: ref,
-  //           start: 'top 70%',
-  //           end: 'top 20%',
-  //           toggleActions: 'play none none none',
-  //           markers: true,
-  //         },
-  //       })
-  //     })
-  //   })
-
-  //   return () => mm.revert()
-  // }, [])
-
-  let mm = gsap.matchMedia()
-
-  mm.add(
-    {
-      large: '(min-width: 1401px)',
-      medium: '(min-width: 800px) and (max-width: 1400px)',
-      small: '(max-width: 799px)',
-    },
-    (context) => {
-      let { large, medium, small } = context.conditions
-
-      if (large) {
-        //사이즈별로 ref 할당 바꿔줄 것 ? :
-        const cateogoryArr = categoryRefs.current
-        console.log(cateogoryArr)
-        cateogoryArr.forEach((ref, index) => {
-          console.log(ref)
-          gsap.to(ref, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'ease',
-            scrollTrigger: {
-              trigger: ref,
-              start: 'top 70%',
-              end: 'top 20%',
-              toggleActions: 'play none none none',
-              markers: true,
-            },
-          })
-        })
-      }
-      return () => {}
-    },
-  )
+  //gsap 애니메이션 적용하기
+  useEffect(() => {
+    let category = gsap.context(() => {
+      const categoryArr = categoryRefs.current
+      categoryArr.forEach((ref) => {
+        handleGsapAnimation(ref)
+      })
+      return () => category.revert()
+    })
+  }, [])
 
   return (
     <>
       <Container fluid className="category">
         <Container className="inner">
-          <div
-            style={{ opacity: 0, transform: `translateY(50px)` }}
-            ref={(el) => (categoryRefs.current[0] = el)}>
+          <div ref={(el) => (categoryRefs.current[0] = el)}>
             <h1>인기 혜택 카드 모아보기</h1>
             <p className="subtitle">Card Check 사용자가 가장 많이 찾아본 혜택을 알아보세요.</p>
           </div>
+
           <Container>
-            <Row
-              style={{ opacity: 0, transform: `translateY(50px)` }}
-              ref={(el) => (categoryRefs.current[1] = el)}>
-              <Col xxl={2} xl={4} md={6}>
+            <Row>
+              <Col sm={12} lg={4} xxl={2} ref={(el) => (categoryRefs.current[1] = el)}>
                 <div
                   className="popularCategory"
                   style={{
@@ -119,7 +43,8 @@ const Category = () => {
                   </p>
                 </div>
               </Col>
-              <Col xxl={2} xl={4} md={6}>
+
+              <Col sm={12} lg={4} xxl={2} ref={(el) => (categoryRefs.current[2] = el)}>
                 <div
                   className="popularCategory"
                   style={{
@@ -130,7 +55,8 @@ const Category = () => {
                   </p>
                 </div>
               </Col>
-              <Col xxl={2} xl={4} md={6}>
+
+              <Col sm={12} lg={4} xxl={2} ref={(el) => (categoryRefs.current[3] = el)}>
                 <div
                   className="popularCategory"
                   style={{
@@ -142,7 +68,7 @@ const Category = () => {
                 </div>
               </Col>
 
-              <Col xxl={2} xl={4} md={6}>
+              <Col sm={12} lg={4} xxl={2} ref={(el) => (categoryRefs.current[4] = el)}>
                 <div
                   className="popularCategory"
                   style={{
@@ -155,7 +81,7 @@ const Category = () => {
                 </div>
               </Col>
 
-              <Col xxl={2} xl={4} md={6}>
+              <Col sm={12} lg={4} xxl={2} ref={(el) => (categoryRefs.current[5] = el)}>
                 <div
                   className="popularCategory"
                   style={{
@@ -166,7 +92,8 @@ const Category = () => {
                   </p>
                 </div>
               </Col>
-              <Col xxl={2} xl={4} md={6}>
+
+              <Col sm={12} lg={4} xxl={2} ref={(el) => (categoryRefs.current[6] = el)}>
                 <div
                   className="popularCategory"
                   style={{

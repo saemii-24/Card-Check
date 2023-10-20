@@ -49,24 +49,23 @@ const Main = ({ setColor }) => {
 
   const videoRef = useRef(null)
 
-  const handleColor = () => {
-    const video = videoRef.current
-    window.addEventListener('scroll', () => {
+  useEffect(() => {
+    const handleColor = () => {
+      const video = videoRef.current
       const videoTop = video.getBoundingClientRect().top
       const videoBottom = video.getBoundingClientRect().bottom
-      // console.log(videoTop)
-      console.log(videoBottom)
-      if (videoTop < 1 && videoBottom > 250) {
+      // console.log(videoBottom)
+      if (videoTop < 1 && videoBottom > 0) {
         setColor(true)
       } else {
         setColor(false)
       }
-    })
-  }
+    }
+    window.addEventListener('scroll', handleColor)
 
-  useEffect(() => {
-    setColor(false)
-    handleColor()
+    return () => {
+      window.removeEventListener('scroll', handleColor)
+    }
   }, [])
 
   return (
@@ -105,16 +104,7 @@ const Main = ({ setColor }) => {
           </Row>
         </Container>
         <Container fluid className="main--load">
-          <video
-            autoPlay
-            muted
-            loop
-            className="benefitBg"
-            ref={videoRef}
-            onPlay={() => {
-              console.log('로딩완료')
-              setColor(true)
-            }}>
+          <video autoPlay muted loop className="benefitBg" ref={videoRef}>
             <source
               src={process.env.PUBLIC_URL + benefitData[randomId - 1].benefitBg}
               type="video/mp4"

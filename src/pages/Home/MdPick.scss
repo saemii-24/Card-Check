@@ -1,7 +1,9 @@
 @use '../../common' as mix;
+.mdPickAll{
 
-.mdPick {
   background-color: mix.$lightGray;
+}
+.mdPick {
   padding-top: 14rem !important;
   overflow: hidden;
 

@@ -12,8 +12,8 @@ const Header = ({ color }) => {
   let [search, setSearch] = useState(false)
   const navigate = useNavigate()
   const location = useLocation().pathname
-  console.log(location)
-  console.log(color)
+  // console.log(location)
+  // console.log(color)
   return (
     <div className="header">
       <Navbar
@@ -48,7 +48,7 @@ const Header = ({ color }) => {
                 className={cn('boxIcon', { white: color && location === '/' })}
               />
             </Nav.Link>
-            <Nav.Link as={Link} to="/" className="tooltip--search">
+            <Nav.Link className="tooltip--search">
               <FiSearch
                 style={{ cursor: 'pointer' }}
                 onClick={() => setSearch(true)}

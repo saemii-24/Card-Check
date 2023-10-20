@@ -12,15 +12,6 @@
   background-color: #fff;
  visibility: hidden;
  opacity: 0;
- .cardBoxNum{
-  background-color: mix.$red;
-  width: 1.2rem;
-  height: 1.2rem;
-  border-radius: 50%;
-  @include mix.center;
-  position: absolute;
-  color:#fff;
- }
  &.active{
   visibility: visible ;
   opacity: 1;

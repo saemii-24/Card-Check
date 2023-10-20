@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Container, Row, Col, Form, Badge, Card } from 'react-bootstrap'
 import './Top.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -7,6 +7,10 @@ import { BsCoin, BsCreditCard, BsCurrencyDollar, BsDatabase } from 'react-icons/
 import cardData from '../../data/cardData'
 import pointIcon from '../../data/pointIcon'
 import CardBtn from '../../components/CardBtn'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { handleGsapAnimation, handleShowAnimation } from '../../animation.js'
+gsap.registerPlugin(ScrollTrigger)
 
 const Top = () => {
   const bank = [
@@ -36,16 +40,6 @@ const Top = () => {
   const [select, setSelect] = useState('defaultThis') //'카드사를 선택하세요' 보여주기
   const [cardShow, setCardShow] = useState(false) //'왼쪽 렌더링 결정'
   const [searchCard, setSearchCard] = useState(null)
-  // const [isEnter, setIsEnter] = useState(false)
-
-  // const handleEnter = () => {
-  //   setIsEnter(!isEnter)
-  // }
-
-  // const btnClass = classNames('button', {
-  //   active: isActive,
-  //   inactive: !isActive,
-  // })
 
   const handleSelect = (e) => {
     setSelect(e.target.value)
@@ -69,12 +63,36 @@ const Top = () => {
     setSearchCard(resultData)
   }, [select])
 
+  // //gsap (스크롤 애니메이션)
+  const topRefs = useRef([])
+  // // //gsap 애니메이션 적용하기
+  useEffect(() => {
+    let top = gsap.context(() => {
+      const topArr = topRefs.current
+      topArr.forEach((ref) => {
+        handleGsapAnimation(ref)
+      })
+      return () => top.revert()
+    })
+  }, [])
+
+  // //gsap (카드등장 애니메이션)
+  const topCardRef = useRef(null)
+  useEffect(() => {
+    console.log(topCardRef)
+    let topCard = gsap.context(() => {
+      const topCardDom = topCardRef.current
+      handleShowAnimation(topCardDom)
+    })
+    return () => topCard.revert()
+  }, [searchCard])
+
   return (
     <>
       <Container fluid className="topContainer">
         <Container className="inner">
           <Row>
-            <Col xxl={4} md={12} className="cardSelect">
+            <Col xxl={4} md={12} className="cardSelect" ref={(el) => (topRefs.current[0] = el)}>
               <h1>
                 카드사별 인기
                 <br /> 체크카드
@@ -98,7 +116,7 @@ const Top = () => {
               </Form.Select>
             </Col>
             {!cardShow && (
-              <Col className="cardPicture">
+              <Col className="cardPicture" ref={(el) => (topRefs.current[1] = el)}>
                 <Row>
                   <Col className="col" md={3}>
                     <BsCoin />
@@ -156,8 +174,8 @@ const Top = () => {
             )}
             {cardShow && (
               <Col className="cardTop">
-                <Row>
-                  {searchCard.map((card) => (
+                <Row ref={topCardRef}>
+                  {searchCard.map((card, index) => (
                     <Col xxl={6} xl={3} lg={6} md={6} sm={12} xs={12} className="col" key={card.id}>
                       {
                         <div className="cardBoxAll">

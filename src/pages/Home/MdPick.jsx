@@ -9,6 +9,10 @@ import { Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { handleGsapAnimation } from '../../animation.js'
+gsap.registerPlugin(ScrollTrigger)
 
 const MdPick = () => {
   let [slideActiveForward, setslideActiveForward] = useState(false)
@@ -36,83 +40,94 @@ const MdPick = () => {
     }, 1000)
   }
 
+  //gsap
+  const mdPickRef = useRef(null)
+
+  //gsap 애니메이션 적용하기
+  useEffect(() => {
+    let mdPick = gsap.context(() => {
+      const mdPickDom = mdPickRef.current
+      handleGsapAnimation(mdPickDom)
+      return () => mdPick.revert()
+    })
+  }, [])
+
   return (
     <>
-      <Container fluid className="mdPick">
-        <Container className="inner slide--original">
-          <div
-            className="paginationBack pagination"
-            onClick={() => {
-              handleSlideBack()
-              setslideActiveBack(true)
-            }}>
-            <IoChevronBack />
-          </div>
-
-          <div className="slideWrapper">
-            {slideData.map((slide, index) => (
-              <div key={slide.id} className="slide">
-                <div
-                  className={cn(`slideContent slideContent_${index + 1}`, {
-                    activeBack: slideActiveBack,
-                    activeForward: slideActiveForward,
-                  })}>
-                  <img src={process.env.PUBLIC_URL + slide.image} alt={slide.id} />
-                  <div className="slideText">
-                    <h5
-                      className={cn(`subTitle ${index + 1}`, {
-                        active: slideActiveBack || slideActiveForward,
-                      })}>
-                      {slide.subtitle}
-                    </h5>
-                    <h3
-                      className={cn(`title ${index + 1}`, {
-                        active: slideActiveBack || slideActiveForward,
-                      })}>
-                      {slide.title}
-                    </h3>
+      <div className="mdPickAll">
+        <Container fluid className="mdPick" ref={mdPickRef}>
+          <Container className="inner slide--original">
+            <div
+              className="paginationBack pagination"
+              onClick={() => {
+                handleSlideBack()
+                setslideActiveBack(true)
+              }}>
+              <IoChevronBack />
+            </div>
+            <div className="slideWrapper">
+              {slideData.map((slide, index) => (
+                <div key={slide.id} className="slide">
+                  <div
+                    className={cn(`slideContent slideContent_${index + 1}`, {
+                      activeBack: slideActiveBack,
+                      activeForward: slideActiveForward,
+                    })}>
+                    <img src={process.env.PUBLIC_URL + slide.image} alt={slide.id} />
+                    <div className="slideText">
+                      <h5
+                        className={cn(`subTitle ${index + 1}`, {
+                          active: slideActiveBack || slideActiveForward,
+                        })}>
+                        {slide.subtitle}
+                      </h5>
+                      <h3
+                        className={cn(`title ${index + 1}`, {
+                          active: slideActiveBack || slideActiveForward,
+                        })}>
+                        {slide.title}
+                      </h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div
-            className="paginationForward pagination"
-            onClick={() => {
-              handleSlideForward()
-              setslideActiveForward(true)
-            }}>
-            <IoChevronForward />
-          </div>
-        </Container>
-
-        {/* 992px 이하에서는 swiper가 보여진다 */}
-        <Container className="slide--small">
-          <Swiper
-            slidesPerView={1}
-            loop={true}
-            pagination={{
-              clickable: true,
-            }}
-            navigation={true}
-            modules={[Pagination, Navigation]}
-            className="mdPickSwiper">
-            {slideData.map((slide, index) => (
-              <SwiperSlide
-                key={index}
-                style={{ backgroundImage: `url(${process.env.PUBLIC_URL + slide.image})` }}>
-                <div>
-                  <div className="slideText">
-                    <h5 className="subTitle">{slide.subtitle}</h5>
-                    <h3 className="title">{slide.title}</h3>
+              ))}
+            </div>
+            <div
+              className="paginationForward pagination"
+              onClick={() => {
+                handleSlideForward()
+                setslideActiveForward(true)
+              }}>
+              <IoChevronForward />
+            </div>
+          </Container>
+          {/* 992px 이하에서는 swiper가 보여진다 */}
+          <Container className="slide--small">
+            <Swiper
+              slidesPerView={1}
+              loop={true}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="mdPickSwiper">
+              {slideData.map((slide, index) => (
+                <SwiperSlide
+                  key={index}
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL + slide.image})` }}>
+                  <div>
+                    <div className="slideText">
+                      <h5 className="subTitle">{slide.subtitle}</h5>
+                      <h3 className="title">{slide.title}</h3>
+                    </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </Container>
         </Container>
-      </Container>
+      </div>
     </>
   )
 }

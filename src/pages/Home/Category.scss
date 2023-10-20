@@ -28,6 +28,7 @@
       padding-bottom: 130%;
       box-shadow: 2px 4px 12px rgba(0, 0, 0, 0);
       // transition: all 0.2s;
+      transition: box-shadow 300ms;
       @include mix.background;
       position: relative;
       overflow: hidden;
