@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger)
 const Character = () => {
   const [circleData, setCircleData] = useState(characterData[0])
   const [firstMount, setFirstMount] = useState(true)
-  const [id, setId] = useState(characterData[0].id)
+  // const [id, setId] = useState(characterData[0].id)
 
   // //gsap (timeline 애니메이션)
   const pointRef = useRef([])
@@ -45,7 +45,7 @@ const Character = () => {
         .fromTo('.point1', { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.3 })
         .fromTo('.point2', { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.3 })
 
-      //카드 회전
+      //카드 이미지
       gsap.fromTo(
         '.characterCard',
         { autoAlpha: 0, rotationY: '120' },
@@ -56,9 +56,8 @@ const Character = () => {
           ease: 'elastic.out',
           scrollTrigger: {
             trigger: '.characterCard',
-            start: 'top 60%',
+            start: 'top 70%',
             end: 'top 20%',
-            toggleActions: 'play none none none',
             // markers: true,
           },
         },

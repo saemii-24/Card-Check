@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Container, Button, Row, Col } from 'react-bootstrap'
 import cardData from '../../data/cardData'
 import { companyBtn, benefitBtn } from '../../data/btnData'
 import './CardSearch.scss'
 import cn from 'classnames'
-import _ from 'lodash'
 import ResultBox from './ResultBox'
 import { MdRadioButtonUnchecked, MdCheckCircle } from 'react-icons/md'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { handleGsapAnimation } from '../../animation.js'
+gsap.registerPlugin(ScrollTrigger)
+
 const CardSearch = () => {
   //search 기준이 될 버튼 state
   let companyBtnData = [...companyBtn]
@@ -80,6 +84,18 @@ const CardSearch = () => {
     })
     setFilterData(filterObj)
   }
+
+  //gsap
+  console.log(filterData)
+  const cardSearchRef = useRef()
+  useEffect(() => {
+    let cardSearch = gsap.context(() => {
+      const cardSearchDom = cardSearchRef.current
+      handleGsapAnimation(cardSearchDom)
+
+      return () => cardSearch.revert()
+    })
+  }, [filterData])
 
   return (
     <>
@@ -162,7 +178,9 @@ const CardSearch = () => {
           </Row>
         </Container>
       </Container>
-      <ResultBox cardData={filterData} />
+      <div ref={cardSearchRef}>
+        <ResultBox cardData={filterData} />
+      </div>
     </>
   )
 }

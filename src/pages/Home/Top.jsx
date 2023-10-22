@@ -79,12 +79,14 @@ const Top = () => {
   // //gsap (카드등장 애니메이션)
   const topCardRef = useRef(null)
   useEffect(() => {
-    console.log(topCardRef)
-    let topCard = gsap.context(() => {
+    if (cardShow) {
       const topCardDom = topCardRef.current
-      handleShowAnimation(topCardDom)
-    })
-    return () => topCard.revert()
+      // console.log(topCardDom)
+      let topCard = gsap.context(() => {
+        handleShowAnimation(topCardDom)
+      })
+      return () => topCard.revert()
+    }
   }, [searchCard])
 
   return (
@@ -105,7 +107,7 @@ const Top = () => {
                 value={select}
                 onChange={(e) => {
                   handleSelect(e)
-                  console.log(searchCard)
+                  // console.log(searchCard)
                 }}>
                 <option disabled value="defaultThis">
                   카드사를 선택하세요

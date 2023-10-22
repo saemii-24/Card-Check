@@ -8,6 +8,7 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import DuplicatePopup from './components/Popup/DuplicatePopup'
 import FullPopup from './components/Popup/FullPopup'
+import NotFound from './pages/NotFound/NotFound'
 import { useState } from 'react'
 function App() {
   const [color, setColor] = useState(false)
@@ -22,6 +23,7 @@ function App() {
         <Route path="/cardSearch" element={<CardSearch />} />
         <Route path="/cardBox" element={<CardBox />} />
         <Route path="/cardDetail/:id" element={<CardDetail />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

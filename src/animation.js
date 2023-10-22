@@ -13,9 +13,9 @@ const handleGsapAnimation = (triggerEl, option = null) => {
       ease: 'power1.inOut',
       scrollTrigger: {
         trigger: triggerEl,
-        start: 'top 70%',
+        start: 'top 80%',
         end: 'top 20%',
-        toggleActions: 'play none none none',
+        toggleActions: 'play stop play pause',
         // markers: true,
       },
     },

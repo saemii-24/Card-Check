@@ -19,7 +19,7 @@ const CardBox = () => {
     dispatch(deleteCardBox(info))
   }
   const cardBoxData = useSelector((state) => state.cardBoxSlice.value)
-  console.log(cardBoxData)
+  // console.log(cardBoxData)
   const dummyData = (
     <div className="dummyCardImgBox">
       <div className="dummyCardImg">
@@ -40,7 +40,7 @@ const CardBox = () => {
     }
     return repeatData
   }
-  console.log(handleDummyData(cardBoxData.length))
+  // console.log(handleDummyData(cardBoxData.length))
 
   //gsap
   const cardBoxRef = useRef(null)

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from 'react-bootstrap'
 import { AiOutlineInbox } from 'react-icons/ai'
 import './CardBtn.scss'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { putCardBox, showPutPopup, showFullPopup } from '../redux/cardBoxSlice'
+import { putCardBox, showFullPopup } from '../redux/cardBoxSlice'
 
 const CardBtn = ({ data }) => {
   const navigate = useNavigate()
@@ -19,14 +19,14 @@ const CardBtn = ({ data }) => {
   }
   //현재 데이터가 이미 박스에 담겼는지 확인한다.
   const cardBox = useSelector((state) => state.cardBoxSlice.value)
-  const findId = (data) => {
-    cardBox.some((item) => item.id === data.id)
-    if (findId) {
-      return true
-    } else {
-      return false
-    }
-  }
+  // const findId = (data) => {
+  //   cardBox.some((item) => item.id === data.id)
+  //   if (findId) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
 
   return (
     <div className="moreButton">
