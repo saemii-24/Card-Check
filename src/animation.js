@@ -15,8 +15,8 @@ const handleGsapAnimation = (triggerEl, option = null) => {
         trigger: triggerEl,
         start: 'top 80%',
         end: 'top 20%',
-        toggleActions: 'play stop play pause',
-        // markers: true,
+        toggleActions: 'play play play pause',
+        // markers: true,/
       },
     },
     option,

@@ -1,1 +1,113 @@
 @use '../../common' as mix;
+
+.notFound {
+    width: 40%;
+    height: calc(100vh - 100px);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .row {
+        width: 100%;
+
+        .col {
+            width: 100%;
+            @include mix.center;
+            flex-direction: column;
+
+            .notFoundImg {
+                width: 30%;
+                margin-top:10%;
+                @include mix.background;
+            }
+
+            h4 {
+                @include mix.font600;
+                color: mix.$blue;
+                margin-top: 1rem;
+                text-align: center;
+            }
+            p{
+                font-family: "Noto Sans KR", sans-serif;
+                font-weight: 400;
+                word-break: keep-all;
+                text-align: center;
+                margin-top: 1rem;
+                line-height: 1.5;
+            }
+            .navigationBtn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 2rem;
+                gap:1rem;
+                .goHome {
+                    background-color: mix.$lightBlue;
+                    color: mix.$blue;
+                    border: none;
+                    @include mix.font400;
+                    min-width: 150px;
+                    padding-top: 0.5rem;
+                    padding-bottom: 0.6rem;
+                }
+
+                .goSearch {
+                    background-color: mix.$blue;
+                    color: #fff;
+                    border: none;
+                    @include mix.font400;
+                    min-width: 150px;
+                    padding-top: 0.5rem;
+                    padding-bottom: 0.6rem;
+                }
+
+                .btn {
+                    transition: all 300ms;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}
+@media(width<1400px){
+    p{
+       br{
+        display: none;
+       }
+    }
+}
+
+@media(width<992px) {
+
+    .notFound {
+        .row {
+            .col {
+                .notFoundImg {
+                    width: 40%;
+                    @include mix.background;
+                }
+
+                h4 {
+                    @include mix.font500;
+                }
+            }
+        }
+    }
+}
+@media(width<576px) {
+
+    .notFound {
+        .row {
+            .col {
+                .notFoundImg {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
