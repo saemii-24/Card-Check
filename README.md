@@ -35,7 +35,7 @@
   <tr>
     <td><img style="width:300px" src="https://github.com/saemii-24/project_5/assets/139088277/dd8c485b-afd0-45c5-85a4-68566868f6ea" alt="카드 혜택 랜덤 선택"></td>
     <td><img style="width:300px" src="https://github.com/saemii-24/project_5/assets/139088277/fc47ba49-380a-4e2c-bb37-e6cd3838185e" alt="카드 비교함 추가"></td>
-    <td><img style="width:300px" src="https://github.com/saemii-24/project_5/assets/139088277/c7b3a8cf-0a67-495f-8ea2-a15212aa0d2a" alt="카드 비교함 중복·추가 팝업"></td>
+    <td><img style="width:300px" src="https://github.com/saemii-24/project_5/assets/139088277/b16570ea-6254-46e8-ba32-490ad19621a0" alt="카드 비교함 중복·추가 팝업"></td>
   </tr>
 </table>
 
@@ -46,7 +46,7 @@
     <th style="width:300px">카드 혜택 보기</th>
   </tr>
   <tr>
-    <td><img style="width:300px" src="https://github.com/saemii-24/project_5/assets/139088277/574cc038-91a4-4327-9b1a-a89996fe73b2" alt="카드 비교함 삭제"></td>
+    <td><img style="width:300px" src="https://github.com/saemii-24/project_5/assets/139088277/01000bb7-be80-4269-8a25-d6410fa9f10e" alt="카드 비교함 삭제"></td>
     <td><img style="width:300px" src="https://github.com/saemii-24/project_5/assets/139088277/20f62ee4-d87b-4086-8613-c67170611152" alt="원하는 카드 필터"></td>
     <td><img style="width:300px" src="https://github.com/saemii-24/project_5/assets/139088277/2be0ca45-5623-410b-a45e-de500d137362" alt="카드 혜택 보기"></td>
   </tr>
