@@ -11,7 +11,7 @@
 ## 목차
 - [개요](#개요)
 - [사용된 기술](#사용된-기술)
-- [주요 기능](#개요)
+- [주요 기능](#주요-기능)
 - [후기](#후기)
 
 
@@ -22,10 +22,9 @@
 
 
 ## 사용된 기술
-<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white"> <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white">
 
-
-## 주요기능
+## 주요 기능
 <table>
   <tr>
     <th style="width:300px">카드 혜택 랜덤 선택</th>
@@ -55,6 +54,6 @@
 
 ## 후기
 리액트를 통해 다양한 카드 정보에 대한 상세페이지를 한 번에 만들 수 있다는 점이 재밌었던 프로젝트입니다.
-데이터를 만들고 사용하면서 객체 데이터는 어떻게 활용해야 할지, 배열 데이터는 또 어떻게 해야 할지 많은 고민이 있었습니다.
-특히 카드사와 혜택을 설정해 필터하는 과정에서 다소 시간이 소요되었는데, every와 some 두 가지의 배열 메소드로 해결하며,
-기존에 거의 사용하지 않았던 배열 메소드를 공부할 수 있었습니다.
+카드 데이터를 만들고, 그 데이터를 활용해보며 데이터를 어떻게 접근해야 할지, 어떻게 필터해야 원하는 데이터를 얻어 렌더링 할 수 있을지 고민할 수 있었습니다. 
+특히 카드사와 혜택을 설정해 여러 기준으로 카드를 필터하는 과정을 구현하는 것에 다소 시간이 소요 되었는데, every와 some 두 가지의 배열 메소드로 해결하며,
+기존에 거의 사용하지 않았던 배열 메소드를 공부할 수 있는 기회였습니다.
