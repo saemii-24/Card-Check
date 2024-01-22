@@ -15,6 +15,7 @@ const CardSearch = () => {
   //search 기준이 될 버튼 state
   let companyBtnData = [...companyBtn]
   let benefitBtnData = [...benefitBtn]
+  let [allCardView, setAllCardView] = useState(false)
   let [company, setCompany] = useState(companyBtnData)
   let [benefit, setBenefit] = useState(benefitBtnData)
 
@@ -24,6 +25,7 @@ const CardSearch = () => {
   let [btnAll, setBtnAll] = useState(true)
   // 카드 전체보기 함수
   const handleAllBtn = () => {
+    setAllCardView(true)
     let newCompanyData = [...company]
     for (let i = 0; i < newCompanyData.length; i++) {
       newCompanyData[i].active = false
@@ -39,54 +41,32 @@ const CardSearch = () => {
   }
 
   //회사 filter 함수 (하단 혜택 filter함수 콜백함수로 가지고 있음)
+  const handleFilterBtn = () => {
+    setAllCardView(false)
+    let thisData = [...cardData]
+
+    let companyMapArr = company.filter((el) => el.active === true).map((el) => el.company)
+    let benefitMapArr = benefit.filter((el) => el.active === true).map((el) => el.benefit)
+
+    const filterObj = thisData.filter((card) => {
+      const companyCondition = companyMapArr.includes(card.bank) //card.bank(은행이름)가 companyMapArr(선택 은행이름 배열)에 포함되어 있는가?
+      const benefitCondition = benefitMapArr.every(
+        (
+          condition, //모든 benefit condition을 만족하는가?
+        ) => card.benefit.some((benefit) => Object.keys(benefit)[0] === condition), //card의 여러 benefit들 중 제시 된 condition을 만족하는 것이 있는가?
+      )
+      return companyCondition && benefitCondition
+    })
+    setFilterData(filterObj)
+  }
+
   useEffect(() => {
-    handleCompanyBtn()
-    handleBenefitBtn()
+    if (!allCardView) {
+      handleFilterBtn()
+    }
   }, [company, benefit])
 
-  const handleCompanyBtn = () => {
-    let thisData = [...cardData]
-    //회사 필터 기준 생성
-
-    let activeBtn = company.filter((el) => {
-      return el.active === true
-    })
-    //회사 기준 데이터 필터
-    const mapArr = activeBtn.map((el) => el.company)
-    const filterObj = thisData.filter((el) => {
-      return mapArr.includes(el.bank)
-    })
-
-    handleBenefitBtn()
-    setFilterData(filterObj)
-  }
-
-  //혜택 filter 함수,
-  const handleBenefitBtn = () => {
-    let thisData = [...filterData]
-    // //혜택 필터 기준 생성
-    let activeBtn = benefit.filter((el) => {
-      return el.active === true
-    })
-    const mapArr = activeBtn.map((el) => el.benefit)
-
-    const filterObj = []
-    thisData.forEach((card) => {
-      if (
-        mapArr.every((condition) => {
-          return card.benefit.some((benefit) => {
-            return Object.keys(benefit)[0] === condition
-          })
-        })
-      ) {
-        filterObj.push(card)
-      }
-    })
-    setFilterData(filterObj)
-  }
-
   //gsap
-  console.log(filterData)
   const cardSearchRef = useRef()
   useEffect(() => {
     let cardSearch = gsap.context(() => {
@@ -120,7 +100,7 @@ const CardSearch = () => {
                       let newData = [...company]
                       newData[index].active = !newData[index].active
                       setCompany(newData)
-                      handleCompanyBtn()
+                      handleFilterBtn()
 
                       if (company.every((btn) => btn.active === false)) {
                         setBtnAll(true)
@@ -148,8 +128,7 @@ const CardSearch = () => {
                       let newData = [...benefit]
                       newData[index].active = !newData[index].active
                       setBenefit(newData)
-                      handleCompanyBtn()
-                      setBtnAll(false)
+                      handleFilterBtn()
 
                       if (benefit.every((btn) => btn.active === false)) {
                         setBtnAll(true)
@@ -170,6 +149,7 @@ const CardSearch = () => {
                 className={cn('cardAll', { active: btnAll })}
                 onClick={() => {
                   setBtnAll(true)
+                  setAllCardView(true)
                   handleAllBtn()
                 }}>
                 카드 전체보기

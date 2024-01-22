@@ -13,7 +13,6 @@ gsap.registerPlugin(ScrollTrigger)
 const Character = () => {
   const [circleData, setCircleData] = useState(characterData[0])
   const [firstMount, setFirstMount] = useState(true)
-  // const [id, setId] = useState(characterData[0].id)
 
   // //gsap (timeline 애니메이션)
   const pointRef = useRef([])
@@ -65,7 +64,7 @@ const Character = () => {
     })
     setFirstMount(false)
     return () => point.revert()
-  }, [circleData])
+  }, [circleData, firstMount])
 
   return (
     <Container fluid className="character">

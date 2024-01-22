@@ -11,10 +11,12 @@ gsap.registerPlugin(ScrollTrigger)
 
 //컴포넌트 시작점
 const Main = ({ setColor }) => {
-  const navigate = useNavigate()
+  const navigate= useNavigate();
+
   let newId = Math.floor(Math.random() * benefitData.length + 1)
   let [randomId, setRandomId] = useState(newId)
 
+ 
   //gsap
   const mainRef = useRef(null)
 
@@ -66,7 +68,7 @@ const Main = ({ setColor }) => {
     return () => {
       window.removeEventListener('scroll', handleColor)
     }
-  }, [])
+  }, [setColor])
 
   return (
     <div>

@@ -3,10 +3,16 @@ import { Container, Badge, Row, Col } from 'react-bootstrap'
 import './ResultBox.scss'
 import pointIcon from '../../data/pointIcon'
 import CardBtn from '../../components/CardBtn'
-import _ from 'lodash'
 
 const ResultBox = ({ cardData }) => {
-  const originData = _.groupBy(cardData, 'bank')
+  //카드사별 그룹화
+  const originData = cardData.reduce((acc, card) => {
+    const { bank, ...rest } = card
+    acc[bank] = acc[bank] || []
+    acc[bank].push(rest)
+    return acc
+  }, {})
+
   const data = Object.keys(originData).map((key) => ({ [key]: originData[key] }))
 
   return (

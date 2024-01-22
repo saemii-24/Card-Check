@@ -13,7 +13,7 @@ import ScrollToTop from './scrollToTop'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <Provider store={store}>
-    <BrowserRouter basename="/project_5">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <React.StrictMode>
         <App />
       </React.StrictMode>

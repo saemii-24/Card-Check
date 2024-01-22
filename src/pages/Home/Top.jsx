@@ -61,7 +61,7 @@ const Top = () => {
       resultData.splice(4)
     }
     setSearchCard(resultData)
-  }, [select])
+  }, [cardShow, select])
 
   // //gsap (스크롤 애니메이션)
   const topRefs = useRef([])
