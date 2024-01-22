@@ -1,5 +1,5 @@
 # 💳Card Check
-#### **<a href="https://saemii-24.github.io/project_5/" target="_blank">:point_right:<u>배포페이지 바로가기</u></a>**
+#### **<a href="https://main--react-card-check.netlify.app/" target="_blank">:point_right:<u>배포페이지 바로가기</u></a>**
 현대에는 대부분 사람들이 현금보다 카드를 더 많이 사용하고 있습니다. 이 흐름에 따라 각 카드사에서 서비스하는 카드도 많으므로 카드를 만들고자 한다면 많은 정보를 찾기 위해 검색하기도 하고,
 그런 사람들을 위해 카드 추천에 관한 자료도 많은 것을 알 수 있습니다. 
 또한 하나의 카드에는 카드회사, 카드 이미지, 혜택 등 다양한 정보를 포함하고 있어 
