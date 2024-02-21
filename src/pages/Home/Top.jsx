@@ -87,7 +87,7 @@ const Top = () => {
       })
       return () => topCard.revert()
     }
-  }, [searchCard])
+  }, [cardShow, searchCard])
 
   return (
     <>

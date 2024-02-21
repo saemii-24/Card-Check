@@ -12,7 +12,7 @@
   .inner {
     padding-top: 14rem;
 
-    &>.row {
+    & > .row {
       gap: 8%;
     }
 
@@ -149,6 +149,7 @@
       border-radius: 0.8rem;
       overflow: hidden;
       box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.08);
+      background-color: #fff;
     }
 
     &:hover {
@@ -218,7 +219,7 @@
         display: flex;
         gap: 0.6rem;
 
-        &>span {
+        & > span {
           color: mix.$blue;
           line-height: 1.6rem;
         }
@@ -446,18 +447,14 @@
   }
 
   .topContainer .cardPicture .row:nth-of-type(2) .col-md-2 {
-
     &.bracket--right,
     &.bracket--left {
       width: 14%;
     }
   }
-
 }
 
 @media (width<=576px) {
-
-
   .topContainer {
     .inner {
       select {
@@ -474,7 +471,6 @@
 
 @media (width<=500px) {
   .topContainer .cardPicture .row:nth-of-type(2) .col-md-2 {
-
     &.bracket--right,
     &.bracket--left {
       display: none;
@@ -497,7 +493,7 @@
     .cardBoxAll {
       .cardImg {
         width: 100%;
-        padding-bottom: calc(100% *1.58);
+        padding-bottom: calc(100% * 1.58);
       }
 
       .pointBox {
@@ -532,7 +528,7 @@
     .cardBoxAll {
       .cardImg {
         width: 100%;
-        padding-bottom: calc(100% *1.58);
+        padding-bottom: calc(100% * 1.58);
       }
 
       .pointBox {
@@ -542,8 +538,8 @@
         right: 0;
         left: -51%;
         transform: translateY(100px);
-        .cardInfo{
-          h3{
+        .cardInfo {
+          h3 {
             font-size: 1.3rem;
           }
         }

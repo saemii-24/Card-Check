@@ -8,10 +8,13 @@ const ResultBox = ({ cardData }) => {
   //카드사별 그룹화
   const originData = cardData.reduce((acc, card) => {
     const { bank, ...rest } = card
+    console.log(bank)
     acc[bank] = acc[bank] || []
-    acc[bank].push(rest)
+    acc[bank].push(card)
     return acc
   }, {})
+
+  console.log(originData)
 
   const data = Object.keys(originData).map((key) => ({ [key]: originData[key] }))
 

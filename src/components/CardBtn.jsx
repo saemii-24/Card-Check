@@ -17,16 +17,6 @@ const CardBtn = ({ data }) => {
   const handleFullPopup = () => {
     dispatch(showFullPopup())
   }
-  //현재 데이터가 이미 박스에 담겼는지 확인한다.
-  const cardBox = useSelector((state) => state.cardBoxSlice.value)
-  // const findId = (data) => {
-  //   cardBox.some((item) => item.id === data.id)
-  //   if (findId) {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
 
   return (
     <div className="moreButton">
@@ -39,6 +29,7 @@ const CardBtn = ({ data }) => {
       <Button
         onClick={() => {
           handlePutCardBox(data)
+          console.log(data)
           handleFullPopup()
         }}>
         <AiOutlineInbox strokeWidth="20" />

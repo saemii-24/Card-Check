@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-
+image_origin
+/image_origin
 # testing
 /coverage
 

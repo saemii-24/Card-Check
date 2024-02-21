@@ -108,6 +108,10 @@
         bottom: 15%;
         margin-top: 0;
         .contentBox {
+          h6 {
+            @include mix.font400;
+            color: #fff;
+          }
           h4 {
             @include mix.font700;
             color: #fff;

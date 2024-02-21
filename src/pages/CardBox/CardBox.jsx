@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteCardBox } from '../../redux/cardBoxSlice'
 import './CardBox.scss'
-import { Container, Row, Col, Badge } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { AiOutlineClose, AiOutlinePlus } from 'react-icons/ai'
 import benefitIcon from '../../data/benefitIcon'
 import { useNavigate } from 'react-router-dom'
@@ -19,7 +19,8 @@ const CardBox = () => {
     dispatch(deleteCardBox(info))
   }
   const cardBoxData = useSelector((state) => state.cardBoxSlice.value)
-  // console.log(cardBoxData)
+  console.log(cardBoxData)
+
   const dummyData = (
     <div className="dummyCardImgBox">
       <div className="dummyCardImg">
