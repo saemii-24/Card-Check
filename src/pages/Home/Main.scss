@@ -54,12 +54,12 @@
       transform: rotate(75deg);
       top: 5%;
       right: -30%;
-      width: 3000px;
+      width: 2000px;
       height: calc(200px * 3 + 80px);
       z-index: -1;
       .cardImg {
         // background-color: yellow;
-        width: 3000px;
+        width: 2000px;
         height: 100%;
         background-repeat: repeat;
         display: block;
@@ -108,14 +108,11 @@
         bottom: 15%;
         margin-top: 0;
         .contentBox {
-          h6 {
-            @include mix.font400;
-            color: #fff;
-          }
-          h4 {
+          .card__name {
             @include mix.font700;
             color: #fff;
             margin-top: 0.1rem;
+            font-size: 1.5rem;
           }
           .badgeGroup {
             display: flex;

@@ -127,8 +127,8 @@ const Main = ({ setColor }) => {
                     className={`contentBox contentBox${index}`}
                     md={4}
                     sm={12}>
-                    <h6>{data.bank}</h6>
-                    <h4>{data.name}</h4>
+                    <p>{data.bank}</p>
+                    <p className="card__name">{data.name}</p>
                     <div className="badgeGroup">
                       {data.brand.map((el, index) => (
                         <Badge key={`brand_${data.id}_${index}`}>{el}</Badge>

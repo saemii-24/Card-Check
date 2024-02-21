@@ -30,6 +30,7 @@ const Header = ({ color }) => {
           <Nav className="me-auto nav__right">
             <Nav.Link
               className="tooltip--card"
+              aria-label="카드 찾기 페이지로 이동합니다."
               onClick={() => {
                 navigate('/cardSearch')
               }}>
@@ -40,6 +41,7 @@ const Header = ({ color }) => {
             </Nav.Link>
             <Nav.Link
               className="tooltip--box"
+              aria-label="카드 비교함 페이지로 이동합니다."
               onClick={() => {
                 navigate('/cardBox')
               }}>
@@ -48,7 +50,7 @@ const Header = ({ color }) => {
                 className={cn('boxIcon', { white: color && location === '/' })}
               />
             </Nav.Link>
-            <Nav.Link className="tooltip--search">
+            <Nav.Link className="tooltip--search" aria-label="카드를 검색합니다.">
               <FiSearch
                 style={{ cursor: 'pointer' }}
                 onClick={() => setSearch(true)}

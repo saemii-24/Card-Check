@@ -15,7 +15,7 @@ const CardBoxBtn = () => {
   // console.log(cardBox)
   return (
     <>
-      <Link to="/cardBox">
+      <Link to="/cardBox" aria-label="카드 비교함 페이지로 이동합니다.">
         <div className={cn('cardBoxBtn cardBoxBtn--original', { active: cardBox.length > 0 })}>
           <div className="boxNull">
             <AiOutlineInbox />
