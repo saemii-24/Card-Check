@@ -1,0 +1,23 @@
+.image-container {
+  width: 100%;
+  padding-bottom: calc(100% * 1.58);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.8rem;
+  &.image--loading {
+    animation: loader 2s linear infinite;
+  }
+}
+
+@keyframes loader {
+  0% {
+    background-color: #e2e8f0;
+  }
+  50% {
+    background-color: #f1f5f9;
+  }
+  100% {
+    background-color: #e2e8f0;
+  }
+}

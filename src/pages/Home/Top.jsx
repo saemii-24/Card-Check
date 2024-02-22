@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Container, Row, Col, Form, Badge, Card } from 'react-bootstrap'
+import ImageLoad from '../../components/ImageLoad'
 import './Top.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
@@ -181,11 +182,13 @@ const Top = () => {
                     <Col xxl={6} xl={3} lg={6} md={6} sm={12} xs={12} className="col" key={card.id}>
                       {
                         <div className="cardBoxAll">
-                          <div
+                          {/* <div
                             className="cardImg"
                             style={{
                               backgroundImage: `url(${process.env.PUBLIC_URL + card.image})`,
                             }}></div>
+                               */}
+                          <ImageLoad className="cardImg" url={process.env.PUBLIC_URL + card.image} />
 
                           <div className="pointBox">
                             <div className="cardInfo">
